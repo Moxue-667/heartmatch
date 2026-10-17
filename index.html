@@ -1,0 +1,1681 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>心象 · 理想型关键词 | 把「我想要什么样的人」说清楚</title>
+<meta name="description" content="420 个形容人的关键词，帮你把理想型拆成可勾选、可体检、可反推的清单：选词生成画像、看每词解读、查清单是否自相矛盾、按理想型反推去哪找。">
+<style>
+:root{
+  --bg:#0d0a12; --bg2:#120d19; --card:rgba(255,255,255,.045); --card2:rgba(255,255,255,.07);
+  --line:rgba(255,255,255,.09); --line2:rgba(255,255,255,.16);
+  --txt:#f6f0f5; --mut:#a49aab; --pri:#ff6b9d; --pri2:#ffa45b; --ok:#5eead4; --warn:#fbbf24; --bad:#fb7185;
+  --r:20px; --shadow:0 18px 50px -20px rgba(0,0,0,.75);
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{
+  font-family:-apple-system,"PingFang SC","Microsoft YaHei",system-ui,"Segoe UI",sans-serif;
+  background:
+    radial-gradient(1200px 700px at 8% -10%, rgba(255,107,157,.20), transparent 60%),
+    radial-gradient(900px 600px at 100% 0%, rgba(255,164,91,.13), transparent 55%),
+    radial-gradient(900px 700px at 50% 110%, rgba(129,140,248,.13), transparent 60%),
+    linear-gradient(180deg,var(--bg),var(--bg2));
+  background-attachment:fixed; color:var(--txt); line-height:1.62; min-height:100vh;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,h4{line-height:1.3;margin:0}
+h2{font-size:1.18rem;letter-spacing:.01em}
+h3{font-size:.98rem;margin:18px 0 8px;color:#fff}
+p{margin:.5em 0}
+small,.muted{color:var(--mut);font-weight:400}
+em.muted{font-style:normal;font-size:.82rem}
+.wrap{max-width:1000px;margin:0 auto;padding:0 16px 72px}
+header{padding:38px 16px 8px;max-width:1000px;margin:0 auto}
+.brand{display:flex;align-items:center;gap:12px}
+.logo{width:46px;height:46px;border-radius:15px;display:grid;place-items:center;font-size:22px;
+  background:linear-gradient(135deg,var(--pri),var(--pri2));box-shadow:0 8px 24px -8px rgba(255,107,157,.8)}
+.brand h1{font-size:1.5rem;letter-spacing:.06em}
+.brand .sub{font-size:.78rem;color:var(--mut);letter-spacing:.16em;text-transform:uppercase}
+.hero-line{margin:16px 0 0;font-size:clamp(1.15rem,3.6vw,1.7rem);font-weight:600;letter-spacing:.01em}
+.hero-line b{background:linear-gradient(100deg,var(--pri),var(--pri2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero-desc{color:var(--mut);font-size:.9rem;max-width:680px}
+.stat-row{display:flex;gap:10px;flex-wrap:wrap;margin:16px 0 0}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:8px 14px;font-size:.82rem;color:var(--mut)}
+.stat b{color:#fff;font-size:1.05rem;margin-right:4px}
+nav.tabs{position:sticky;top:0;z-index:30;display:flex;gap:6px;padding:10px 16px;max-width:1000px;margin:16px auto 0;
+  backdrop-filter:blur(18px);background:rgba(13,10,18,.72);border-bottom:1px solid var(--line)}
+.tab{flex:1;text-align:center;padding:9px 8px;border-radius:12px;border:1px solid transparent;background:transparent;
+  color:var(--mut);font:inherit;font-size:.86rem;cursor:pointer;transition:.2s;white-space:nowrap}
+.tab:hover{color:#fff;background:var(--card)}
+.tab.active{color:#fff;background:linear-gradient(135deg,rgba(255,107,157,.24),rgba(255,164,91,.14));border-color:rgba(255,107,157,.4)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:20px;margin:16px 0;box-shadow:var(--shadow)}
+.panel{display:none;animation:fade .3s ease}
+.panel.active{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.sec-head{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.hint{font-size:.8rem;color:var(--mut);margin:.4em 0 .9em}
+.btn-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+.btn{font:inherit;font-size:.86rem;padding:10px 18px;border-radius:12px;cursor:pointer;transition:.18s;
+  border:1px solid var(--line2);background:var(--card2);color:var(--txt)}
+.btn:hover{transform:translateY(-1px);border-color:var(--pri);background:rgba(255,107,157,.12)}
+.btn.primary{background:linear-gradient(135deg,var(--pri),var(--pri2));border:none;color:#2a0d18;font-weight:700;
+  box-shadow:0 10px 26px -12px rgba(255,107,157,.9)}
+.btn.ghost{background:transparent;color:var(--mut)}
+.btn.small{padding:7px 13px;font-size:.8rem}
+.ideal-head{display:flex;gap:16px;align-items:center}
+.ideal-av{flex:0 0 64px;height:64px;border-radius:22px;display:grid;place-items:center;font-size:30px;
+  background:linear-gradient(135deg,rgba(255,107,157,.25),rgba(255,164,91,.18));border:1px solid rgba(255,107,157,.35)}
+.ideal-main{flex:1;min-width:0}
+.ideal-stat{flex:0 0 auto;font-size:.78rem;color:var(--mut);text-align:right;line-height:2}
+.ideal-stat b{color:#fff;font-size:1rem}
+.field{display:flex;flex-direction:column;gap:4px;flex:1 1 120px;min-width:0;margin-bottom:8px}
+.field span{font-size:.74rem;color:var(--mut);letter-spacing:.04em}
+input,select,textarea{font:inherit;font-size:.9rem;color:var(--txt);background:rgba(0,0,0,.28);
+  border:1px solid var(--line2);border-radius:10px;padding:9px 11px;width:100%;outline:none;transition:.18s}
+input:focus,select:focus,textarea:focus{border-color:var(--pri);box-shadow:0 0 0 3px rgba(255,107,157,.15)}
+textarea{resize:vertical;line-height:1.6}
+select option{background:#1a1420;color:#fff}
+.chips{display:flex;flex-wrap:wrap;gap:7px}
+.group{padding:14px 0;border-top:1px dashed var(--line)}
+.group:first-child{border-top:none;padding-top:4px}
+.group-head{display:flex;align-items:center;gap:8px;margin-bottom:9px;flex-wrap:wrap}
+.group-head b{font-size:.92rem}
+.group-head small{font-size:.74rem;color:var(--mut)}
+.g-icon{font-size:1rem}
+.chip{display:inline-flex;align-items:center;gap:4px;padding:5px 12px;border-radius:999px;font-size:.8rem;cursor:pointer;
+  border:1px solid var(--line2);background:rgba(255,255,255,.03);color:#cfc6d6;transition:.15s;user-select:none}
+.chip:hover{border-color:var(--pri);color:#fff;transform:translateY(-1px)}
+.chip.on{background:linear-gradient(135deg,rgba(255,107,157,.9),rgba(255,164,91,.85));color:#2a0d18;border-color:transparent;font-weight:600}
+.chip.on.must{background:rgba(251,113,133,.92);color:#2a0d18}
+.chip.on.imp{background:rgba(255,164,91,.92);color:#2a0d18}
+.chip.on.plus{background:rgba(94,234,212,.85);color:#0d2b27}
+.chip.on.no{background:rgba(148,163,184,.85);color:#0d0a12;text-decoration:line-through}
+.chip.picked{cursor:pointer}
+.chip.read.key{border-color:rgba(255,107,157,.45)}
+.chip.cat{font-size:.76rem;padding:4px 10px;border-radius:9px}
+.chip.cat.on{background:rgba(255,107,157,.2);border-color:rgba(255,107,157,.55);color:#fff}
+.lvdot{width:6px;height:6px;border-radius:50%;background:transparent;display:inline-block;flex:0 0 6px}
+.lvdot.must{background:#fb7185}.lvdot.imp{background:#ffa45b}.lvdot.plus{background:#5eead4}.lvdot.no{background:#94a3b8}
+.lv-row{display:flex;gap:10px;align-items:flex-start;margin:9px 0}
+.lv-tag{flex:0 0 44px;font-size:.7rem;text-align:center;padding:2px 0;border-radius:6px;font-weight:700;line-height:1.7}
+.lv-tag.must{background:rgba(251,113,133,.16);color:#fb7185;border:1px solid rgba(251,113,133,.4)}
+.lv-tag.imp{background:rgba(255,164,91,.14);color:#ffa45b;border:1px solid rgba(255,164,91,.36)}
+.lv-tag.plus{background:rgba(94,234,212,.12);color:#5eead4;border:1px solid rgba(94,234,212,.3)}
+.lv-tag.no{background:rgba(148,163,184,.14);color:#94a3b8;border:1px solid rgba(148,163,184,.3)}
+.search-wrap{min-width:210px;flex:1 1 210px;max-width:320px}
+.lv-pick{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:12px 0}
+.lv-pick button{font:inherit;font-size:.86rem;padding:8px 4px;border-radius:10px;cursor:pointer;
+  border:1px solid var(--line2);background:var(--card2);color:var(--txt);display:flex;flex-direction:column;gap:2px;align-items:center}
+.lv-pick button small{font-size:.66rem;color:var(--mut)}
+.lv-pick button.sel{background:linear-gradient(135deg,rgba(255,107,157,.85),rgba(255,164,91,.8));color:#2a0d18;border-color:transparent}
+.lv-pick button.sel small{color:#4a2020}
+.read-box{display:grid;gap:10px;margin:14px 0;text-align:left}
+.read-box b{font-size:.8rem;color:#fff}
+.read-box p{font-size:.84rem;color:var(--mut);margin:.3em 0 0}
+.profile-quote{font-size:1.02rem;line-height:1.85;padding:16px 18px;border-left:3px solid var(--pri);
+  background:rgba(255,107,157,.06);border-radius:0 12px 12px 0;margin:12px 0}
+.profile-seg{display:grid;gap:14px;margin:18px 0}
+.seg h3{font-size:.9rem;margin:0}
+.seg p{font-size:.85rem;color:var(--mut);margin:.3em 0 0}
+.profile-cloud{border-top:1px dashed var(--line);padding-top:10px}
+.mini.must{background:rgba(251,113,133,.15);border-color:rgba(251,113,133,.3)}
+.mini.imp{background:rgba(255,164,91,.12);border-color:rgba(255,164,91,.28)}
+.mini.plus{background:rgba(94,234,212,.1);border-color:rgba(94,234,212,.24)}
+.mini.no{background:rgba(148,163,184,.14);text-decoration:line-through}
+.mini.good{background:rgba(94,234,212,.12);border-color:rgba(94,234,212,.3)}
+.alert{padding:12px 14px;border-radius:12px;font-size:.84rem;margin:10px 0}
+.alert b{display:block;margin-bottom:4px}
+.alert p{margin:.35em 0;color:var(--mut);font-size:.82rem}
+.alert.bad{background:rgba(251,113,133,.08);border:1px solid rgba(251,113,133,.3)}
+.alert.good{background:rgba(94,234,212,.07);border:1px solid rgba(94,234,212,.25)}
+.alert.warn{background:rgba(251,191,36,.07);border:1px solid rgba(251,191,36,.25)}
+.rarity-big{display:flex;align-items:baseline;gap:12px;margin:8px 0}
+.rarity-big b{font-size:2.6rem;line-height:1;background:linear-gradient(135deg,var(--pri),var(--pri2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.rarity-big span{font-size:.82rem;color:var(--mut)}
+.near-list{display:grid;gap:7px}
+.near{display:grid;grid-template-columns:64px 1fr 150px;gap:8px;align-items:center;font-size:.78rem}
+.near b{color:#fff}
+.near span{color:var(--mut);font-size:.74rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.near .track{height:5px;background:rgba(255,255,255,.08);border-radius:99px;overflow:hidden}
+.near .track i{display:block;height:100%;background:linear-gradient(90deg,var(--pri),var(--pri2))}
+.near em{font-style:normal;color:var(--mut);font-size:.72rem;text-align:right}
+.probe-list{display:grid;gap:8px}
+.probe{background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:10px;padding:8px 12px;font-size:.84rem}
+.probe p{margin:.2em 0;color:#ddd4e3}
+.list{color:var(--mut);font-size:.86rem;padding-left:1.2em}
+.list li{margin:.4em 0}
+.list b{color:#fff}
+.modal{position:fixed;inset:0;background:rgba(6,4,9,.72);backdrop-filter:blur(6px);z-index:80;display:grid;place-items:center;padding:18px}
+.modal-box{background:#171020;border:1px solid var(--line2);border-radius:20px;padding:22px;max-width:520px;width:100%;box-shadow:var(--shadow);max-height:88vh;overflow:auto}
+.modal-box h3{margin-top:0}
+#toast{position:fixed;left:50%;bottom:34px;transform:translate(-50%,20px);background:#241a2e;color:#fff;border:1px solid var(--line2);
+  padding:10px 20px;border-radius:999px;font-size:.84rem;opacity:0;pointer-events:none;transition:.28s;z-index:99;
+  box-shadow:0 12px 30px -10px #000}
+#toast.show{opacity:1;transform:translate(-50%,0)}
+footer{text-align:center;color:#6f6579;font-size:.74rem;padding:26px 16px 8px}
+@media(max-width:600px){
+  header{padding-top:26px}
+  .card{padding:16px;border-radius:17px}
+  .ideal-head{flex-wrap:wrap}
+  .ideal-stat{text-align:left}
+  .near{grid-template-columns:56px 1fr 110px}
+  .tab{font-size:.76rem;padding:8px 3px}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="brand">
+    <div class="logo">💘</div>
+    <div>
+      <h1>心象 · 理想型</h1>
+      <div class="sub">Ideal Type · Keywords</div>
+    </div>
+  </div>
+  <p class="hero-line">先想清楚<b>「我想要什么样的人」</b>，再去遇见。</p>
+  <p class="hero-desc">420 个形容人的关键词。挑出你想要的 TA，生成一份可读的理想型画像；每个词都告诉你「想要它意味着什么、现实里怎么观察、可能付出什么代价」；再帮你体检清单是否自相矛盾、现实中多稀有，并反推该去哪找、第一次见面怎么筛、聊什么。</p>
+  <div class="stat-row">
+    <div class="stat"><b>14</b>维度</div>
+    <div class="stat"><b id="tag-total">420</b>关键词</div>
+    <div class="stat"><b>4</b>层分量</div>
+    <div class="stat"><b>50+</b>条观察问题</div>
+    <div class="stat"><b>0</b>上传 · 纯本地</div>
+  </div>
+</header>
+
+<nav class="tabs">
+  <button class="tab active" data-tab="pick">① 选词</button>
+  <button class="tab" data-tab="profile">② 画像</button>
+  <button class="tab" data-tab="check">③ 体检与反推</button>
+  <button class="tab" data-tab="reads">④ 关键词解读</button>
+</nav>
+
+<main class="wrap">
+  <section class="panel active" id="panel-pick"></section>
+  <section class="panel" id="panel-profile"></section>
+  <section class="panel" id="panel-check"></section>
+  <section class="panel" id="panel-reads"></section>
+</main>
+
+<footer>心象 · 理想型关键词 · 数据只存在你的浏览器里 · 示例档案均为虚构</footer>
+
+<script>
+/* ===== data.js ===== */
+﻿/* 心象 · 标签库数据
+ * 标签字段说明：
+ *  id    唯一标识     label 显示名      cat 分类
+ *  kind  fact=客观信息 / trait=性格特质 / pref=择偶偏好（可表达“我想要对方有/没有”）
+ *  type  shared=共鸣型（相同加分）/ comp=互补型（相反也加分）/ plain=普通
+ *  opp   互补对端 id（type=comp 时）
+ *  ex    反义/冲突标签 id（同时持有=矛盾提醒）
+ */
+window.DB = (function () {
+  const cats = [
+    { id: 'base',    name: '基础信息',   icon: '🪪', weight: 0.55, desc: '性别、取向、年龄、学历等硬条件' },
+    { id: 'look',    name: '外形气质',   icon: '✨', weight: 0.75, desc: '你给人的第一印象与吸引力风格' },
+    { id: 'person',  name: '性格气质',   icon: '🧠', weight: 1.45, desc: '能量方向、情绪稳定度、思维与幽默感' },
+    { id: 'value',   name: '三观与人生', icon: '🧭', weight: 1.50, desc: '价值观、目标、信仰、金钱观，长期关系的地基' },
+    { id: 'life',    name: '生活方式',   icon: '🌿', weight: 1.05, desc: '作息、饮食、运动、消费、旅行、宠物' },
+    { id: 'comm',    name: '沟通与冲突', icon: '💬', weight: 1.40, desc: '吵架怎么吵、情绪怎么表达、消息怎么回' },
+    { id: 'love',    name: '亲密与爱语', icon: '💞', weight: 1.35, desc: '爱之语、亲密边界、依恋风格、仪式感' },
+    { id: 'goal',    name: '关系目标',   icon: '🎯', weight: 1.30, desc: '要找什么关系、婚育与居住安排、金钱模式' },
+    { id: 'family',  name: '家庭与成长', icon: '🏡', weight: 0.95, desc: '原生家庭、与父母关系、家务分工' },
+    { id: 'work',    name: '学业事业',   icon: '💼', weight: 0.85, desc: '行业、工作强度、教育背景、收入态度' },
+    { id: 'interest',name: '兴趣与生活', icon: '🎨', weight: 0.90, desc: '运动、文艺、游戏、宠物、社交场景，破冰燃料' },
+    { id: 'social',  name: '社交与数字生活', icon: '📱', weight: 0.65, desc: '宅/浪、社交距离、手机使用习惯' },
+    { id: 'health',  name: '健康与身体', icon: '🫀', weight: 0.80, desc: '体检、运动、睡眠、烟酒、病史态度' },
+    { id: 'meta',    name: '人格标签（趣味）', icon: '🔮', weight: 0.45, desc: 'MBTI、九型、星座、依恋类型等自我标签' }
+  ];
+
+  const tags = [
+    /* ============ 基础信息 ============ */
+    ['base.female', '女性', 'base', 'fact'],
+    ['base.male', '男性', 'base', 'fact'],
+    ['base.nonbinary', '非二元/不设限', 'base', 'fact'],
+    ['base.straight', '异性恋', 'base', 'fact'],
+    ['base.gay', '同性恋', 'base', 'fact'],
+    ['base.bi', '双性恋', 'base', 'fact'],
+    ['base.open', '取向开放', 'base', 'fact'],
+    ['base.student', '在校学生', 'base', 'fact'],
+    ['base.working', '已工作', 'base', 'fact'],
+    ['base.freelance', '自由职业', 'base', 'fact'],
+    ['base.overseas', '海外/异地', 'base', 'fact'],
+    ['base.no_marriage_exp', '无婚史', 'base', 'fact'],
+    ['base.divorced', '离异', 'base', 'fact'],
+    ['base.kid', '有孩子', 'base', 'fact'],
+    ['base.relocate_yes', '愿意为爱换城市', 'base', 'fact'],
+    ['base.relocate_no', '不接受异地/搬迁', 'base', 'fact'],
+
+    /* ============ 外形气质 ============ */
+    ['look.clean', '干净清爽', 'look', 'trait'],
+    ['look.high', '高挑', 'look', 'trait'],
+    ['look.petite', '小巧', 'look', 'trait'],
+    ['look.curvy', '曲线感', 'look', 'trait'],
+    ['look.slim', '清瘦', 'look', 'trait'],
+    ['look.fit', '健身有线条', 'look', 'trait'],
+    ['look.soft', '气质温柔', 'look', 'trait'],
+    ['look.cool', '气质清冷', 'look', 'trait'],
+    ['look.mature', '成熟稳重', 'look', 'trait'],
+    ['look.youthful', '少年感/少女感', 'look', 'trait'],
+    ['look.literary', '文艺范', 'look', 'trait'],
+    ['look.simple', '极简穿搭', 'look', 'trait'],
+    ['look.trendy', '潮流会穿', 'look', 'trait'],
+    ['look.unisex', '中性风', 'look', 'trait'],
+    ['look.glasses', '戴眼镜', 'look', 'trait'],
+    ['look.skin_whitening', '肤色偏白', 'look', 'trait'],
+    ['look.smile', '笑起来好看', 'look', 'trait'],
+    ['look.voice', '声音好听', 'look', 'trait'],
+    ['look.hands', '手好看', 'look', 'trait'],
+    ['look.tattoo', '有纹身', 'look', 'trait'],
+    ['look.pref_clean', '希望对方干净清爽', 'look', 'pref'],
+    ['look.pref_fit', '希望对方身材管理好', 'look', 'pref'],
+    ['look.pref_tall', '希望对方身高够', 'look', 'pref'],
+    ['look.pref_soft', '喜欢温柔型长相', 'look', 'pref'],
+    ['look.pref_cool', '喜欢清冷型长相', 'look', 'pref'],
+    ['look.pref_trendy', '希望对方会打扮', 'look', 'pref'],
+
+    /* ============ 性格气质 ============ */
+    ['person.introvert', '内向', 'person', 'trait', 'comp', 'person.extrovert'],
+    ['person.ambivert', '中间性格', 'person', 'trait'],
+    ['person.extrovert', '外向', 'person', 'trait', 'comp', 'person.introvert'],
+    ['person.calm', '情绪稳定', 'person', 'trait', 'comp', 'person.sensitive'],
+    ['person.sensitive', '高敏感', 'person', 'trait', 'comp', 'person.calm'],
+    ['person.perfectionist', '完美主义', 'person', 'trait'],
+    ['person.patient', '有耐心', 'person', 'trait'],
+    ['person.direct', '直率', 'person', 'trait', 'comp', 'person.tactful'],
+    ['person.tactful', '委婉', 'person', 'trait', 'comp', 'person.direct'],
+    ['person.independent', '独立', 'person', 'trait'],
+    ['person.needy', '黏人', 'person', 'trait', 'comp', 'person.independent'],
+    ['person.sensitive_ego', '脸皮薄/开不起玩笑', 'person', 'trait'],
+    ['person.thick_skin', '心大不玻璃心', 'person', 'trait', 'comp', 'person.sensitive_ego'],
+    ['person.playful', '爱玩爱闹', 'person', 'trait'],
+    ['person.serious', '认真严谨', 'person', 'trait', 'comp', 'person.playful'],
+    ['person.romantic', '浪漫', 'person', 'trait'],
+    ['person.practical', '务实', 'person', 'trait', 'comp', 'person.romantic'],
+    ['person.curious', '好奇心强', 'person', 'trait'],
+    ['person.grounded', '踏实', 'person', 'trait'],
+    ['person.adventurous', '爱冒险', 'person', 'trait', 'comp', 'person.grounded'],
+    ['person.optimist', '乐观', 'person', 'trait', 'comp', 'person.realist'],
+    ['person.realist', '现实主义', 'person', 'trait', 'comp', 'person.optimist'],
+    ['person.humorous', '幽默', 'person', 'trait'],
+    ['person.observant', '细腻会观察', 'person', 'trait'],
+    ['person.empathetic', '共情力强', 'person', 'trait'],
+    ['person.logical', '理性', 'person', 'trait', 'comp', 'person.emotional'],
+    ['person.emotional', '感性', 'person', 'trait', 'comp', 'person.logical'],
+    ['person.action', '行动派', 'person', 'trait'],
+    ['person.thinker', '思考派', 'person', 'trait'],
+    ['person.control', '掌控欲强', 'person', 'trait', 'comp', 'person.goblin'],
+    ['person.goblin', '随和好说话', 'person', 'trait', 'comp', 'person.control'],
+    ['person.shypublic', '社恐', 'person', 'trait'],
+    ['person.social_bold', '社交悍匪', 'person', 'trait'],
+    ['person.mystery', '神秘有距离感', 'person', 'trait'],
+    ['person.sunshine', '小太阳', 'person', 'trait'],
+    ['person.mischievous', '腹黑/毒舌但心软', 'person', 'trait'],
+    ['person.honest', '真诚', 'person', 'trait'],
+    ['person.kind', '善良', 'person', 'trait'],
+    ['person.boundary', '有边界感/懂拒绝', 'person', 'trait'],
+    ['person.self_deprecating', '自嘲', 'person', 'trait'],
+    ['person.mbti_f', '重感受(F)', 'person', 'trait'],
+    ['person.mbti_t', '重逻辑(T)', 'person', 'trait'],
+    ['person.mbti_j', '重计划(J)', 'person', 'trait', 'comp', 'person.mbti_p'],
+    ['person.mbti_p', '随机应变(P)', 'person', 'trait', 'comp', 'person.mbti_j'],
+    ['person.pref_calm', '希望对方情绪稳定', 'person', 'pref'],
+    ['person.pref_humor', '希望对方有幽默感', 'person', 'pref'],
+    ['person.pref_honest', '看重真诚坦白', 'person', 'pref'],
+    ['person.pref_kind', '看重善良', 'person', 'pref'],
+    ['person.pref_patient', '希望对方有耐心', 'person', 'pref'],
+    ['person.pref_independent', '喜欢独立不黏人', 'person', 'pref'],
+    ['person.pref_introvert', '喜欢安静内向型', 'person', 'pref'],
+    ['person.pref_extrovert', '喜欢开朗外向型', 'person', 'pref'],
+    ['person.pref_sunshine', '喜欢乐观开朗', 'person', 'pref'],
+    ['person.pref_direct', '喜欢直来直去', 'person', 'pref'],
+    ['person.pref_tactful', '希望对方说话委婉', 'person', 'pref'],
+    ['person.pref_goblin', '希望对方随和', 'person', 'pref'],
+    ['person.pref_ambitious', '希望对方有上进心', 'person', 'pref'],
+    ['person.pref_growth', '希望对方有成长型思维', 'person', 'pref'],
+    ['person.confident', '自信', 'person', 'trait'],
+    ['person.gentle', '温柔', 'person', 'trait', 'comp', 'person.hot'],
+    ['person.serious_marriage', '对感情认真不儿戏', 'person', 'trait'],
+    ['person.jealous', '容易吃醋', 'person', 'trait'],
+    ['person.hot', '易怒/情绪上头', 'person', 'trait', 'comp', 'person.gentle'],
+    ['person.possessive', '控制欲/占有欲强', 'person', 'trait', 'comp', 'person.boundary'],
+    ['person.showoff', '爱炫耀', 'person', 'trait'],
+    ['person.stranger_kind', '对外人比对伴侣好', 'person', 'trait'],
+    ['person.mama_boy', '妈宝/原生家庭优先', 'person', 'trait'],
+    ['person.gaslight', '习惯冷处理/情感操控', 'person', 'trait'],
+    ['person.generous', '大方不计较', 'person', 'trait'],
+    ['person.eloquent', '会聊天有分寸', 'person', 'trait'],
+    ['person.mbti_s', '重经验(S)', 'person', 'trait'],
+
+    /* ============ 三观与人生 ============ */
+    ['value.family_first', '家庭优先', 'value', 'trait'],
+    ['value.career_first', '事业优先', 'value', 'trait', 'comp', 'value.family_first'],
+    ['value.freedom', '自由至上', 'value', 'trait'],
+    ['value.stability', '安稳第一', 'value', 'trait', 'comp', 'value.freedom'],
+    ['value.honest', '诚实是底线', 'value', 'trait'],
+    ['value.loyal', '忠诚专一', 'value', 'trait'],
+    ['value.growth', '终身成长', 'value', 'trait'],
+    ['value.enjoy', '及时行乐', 'value', 'trait'],
+    ['value.delayed', '延迟满足', 'value', 'trait', 'comp', 'value.enjoy'],
+    ['value.money_important', '物质基础重要', 'value', 'trait'],
+    ['value.minimal', '极简低物欲', 'value', 'trait', 'comp', 'value.money_important'],
+    ['value.saving', '爱存钱有规划', 'value', 'trait', 'comp', 'value.spending'],
+    ['value.spending', '愿为体验花钱', 'value', 'trait', 'comp', 'value.saving'],
+    ['value.faith', '有宗教信仰', 'value', 'trait'],
+    ['value.faith_keep', '重视传统礼俗', 'value', 'trait'],
+    ['value.env', '环保主义', 'value', 'trait'],
+    ['value.feminism', '平权意识清晰', 'value', 'trait'],
+    ['value.volunteer', '热心公益', 'value', 'trait'],
+    ['value.health_focus', '健康第一', 'value', 'trait'],
+    ['value.kids_love', '很喜欢小孩', 'value', 'trait'],
+    ['value.comm_value', '相信沟通能解决一切', 'value', 'trait'],
+    ['value.pref_loyal', '必须专一忠诚', 'value', 'pref'],
+    ['value.pref_growth', '希望对方有成长型思维', 'value', 'pref'],
+    ['value.pref_family', '希望对方重视家庭', 'value', 'pref'],
+    ['value.pref_no_smoke', '不接受抽烟', 'value', 'pref'],
+    ['value.pref_sober', '不酗酒', 'value', 'pref'],
+    ['value.traditional', '传统价值观', 'value', 'trait'],
+    ['value.pref_traditional', '希望对方传统稳重', 'value', 'pref'],
+    ['value.pref_openmind', '希望对方思想开放', 'value', 'pref'],
+
+    /* ============ 生活方式 ============ */
+    ['life.early', '早睡早起', 'life', 'trait', 'comp', 'life.nightowl'],
+    ['life.nightowl', '熬夜型', 'life', 'trait', 'comp', 'life.early'],
+    ['life.neat', '整洁强迫症', 'life', 'trait'],
+    ['life.chill', '随性乱中有序', 'life', 'trait'],
+    ['life.homebody', '宅', 'life', 'trait', 'comp', 'life.outgoing'],
+    ['life.outgoing', '爱出去玩', 'life', 'trait', 'comp', 'life.homebody'],
+    ['life.social_small', '小圈子', 'life', 'trait'],
+    ['life.social_big', '朋友很多', 'life', 'trait'],
+    ['life.travel', '热爱旅行', 'life', 'trait'],
+    ['life.settle', '喜欢待在家', 'life', 'trait'],
+    ['life.cook', '会做饭', 'life', 'trait'],
+    ['life.clean_freak', '爱打扫', 'life', 'trait'],
+    ['life.plant', '养绿植', 'life', 'trait'],
+    ['life.pet_cat', '养猫', 'life', 'trait'],
+    ['life.pet_dog', '养狗', 'life', 'trait'],
+    ['life.pet_no', '不养宠物', 'life', 'trait'],
+    ['life.veggie', '素食/清淡', 'life', 'trait'],
+    ['life.foodie', '吃货/爱吃辣', 'life', 'trait'],
+    ['life.budget', '消费理性记账', 'life', 'trait', 'comp', 'life.splurge'],
+    ['life.splurge', '舍得享受/犒劳自己', 'life', 'trait', 'comp', 'life.budget'],
+    ['life.rent', '租房也能过好', 'life', 'trait'],
+    ['life.own_home', '希望有房稳定', 'life', 'trait'],
+    ['life.pref_cook', '希望对方会做饭', 'life', 'pref'],
+    ['life.pref_pet', '希望对方喜欢宠物', 'life', 'pref'],
+    ['life.pref_no_pet', '希望对方不养宠物', 'life', 'pref'],
+    ['life.pref_travel', '希望对方愿意一起旅行', 'life', 'pref'],
+    ['life.pref_early', '希望对方作息规律', 'life', 'pref'],
+    ['life.pref_neat', '希望对方爱干净', 'life', 'pref'],
+    ['life.cafe', '爱泡咖啡馆', 'life', 'trait'],
+    ['life.fitness', '有运动习惯', 'life', 'trait'],
+
+    /* ============ 沟通与冲突 ============ */
+    ['comm.direct', '有话直说', 'comm', 'trait', 'comp', 'comm.indirect'],
+    ['comm.indirect', '习惯暗示', 'comm', 'trait', 'comp', 'comm.direct'],
+    ['comm.express', '情绪写在脸上', 'comm', 'trait', 'comp', 'comm.holdin'],
+    ['comm.holdin', '情绪内敛', 'comm', 'trait', 'comp', 'comm.express'],
+    ['comm.calm_fight', '吵架讲道理', 'comm', 'trait', 'comp', 'comm.hot'],
+    ['comm.hot', '吵架情绪上头', 'comm', 'trait', 'comp', 'comm.calm_fight'],
+    ['comm.cold_war', '冷战派', 'comm', 'trait'],
+    ['comm.apologize', '先低头道歉', 'comm', 'trait'],
+    ['comm.listener', '擅长倾听', 'comm', 'trait'],
+    ['comm.talker', '话多怕冷场', 'comm', 'trait'],
+    ['comm.longchat', '能聊通宵', 'comm', 'trait'],
+    ['comm.shortmsg', '回消息简洁', 'comm', 'trait', 'comp', 'comm.longchat'],
+    ['comm.instant', '秒回', 'comm', 'trait', 'comp', 'comm.slowreply'],
+    ['comm.initiative', '主动找话题', 'comm', 'trait', 'comp', 'comm.passive_chat'],
+    ['comm.passive_chat', '不太会主动聊', 'comm', 'trait', 'comp', 'comm.initiative'],
+    ['comm.slowreply', '回消息慢', 'comm', 'trait', 'comp', 'comm.instant'],
+    ['comm.repair', '吵完会复盘', 'comm', 'trait'],
+    ['comm.sweet_talk', '会夸人会甜言蜜语', 'comm', 'trait'],
+    ['comm.face_to_face', '习惯当面聊', 'comm', 'trait'],
+    ['comm.text_first', '微信先聊熟', 'comm', 'trait'],
+    ['comm.voice', '喜欢语音/视频', 'comm', 'trait'],
+    ['comm.daily_share', '事无巨细愿意分享', 'comm', 'trait'],
+    ['comm.respect_space', '尊重对方安静时间', 'comm', 'trait', 'comp', 'comm.daily_share'],
+    ['comm.pref_longchat', '希望对方愿意聊到深夜', 'comm', 'pref'],
+    ['comm.pref_reply', '希望对方消息别拖太久', 'comm', 'pref'],
+    ['comm.pref_direct', '希望对方有话直说', 'comm', 'pref'],
+    ['comm.pref_no_coldwar', '冷战零容忍', 'comm', 'pref'],
+    ['comm.pref_apologize', '希望对方愿意先道歉', 'comm', 'pref'],
+    ['comm.pref_listen', '希望对方会倾听', 'comm', 'pref'],
+    ['comm.tactful', '说话顾及对方感受', 'comm', 'trait'],
+
+    /* ============ 亲密与爱语 ============ */
+    ['love.words', '爱语：肯定言语', 'love', 'trait'],
+    ['love.time', '爱语：精心时刻', 'love', 'trait'],
+    ['love.gifts', '爱语：礼物', 'love', 'trait'],
+    ['love.service', '爱语：服务行动', 'love', 'trait'],
+    ['love.touch', '爱语：身体接触', 'love', 'trait'],
+    ['love.touch_y', '喜欢拥抱牵手', 'love', 'trait'],
+    ['love.touch_n', '不喜欢被碰', 'love', 'trait'],
+    ['love.clingy', '喜欢黏在一起', 'love', 'trait', 'comp', 'love.space'],
+    ['love.space', '需要个人空间', 'love', 'trait', 'comp', 'love.clingy'],
+    ['love.pda_ok', '不介意公开亲昵', 'love', 'trait'],
+    ['love.pda_no', '公开场合收敛', 'love', 'trait'],
+    ['love.anniv', '重视纪念日', 'love', 'trait'],
+    ['love.surprise', '喜欢制造惊喜', 'love', 'trait'],
+    ['love.ritual', '有固定小仪式', 'love', 'trait'],
+    ['love.gift_y', '爱送礼物', 'love', 'trait'],
+    ['love.gift_n', '觉得礼物浪费钱', 'love', 'trait'],
+    ['love.slow', '慢热', 'love', 'trait', 'comp', 'love.fast'],
+    ['love.fast', '热烈直接', 'love', 'trait', 'comp', 'love.slow'],
+    ['love.attach_secure', '安全型依恋', 'love', 'trait'],
+    ['love.attach_anxious', '焦虑型依恋', 'love', 'trait'],
+    ['love.attach_avoid', '回避型依恋', 'love', 'trait'],
+    ['love.quality', '重质不重量', 'love', 'trait'],
+    ['love.pref_words', '希望对方会表达爱', 'love', 'pref'],
+    ['love.pref_time', '希望对方愿意花时间陪伴', 'love', 'pref'],
+    ['love.pref_touch', '希望对方不排斥亲密接触', 'love', 'pref'],
+    ['love.pref_ritual', '希望对方重视仪式感', 'love', 'pref'],
+    ['love.pref_surprise', '喜欢被制造惊喜', 'love', 'pref'],
+    ['love.pref_secure', '希望对方情绪依恋稳定', 'love', 'pref'],
+
+    /* ============ 关系目标与边界 ============ */
+    ['goal.marriage', '想结婚', 'goal', 'trait'],
+    ['goal.longterm', '想长期稳定', 'goal', 'trait'],
+    ['goal.serious', '认真恋爱', 'goal', 'trait'],
+    ['goal.companion', '想找陪伴型关系', 'goal', 'trait'],
+    ['goal.have_kids', '想要孩子', 'goal', 'trait', 'comp', 'goal.no_kids'],
+    ['goal.no_kids', '不要孩子', 'goal', 'trait', 'comp', 'goal.have_kids'],
+    ['goal.kids_ok', '孩子随缘', 'goal', 'trait'],
+    ['goal.monogamy', '一对一专一', 'goal', 'trait'],
+    ['goal.slow_burn', '先做朋友再恋爱', 'goal', 'trait'],
+    ['goal.solo_time', '恋爱也要留独处时间', 'goal', 'trait'],
+    ['goal.financial_indep', '经济各自独立', 'goal', 'trait', 'comp', 'goal.financial_share'],
+    ['goal.financial_share', '共同账户一起规划', 'goal', 'trait', 'comp', 'goal.financial_indep'],
+    ['goal.check_phone', '不介意互相查手机', 'goal', 'trait'],
+    ['goal.privacy_phone', '手机是个人隐私', 'goal', 'trait'],
+    ['goal.opposite_friend', '可以有异性好友', 'goal', 'trait'],
+    ['goal.same_city', '想在同城恋爱', 'goal', 'trait'],
+    ['goal.ldr_ok', '可以异地恋', 'goal', 'trait'],
+    ['goal.cohabit', '希望先同居再结婚', 'goal', 'trait'],
+    ['goal.no_cohabit', '婚前不同居', 'goal', 'trait'],
+    ['goal.pref_marriage', '以结婚为前提交往', 'goal', 'pref'],
+    ['goal.pref_no_kids', '希望对方也不想要孩子', 'goal', 'pref'],
+    ['goal.pref_kids', '希望对方愿意要孩子', 'goal', 'pref'],
+    ['goal.pref_same_city', '希望在同城', 'goal', 'pref'],
+    ['goal.pref_slow', '希望慢慢来', 'goal', 'pref'],
+    ['goal.pref_space', '希望对方尊重彼此空间', 'goal', 'pref'],
+
+    /* ============ 家庭与成长 ============ */
+    ['family.close_parent', '和父母很亲', 'family', 'trait'],
+    ['family.far_parent', '和父母保持距离', 'family', 'trait'],
+    ['family.sibling_y', '有兄弟姐妹', 'family', 'trait'],
+    ['family.only_child', '独生子女', 'family', 'trait'],
+    ['family.grandparent', '由长辈带大', 'family', 'trait'],
+    ['family.hometown', '恋家/常回家', 'family', 'trait'],
+    ['family.indep_life', '很早就独立生活', 'family', 'trait'],
+    ['family.share_chores', '家务对半分', 'family', 'trait'],
+    ['family.traditional_roles', '接受男主外女主内', 'family', 'trait'],
+    ['family.messy_tolerate', '能接受对方偶尔乱', 'family', 'trait'],
+    ['family.cold_tolerate', '能接受对方家庭关系冷淡', 'family', 'trait'],
+    ['family.heavyside', '希望对方和父母关系好', 'family', 'pref'],
+    ['family.pref_near_parent', '希望两家距离近', 'family', 'pref'],
+    ['family.pref_share_chores', '希望对方一起分担家务', 'family', 'pref'],
+    ['family.pref_clean', '不能接受脏乱', 'family', 'pref'],
+    ['family.pref_heavyside', '希望对方重视家庭', 'family', 'pref'],
+
+    /* ============ 学业事业 ============ */
+    ['work.student', '学生', 'work', 'trait'],
+    ['work.tech', '技术/工程', 'work', 'trait'],
+    ['work.medical', '医疗', 'work', 'trait'],
+    ['work.edu', '教育', 'work', 'trait'],
+    ['work.finance', '金融', 'work', 'trait'],
+    ['work.creative', '设计/创意', 'work', 'trait'],
+    ['work.media', '媒体/内容', 'work', 'trait'],
+    ['work.law', '法律', 'work', 'trait'],
+    ['work.service', '服务/销售', 'work', 'trait'],
+    ['work.public', '体制内', 'work', 'trait'],
+    ['work.entrepreneur', '创业', 'work', 'trait'],
+    ['work.freelance', '自由职业', 'work', 'trait'],
+    ['work.nine_five', '朝九晚五', 'work', 'trait', 'comp', 'work.busy'],
+    ['work.busy', '工作忙/常出差', 'work', 'trait', 'comp', 'work.nine_five'],
+    ['work.remote', '远程办公', 'work', 'trait'],
+    ['work.stable_job', '工作稳定', 'work', 'trait'],
+    ['work.ambitious', '有野心', 'work', 'trait'],
+    ['work.study', '打算考研/进修', 'work', 'trait'],
+    ['work.overseas', '有海外经历', 'work', 'trait'],
+    ['work.side_gig', '有副业', 'work', 'trait'],
+    ['work.pref_stable', '希望对方工作稳定', 'work', 'pref'],
+    ['work.pref_ambitious', '希望对方有事业心', 'work', 'pref'],
+    ['work.pref_nine_five', '希望对方作息规律', 'work', 'pref'],
+    ['work.pref_educated', '看重教育背景', 'work', 'pref'],
+    ['work.pref_income', '看重对方经济能力', 'work', 'pref'],
+
+    /* ============ 兴趣与生活 ============ */
+    ['int.fitness', '健身撸铁', 'interest', 'trait'],
+    ['int.running', '跑步', 'interest', 'trait'],
+    ['int.hiking', '徒步登山', 'interest', 'trait'],
+    ['int.badminton', '羽毛球', 'interest', 'trait'],
+    ['int.swim', '游泳', 'interest', 'trait'],
+    ['int.basketball', '篮球', 'interest', 'trait'],
+    ['int.camping', '露营', 'interest', 'trait'],
+    ['int.cycling', '骑行', 'interest', 'trait'],
+    ['int.music', '音乐现场', 'interest', 'trait'],
+    ['int.instrument', '会乐器', 'interest', 'trait'],
+    ['int.movie', '电影', 'interest', 'trait'],
+    ['int.photography', '摄影', 'interest', 'trait'],
+    ['int.reading', '读书', 'interest', 'trait'],
+    ['int.writing', '写作', 'interest', 'trait'],
+    ['int.exhibition', '看展', 'interest', 'trait'],
+    ['int.theatre', '话剧', 'interest', 'trait'],
+    ['int.painting', '画画', 'interest', 'trait'],
+    ['int.anime', '动漫', 'interest', 'trait'],
+    ['int.manga', '漫画', 'interest', 'trait'],
+    ['int.figure', '手办/模型', 'interest', 'trait'],
+    ['int.game', '打游戏', 'interest', 'trait'],
+    ['int.esports', '电竞观赛', 'interest', 'trait'],
+    ['int.boardgame', '桌游', 'interest', 'trait'],
+    ['int.escape_room', '密室逃脱', 'interest', 'trait'],
+    ['int.food_hunt', '探店美食', 'interest', 'trait'],
+    ['int.cafe', '咖啡馆', 'interest', 'trait'],
+    ['int.cooking', '下厨', 'interest', 'trait'],
+    ['int.dance', '跳舞', 'interest', 'trait'],
+    ['int.yoga', '瑜伽', 'interest', 'trait'],
+    ['int.drama', '看剧追综', 'interest', 'trait'],
+    ['int.podcast', '听播客', 'interest', 'trait'],
+    ['int.history', '历史人文', 'interest', 'trait'],
+    ['int.science', '科普/科幻', 'interest', 'trait'],
+    ['int.coding', '写代码', 'interest', 'trait'],
+    ['int.car', '汽车', 'interest', 'trait'],
+    ['int.crypto', '投资理财', 'interest', 'trait'],
+    ['int.fashion', '穿搭', 'interest', 'trait'],
+    ['int.makeup', '美妆', 'interest', 'trait'],
+    ['int.pet_cat', '猫奴', 'interest', 'trait'],
+    ['int.pet_dog', '狗党', 'interest', 'trait'],
+    ['int.rain', '喜欢下雨天', 'interest', 'trait'],
+    ['int.random', '喜欢随机旅行', 'interest', 'trait'],
+    ['int.hiking2', '喜欢看日落', 'interest', 'trait'],
+    ['int.pref_same_interest', '希望有共同爱好', 'interest', 'pref'],
+    ['int.pref_music', '希望一起看演出', 'interest', 'pref'],
+    ['int.pref_outdoor', '希望对方爱户外', 'interest', 'pref'],
+    ['int.pref_home', '希望对方也能在家待得住', 'interest', 'pref'],
+    ['int.pref_game', '一起打游戏', 'interest', 'pref'],
+    ['int.pref_reading', '希望可以聊书', 'interest', 'pref'],
+    ['int.eat', '爱吃/找餐厅', 'interest', 'trait'],
+
+    /* ============ 社交与数字生活 ============ */
+    ['social.intro_small', '两人世界为主', 'social', 'trait'],
+    ['social.friends_many', '朋友聚会多', 'social', 'trait'],
+    ['social.host', '喜欢在家办局', 'social', 'trait'],
+    ['social.public_tired', '人多就累', 'social', 'trait', 'comp', 'social.people_net'],
+    ['social.people_net', '社交网络广', 'social', 'trait', 'comp', 'social.public_tired'],
+    ['social.moment', '喜欢发朋友圈', 'social', 'trait'],
+    ['social.private', '朋友圈设三天', 'social', 'trait'],
+    ['social.online_friend', '有网友/线上朋友', 'social', 'trait'],
+    ['social.phone_deep', '手机重度用户', 'social', 'trait'],
+    ['social.phone_low', '少看手机', 'social', 'trait'],
+    ['social.xiaohongshu', '刷小红书', 'social', 'trait'],
+    ['social.douyin', '刷短视频', 'social', 'trait'],
+    ['social.weibo', '微博冲浪', 'social', 'trait'],
+    ['social.pref_no_phone', '约会时希望放下手机', 'social', 'pref'],
+    ['social.pref_private', '不喜欢把恋爱发网上', 'social', 'pref'],
+
+    /* ============ 健康与身体 ============ */
+    ['health.regular', '定期体检', 'health', 'trait'],
+    ['health.exercise_y', '规律运动', 'health', 'trait', 'comp', 'health.exercise_n'],
+    ['health.exercise_n', '不运动', 'health', 'trait', 'comp', 'health.exercise_y'],
+    ['health.sleep_ok', '睡眠不错', 'health', 'trait'],
+    ['health.sleep_bad', '入睡困难', 'health', 'trait'],
+    ['health.smoke_n', '不抽烟', 'health', 'trait', 'comp', 'health.smoke_y'],
+    ['health.smoke_y', '抽烟', 'health', 'trait', 'comp', 'health.smoke_n'],
+    ['health.drink_n', '不喝酒', 'health', 'trait', 'comp', 'health.drink_heavy'],
+    ['health.drink_y', '偶尔小酌', 'health', 'trait'],
+    ['health.drink_heavy', '常喝酒应酬', 'health', 'trait', 'comp', 'health.drink_n'],
+    ['health.mental', '关注心理健康', 'health', 'trait'],
+    ['health.cold', '手脚冰凉', 'health', 'trait'],
+    ['health.allergy', '过敏体质', 'health', 'trait'],
+    ['health.asthma', '哮喘/慢性病', 'health', 'trait'],
+    ['health.insomnia', '长期失眠', 'health', 'trait'],
+    ['health.checkup', '愿意一起体检', 'health', 'trait'],
+    ['health.pref_routine', '希望对方作息健康', 'health', 'pref'],
+
+    /* ============ 人格标签（趣味） ============ */
+    ['meta.intj', 'INTJ', 'meta', 'trait'],
+    ['meta.intp', 'INTP', 'meta', 'trait'],
+    ['meta.entj', 'ENTJ', 'meta', 'trait'],
+    ['meta.entp', 'ENTP', 'meta', 'trait'],
+    ['meta.infj', 'INFJ', 'meta', 'trait'],
+    ['meta.infp', 'INFP', 'meta', 'trait'],
+    ['meta.enfj', 'ENFJ', 'meta', 'trait'],
+    ['meta.enfp', 'ENFP', 'meta', 'trait'],
+    ['meta.istj', 'ISTJ', 'meta', 'trait'],
+    ['meta.isfj', 'ISFJ', 'meta', 'trait'],
+    ['meta.estj', 'ESTJ', 'meta', 'trait'],
+    ['meta.esfj', 'ESFJ', 'meta', 'trait'],
+    ['meta.istp', 'ISTP', 'meta', 'trait'],
+    ['meta.isfp', 'ISFP', 'meta', 'trait'],
+    ['meta.estp', 'ESTP', 'meta', 'trait'],
+    ['meta.esfp', 'ESFP', 'meta', 'trait'],
+    ['meta.ennea1', '九型1号 完美型', 'meta', 'trait'],
+    ['meta.ennea2', '九型2号 助人型', 'meta', 'trait'],
+    ['meta.ennea3', '九型3号 成就型', 'meta', 'trait'],
+    ['meta.ennea4', '九型4号 自我型', 'meta', 'trait'],
+    ['meta.ennea5', '九型5号 理智型', 'meta', 'trait'],
+    ['meta.ennea6', '九型6号 忠诚型', 'meta', 'trait'],
+    ['meta.ennea7', '九型7号 活跃型', 'meta', 'trait'],
+    ['meta.ennea8', '九型8号 领袖型', 'meta', 'trait'],
+    ['meta.ennea9', '九型9号 和平型', 'meta', 'trait'],
+    ['meta.aries', '白羊座', 'meta', 'trait'],
+    ['meta.taurus', '金牛座', 'meta', 'trait'],
+    ['meta.gemini', '双子座', 'meta', 'trait'],
+    ['meta.cancer', '巨蟹座', 'meta', 'trait'],
+    ['meta.leo', '狮子座', 'meta', 'trait'],
+    ['meta.virgo', '处女座', 'meta', 'trait'],
+    ['meta.libra', '天秤座', 'meta', 'trait'],
+    ['meta.scorpio', '天蝎座', 'meta', 'trait'],
+    ['meta.sagittarius', '射手座', 'meta', 'trait'],
+    ['meta.capricorn', '摩羯座', 'meta', 'trait'],
+    ['meta.aquarius', '水瓶座', 'meta', 'trait'],
+    ['meta.pisces', '双鱼座', 'meta', 'trait'],
+    ['meta.blood_a', 'A型血', 'meta', 'trait'],
+    ['meta.blood_b', 'B型血', 'meta', 'trait'],
+    ['meta.blood_o', 'O型血', 'meta', 'trait'],
+    ['meta.blood_ab', 'AB型血', 'meta', 'trait'],
+    ['meta.pref_mbti', '看重人格匹配（MBTI）', 'meta', 'pref']
+  ].map(function (r) {
+    var o = { id: r[0], label: r[1], cat: r[2], kind: r[3], type: 'plain' };
+    if (r[4]) { o.type = r[4]; o.opp = r[5]; }
+    return o;
+  });
+
+  /* ============ 24 个示例档案（虚构） ============ */
+  function P(o) { return o; }
+  const samples = [
+    P({ id: 's01', nick: '林深', gender: 'female', age: 27, city: '深圳', height: 165, job: 'UI 设计师', edu: '本科', avatar: '深', color: '#f472b6',
+      tags: ['base.female','base.straight','base.working','base.no_marriage_exp','look.clean','look.soft','look.literary','look.glasses','look.smile','person.introvert','person.calm','person.observant','person.empathetic','person.mbti_f','person.mbti_j','value.family_first','value.honest','value.loyal','value.env','value.comm_value','life.early','life.neat','life.homebody','life.cook','life.plant','life.pet_cat','life.budget','comm.listener','comm.tactful','comm.repair','love.words','love.time','love.anniv','love.ritual','love.slow','love.attach_secure','goal.marriage','goal.longterm','goal.have_kids','goal.monogamy','family.close_parent','family.share_chores','work.creative','work.nine_five','int.reading','int.exhibition','int.movie','int.cafe','int.photography','int.pet_cat','social.intro_small','health.regular','health.sleep_ok','health.smoke_n','health.drink_n','meta.infj','meta.cancer','meta.blood_a'],
+      prefs: ['person.pref_calm','person.pref_honest','person.pref_growth','value.pref_loyal','goal.pref_marriage','comm.pref_no_coldwar','family.pref_share_chores','work.pref_stable','life.pref_neat'],
+      deal: ['health.smoke_y','person.gaslight','person.hot'],
+      self: '做设计的，规律作息，喜欢猫和周末的展。想找一个能把日子过得安静而认真的人。' }),
+    P({ id: 's02', nick: '陈屿', gender: 'male', age: 29, city: '深圳', height: 181, job: '后端工程师', edu: '硕士', avatar: '屿', color: '#60a5fa',
+      tags: ['base.male','base.straight','base.working','base.no_marriage_exp','look.clean','look.high','look.simple','look.glasses','person.introvert','person.calm','person.logical','person.mbti_t','person.mbti_j','person.direct','value.stability','value.saving','value.honest','value.loyal','value.growth','life.early','life.neat','life.budget','life.pet_cat','life.settle','comm.direct','comm.shortmsg','comm.repair','comm.calm_fight','comm.holdin','love.service','love.time','love.space','love.slow','love.attach_secure','goal.longterm','goal.marriage','goal.have_kids','goal.financial_share','goal.same_city','family.indep_life','family.share_chores','work.tech','work.busy','int.coding','int.hiking','int.science','int.reading','int.running','social.intro_small','health.exercise_y','health.smoke_n','health.drink_n','meta.intj','meta.virgo','meta.blood_o'],
+      prefs: ['person.pref_sunshine','person.pref_patient','comm.pref_direct','life.pref_cook','life.pref_neat','goal.pref_same_city','value.pref_loyal','int.pref_home'],
+      self: '写后端的，话不多但会做事。比起热闹，更喜欢两个人安静爬山、晚上各看各的书。' }),
+    P({ id: 's03', nick: '可可', gender: 'female', age: 24, city: '广州', height: 160, job: '新媒体运营', edu: '本科', avatar: '可', color: '#fb7185',
+      tags: ['base.female','base.bi','base.working','base.no_marriage_exp','look.youthful','look.trendy','look.smile','look.curvy','person.extrovert','person.sunshine','person.humorous','person.romantic','person.mbti_f','person.mbti_p','value.enjoy','value.freedom','value.feminism','value.comm_value','life.nightowl','life.outgoing','life.foodie','life.splurge','life.travel','life.social_big','life.pet_dog','comm.express','comm.direct','comm.talker','comm.longchat','comm.instant','comm.sweet_talk','love.words','love.gifts','love.surprise','love.pda_ok','love.fast','love.attach_anxious','goal.serious','goal.longterm','goal.kids_ok','family.close_parent','work.media','work.busy','int.food_hunt','int.music','int.dance','int.drama','int.makeup','int.fashion','int.pet_dog','social.friends_many','social.moment','social.phone_deep','social.xiaohongshu','health.smoke_n','health.drink_y','meta.enfp','meta.leo','meta.blood_b'],
+      prefs: ['person.pref_humor','person.pref_sunshine','comm.pref_longchat','love.pref_touch','love.pref_surprise','int.pref_music','social.pref_no_phone','person.pref_ambitious'],
+      self: '白天写爆款，晚上找好吃的。喜欢热闹也喜欢被偏爱，希望你不无聊、不敷衍。' }),
+    P({ id: 's04', nick: '陈默', gender: 'male', age: 26, city: '广州', height: 176, job: '高中语文老师', edu: '硕士', avatar: '默', color: '#a78bfa',
+      tags: ['base.male','base.straight','base.working','base.no_marriage_exp','look.clean','look.soft','look.literary','person.ambivert','person.patient','person.empathetic','person.mbti_f','person.mbti_j','value.traditional','value.family_first','value.honest','value.loyal','value.comm_value','life.early','life.cook','life.plant','life.neat','life.homebody','comm.listener','comm.tactful','comm.slowreply','comm.repair','love.words','love.time','love.anniv','love.slow','love.attach_secure','goal.marriage','goal.longterm','goal.have_kids','goal.no_cohabit','family.close_parent','family.hometown','work.edu','work.nine_five','int.reading','int.writing','int.theatre','int.history','int.cooking','int.rain','social.intro_small','health.smoke_n','health.drink_n','meta.infj','meta.pisces','meta.blood_a'],
+      prefs: ['person.pref_kind','value.pref_family','comm.pref_listen','love.pref_words','goal.pref_marriage','family.pref_near_parent','int.pref_reading'],
+      self: '教语文，也写点东西。喜欢旧书店、雨天和慢炖的汤，期待一段可以走到很远的关系。' }),
+    P({ id: 's05', nick: '阿哲', gender: 'male', age: 30, city: '深圳', height: 178, job: '产品经理', edu: '本科', avatar: '哲', color: '#34d399',
+      tags: ['base.male','base.straight','base.working','base.no_marriage_exp','look.fit','look.trendy','look.clean','person.extrovert','person.action','person.humorous','person.mbti_t','person.mbti_j','person.confident','value.career_first','value.growth','value.money_important','value.feminism','life.outgoing','life.travel','life.splurge','life.pet_dog','life.cook','comm.direct','comm.sweet_talk','comm.instant','comm.longchat','love.service','love.time','love.touch_y','love.pda_ok','love.fast','love.attach_secure','goal.marriage','goal.have_kids','goal.longterm','goal.financial_indep','goal.ldr_ok','family.indep_life','work.tech','work.busy','int.fitness','int.hiking','int.camping','int.car','int.crypto','int.podcast','social.friends_many','social.moment','health.exercise_y','health.smoke_n','health.drink_y','meta.entj','meta.aries','meta.blood_o'],
+      prefs: ['person.pref_sunshine','person.pref_growth','comm.pref_direct','int.pref_outdoor','life.pref_travel','love.pref_touch','goal.pref_kids'],
+      self: '做产品的，习惯把生活也排成路线图。带你爬山、露营、吃新店，也会认真规划未来。' }),
+    P({ id: 's06', nick: '小满', gender: 'female', age: 25, city: '深圳', height: 168, job: '插画师（自由职业）', edu: '本科', avatar: '满', color: '#fbbf24',
+      tags: ['base.female','base.straight','base.freelance','base.no_marriage_exp','look.literary','look.youthful','look.tattoo','look.smile','person.introvert','person.sensitive','person.romantic','person.curious','person.mbti_f','person.mbti_p','value.freedom','value.growth','value.enjoy','life.nightowl','life.chill','life.homebody','life.pet_cat','life.plant','life.cafe','comm.express','comm.indirect','comm.slowreply','comm.text_first','comm.daily_share','love.words','love.gifts','love.ritual','love.touch_y','love.slow','love.attach_anxious','goal.serious','goal.longterm','goal.kids_ok','goal.slow_burn','family.far_parent','work.creative','work.freelance','int.painting','int.exhibition','int.anime','int.music','int.cafe','int.photography','int.writing','social.intro_small','social.private','health.sleep_bad','health.mental','health.smoke_n','health.drink_n','meta.infp','meta.pisces','meta.blood_ab'],
+      prefs: ['person.pref_calm','person.pref_honest','love.pref_ritual','comm.pref_longchat','int.pref_reading','goal.pref_space','person.pref_patient'],
+      self: '接稿为生，作息混乱但灵感很多。需要有人懂我偶尔的低落，也愿意陪我把小事过成仪式。' }),
+    P({ id: 's07', nick: '老周', gender: 'male', age: 33, city: '北京', height: 183, job: '建筑设计师', edu: '硕士', avatar: '周', color: '#94a3b8',
+      tags: ['base.male','base.straight','base.working','base.divorced','look.mature','look.high','look.simple','person.introvert','person.calm','person.logical','person.perfectionist','person.mbti_t','person.mbti_j','value.stability','value.career_first','value.saving','value.honest','life.early','life.neat','life.homebody','life.settle','comm.direct','comm.holdin','comm.shortmsg','comm.calm_fight','love.service','love.space','love.slow','love.attach_avoid','goal.longterm','goal.marriage','goal.no_kids','goal.same_city','goal.financial_indep','family.far_parent','family.indep_life','work.creative','work.busy','int.photography','int.reading','int.hiking','int.car','social.intro_small','social.private','health.regular','health.smoke_n','health.drink_y','meta.intj','meta.capricorn','meta.blood_a'],
+      prefs: ['person.pref_independent','person.pref_calm','comm.pref_direct','goal.pref_no_kids','love.pref_secure','value.pref_openmind'],
+      deal: ['person.gaslight','person.possessive'],
+      self: '离过一次，现在只想把生活过清楚。喜欢安静、干净、有自己世界的人。' }),
+    P({ id: 's08', nick: '夏日', gender: 'female', age: 28, city: '上海', height: 170, job: '品牌策划', edu: '硕士', avatar: '夏', color: '#f97316',
+      tags: ['base.female','base.straight','base.working','base.no_marriage_exp','look.mature','look.trendy','look.curvy','person.ambivert','person.independent','person.humorous','person.boundary','person.mbti_t','person.mbti_p','value.career_first','value.freedom','value.growth','value.feminism','value.faith_keep','life.nightowl','life.outgoing','life.splurge','life.travel','life.social_big','comm.direct','comm.talker','comm.instant','comm.longchat','comm.face_to_face','love.words','love.time','love.pda_no','love.fast','love.attach_secure','goal.longterm','goal.monogamy','goal.kids_ok','goal.slow_burn','goal.privacy_phone','goal.opposite_friend','goal.ldr_ok','family.indep_life','work.media','work.busy','int.music','int.food_hunt','int.yoga','int.fashion','int.podcast','int.theatre','social.moment','social.weibo','health.exercise_y','health.drink_y','health.smoke_n','meta.estp','meta.gemini','meta.blood_b'],
+      prefs: ['person.pref_humor','person.pref_independent','comm.pref_direct','goal.pref_space','love.pref_words','value.pref_openmind','work.pref_ambitious'],
+      self: '做品牌，忙但有趣。不查手机、不查岗，能各自精彩也能好好相爱。' }),
+    P({ id: 's09', nick: '贺兰', gender: 'female', age: 26, city: '杭州', height: 163, job: '医学研究生', edu: '硕士', avatar: '兰', color: '#22d3ee',
+      tags: ['base.female','base.straight','base.student','base.no_marriage_exp','look.clean','look.soft','look.simple','person.introvert','person.calm','person.patient','person.mbti_t','person.mbti_j','value.family_first','value.stability','value.health_focus','value.honest','life.early','life.neat','life.homebody','life.cook','life.veggie','life.budget','comm.listener','comm.tactful','comm.repair','comm.slowreply','love.service','love.time','love.anniv','love.slow','love.attach_secure','goal.marriage','goal.longterm','goal.have_kids','goal.no_cohabit','family.close_parent','family.share_chores','work.medical','work.study','int.reading','int.running','int.yoga','int.cafe','int.pet_cat','social.intro_small','health.regular','health.sleep_ok','health.smoke_n','health.drink_n','meta.isfj','meta.virgo','meta.blood_a'],
+      prefs: ['person.pref_calm','person.pref_growth','value.pref_sober','comm.pref_listen','life.pref_early','goal.pref_marriage','family.pref_share_chores'],
+      self: '在规培，忙但生活干净。想找一个能一起早起跑步、晚上看文献的人。' }),
+    P({ id: 's10', nick: '阿 Ken', gender: 'male', age: 27, city: '杭州', height: 174, job: '游戏策划', edu: '本科', avatar: 'K', color: '#8b5cf6',
+      tags: ['base.male','base.straight','base.working','base.no_marriage_exp','look.youthful','look.clean','look.glasses','person.introvert','person.playful','person.humorous','person.observant','person.mbti_f','person.mbti_p','value.enjoy','value.freedom','value.growth','life.nightowl','life.homebody','life.chill','life.pet_cat','life.foodie','comm.text_first','comm.longchat','comm.instant','comm.indirect','comm.sweet_talk','love.time','love.touch_y','love.gifts','love.anniv','love.slow','love.attach_anxious','goal.longterm','goal.kids_ok','goal.monogamy','family.close_parent','work.creative','work.nine_five','int.game','int.anime','int.boardgame','int.esports','int.figure','int.movie','int.music','social.intro_small','social.online_friend','social.douyin','health.exercise_n','health.sleep_bad','health.smoke_n','health.drink_n','meta.intp','meta.aquarius','meta.blood_o'],
+      prefs: ['person.pref_humor','int.pref_game','int.pref_home','comm.pref_longchat','love.pref_time','goal.pref_no_kids'],
+      deal: ['health.smoke_y','goal.pref_kids'],
+      self: '做游戏策划，宅但话题很多。想找个能一起打游戏、看番、半夜吃宵夜的人。' }),
+    P({ id: 's11', nick: '许棠', gender: 'female', age: 31, city: '深圳', height: 166, job: '律师', edu: '硕士', avatar: '棠', color: '#f43f5e',
+      tags: ['base.female','base.straight','base.working','base.no_marriage_exp','look.mature','look.cool','look.simple','person.extrovert','person.direct','person.logical','person.boundary','person.mbti_t','person.mbti_j','value.career_first','value.growth','value.honest','value.feminism','life.early','life.neat','life.splurge','life.travel','life.settle','comm.direct','comm.calm_fight','comm.repair','comm.talker','love.time','love.words','love.pda_no','love.fast','love.attach_secure','goal.longterm','goal.marriage','goal.kids_ok','goal.financial_indep','goal.same_city','goal.privacy_phone','family.indep_life','work.law','work.busy','int.fitness','int.reading','int.music','int.food_hunt','social.friends_many','health.exercise_y','health.smoke_n','health.drink_y','meta.entj','meta.scorpio','meta.blood_a'],
+      prefs: ['person.pref_growth','person.pref_honest','comm.pref_direct','love.pref_words','goal.pref_space','value.pref_loyal','work.pref_ambitious'],
+      self: '做诉讼，习惯把话说清楚。不想要被安排的人生，希望你也一样。' }),
+    P({ id: 's12', nick: '江河', gender: 'male', age: 28, city: '上海', height: 180, job: '纪录片摄影师', edu: '本科', avatar: '河', color: '#0ea5e9',
+      tags: ['base.male','base.straight','base.freelance','base.no_marriage_exp','look.mature','look.cool','look.tattoo','person.ambivert','person.adventurous','person.observant','person.romantic','person.mbti_p','person.mbti_f','value.freedom','value.growth','value.env','life.travel','life.chill','life.nightowl','life.outgoing','comm.direct','comm.express','comm.slowreply','comm.voice','love.gifts','love.surprise','love.pda_ok','love.fast','love.attach_avoid','goal.ldr_ok','goal.slow_burn','goal.kids_ok','goal.no_cohabit','family.far_parent','work.media','work.freelance','int.photography','int.hiking','int.camping','int.music','int.movie','int.car','social.friends_many','health.exercise_y','health.smoke_y','health.drink_y','meta.enfp','meta.sagittarius','meta.blood_b'],
+      prefs: ['person.pref_independent','int.pref_outdoor','love.pref_surprise','goal.pref_slow','value.pref_openmind'],
+      self: '拍片为生，常年在外。想找一个愿意一起走、也受得了聚少离多的人。' }),
+    P({ id: 's13', nick: '圆圆', gender: 'female', age: 23, city: '成都', height: 158, job: '小学老师', edu: '本科', avatar: '圆', color: '#fca5a5',
+      tags: ['base.female','base.straight','base.working','base.no_marriage_exp','look.youthful','look.curvy','look.smile','person.extrovert','person.sunshine','person.empathetic','person.mbti_f','person.mbti_j','value.family_first','value.traditional','value.kids_love','value.faith_keep','value.comm_value','life.early','life.cook','life.settle','life.foodie','life.pet_dog','life.homebody','comm.express','comm.direct','comm.talker','comm.sweet_talk','comm.daily_share','love.words','love.service','love.anniv','love.ritual','love.touch_y','love.pda_ok','love.fast','love.attach_secure','goal.marriage','goal.have_kids','goal.no_cohabit','family.close_parent','family.hometown','work.edu','work.nine_five','int.cooking','int.music','int.drama','int.pet_dog','int.food_hunt','social.friends_many','social.moment','social.douyin','health.regular','health.smoke_n','health.drink_n','meta.esfj','meta.cancer','meta.blood_o'],
+      prefs: ['person.pref_calm','value.pref_family','goal.pref_marriage','love.pref_words','family.pref_heavyside','work.pref_stable'],
+      self: '带一群小孩，喜欢家里的热闹。想找一个愿意回家吃饭、一起慢慢变老的人。' }),
+    P({ id: 's14', nick: '林一', gender: 'male', age: 25, city: '成都', height: 172, job: '独立音乐人', edu: '本科', avatar: '一', color: '#e879f9',
+      tags: ['base.male','base.bi','base.freelance','base.no_marriage_exp','look.trendy','look.tattoo','look.cool','person.introvert','person.sensitive','person.romantic','person.mystery','person.mbti_f','person.mbti_p','value.freedom','value.enjoy','value.env','life.nightowl','life.chill','life.homebody','life.cafe','comm.indirect','comm.express','comm.slowreply','comm.text_first','love.words','love.gifts','love.surprise','love.touch_y','love.space','love.slow','love.attach_avoid','goal.serious','goal.longterm','goal.kids_ok','goal.slow_burn','family.far_parent','work.creative','work.freelance','int.music','int.instrument','int.anime','int.movie','int.writing','int.cafe','social.intro_small','social.private','health.smoke_y','health.sleep_bad','health.drink_y','meta.infp','meta.pisces','meta.blood_ab'],
+      prefs: ['person.pref_tactful','int.pref_music','love.pref_secure','goal.pref_space','comm.pref_longchat'],
+      self: '写歌，收入不稳定但自由。需要一个能接受我半夜灵感、也愿意安静坐着的人。' }),
+    P({ id: 's15', nick: '苏黎', gender: 'female', age: 29, city: '上海', height: 172, job: '投行分析师', edu: '硕士', avatar: '黎', color: '#64748b',
+      tags: ['base.female','base.straight','base.working','base.no_marriage_exp','look.mature','look.high','look.clean','look.fit','person.extrovert','person.action','person.logical','person.perfectionist','person.mbti_t','person.mbti_j','value.money_important','value.career_first','value.saving','value.growth','life.early','life.neat','life.budget','life.splurge','life.travel','comm.direct','comm.shortmsg','comm.calm_fight','comm.repair','love.service','love.time','love.pda_no','love.slow','love.attach_secure','goal.longterm','goal.monogamy','goal.kids_ok','goal.financial_indep','goal.same_city','family.indep_life','work.finance','work.busy','int.fitness','int.running','int.yoga','int.car','int.crypto','social.friends_many','social.moment','health.exercise_y','health.regular','health.smoke_n','health.drink_y','meta.estj','meta.capricorn','meta.blood_a'],
+      prefs: ['person.pref_growth','person.pref_independent','comm.pref_reply','value.pref_loyal','work.pref_income','goal.pref_space','life.pref_neat'],
+      self: '做投行，行程以半小时计。希望你有自己的节奏和事业，我们互相不拖累。' }),
+    P({ id: 's16', nick: '大熊', gender: 'male', age: 31, city: '北京', height: 185, job: '中学体育老师', edu: '本科', avatar: '熊', color: '#84cc16',
+      tags: ['base.male','base.straight','base.working','base.no_marriage_exp','look.fit','look.high','look.clean','person.extrovert','person.sunshine','person.grounded','person.patient','person.mbti_s','person.mbti_j','value.family_first','value.health_focus','value.honest','value.kids_love','life.early','life.outgoing','life.cook','life.clean_freak','life.foodie','life.pet_dog','comm.direct','comm.express','comm.listener','comm.apologize','love.service','love.touch_y','love.pda_ok','love.time','love.anniv','love.fast','love.attach_secure','goal.marriage','goal.have_kids','goal.longterm','goal.cohabit','family.close_parent','family.hometown','family.share_chores','work.edu','work.nine_five','int.fitness','int.basketball','int.running','int.hiking','int.eat','social.friends_many','health.exercise_y','health.smoke_n','health.drink_y','meta.esfj','meta.leo','meta.blood_o'],
+      prefs: ['person.pref_sunshine','person.pref_kind','life.pref_cook','goal.pref_kids','love.pref_touch','person.pref_patient'],
+      self: '带体育课，体力好、脾气好。想找一个能跟我一起运动、一起吃饭的姑娘。' }),
+    P({ id: 's17', nick: '阿樾', gender: 'male', age: 27, city: '深圳', height: 177, job: '跨境电商创业者', edu: '本科', avatar: '樾', color: '#14b8a6',
+      tags: ['base.male','base.straight','base.working','base.no_marriage_exp','look.fit','look.clean','look.trendy','person.ambivert','person.action','person.independent','person.optimist','person.mbti_t','person.mbti_p','value.career_first','value.money_important','value.growth','life.nightowl','life.outgoing','life.splurge','life.travel','life.foodie','comm.direct','comm.instant','comm.talker','comm.sweet_talk','love.time','love.gifts','love.surprise','love.fast','love.attach_secure','goal.longterm','goal.monogamy','goal.kids_ok','goal.financial_indep','goal.ldr_ok','family.close_parent','work.entrepreneur','work.busy','int.fitness','int.car','int.crypto','int.food_hunt','int.camping','social.friends_many','social.moment','health.exercise_y','health.smoke_n','health.drink_y','meta.entp','meta.aries','meta.blood_b'],
+      prefs: ['person.pref_sunshine','person.pref_independent','love.pref_time','goal.pref_space','life.pref_travel','person.pref_humor'],
+      self: '自己做事，忙起来没日没夜。想要一个精神独立、能陪我玩也能各自忙的人。' }),
+    P({ id: 's18', nick: '明川', gender: 'male', age: 34, city: '杭州', height: 175, job: '中医师', edu: '博士', avatar: '川', color: '#65a30d',
+      tags: ['base.male','base.straight','base.working','base.divorced','look.mature','look.soft','look.clean','person.introvert','person.calm','person.patient','person.observant','person.mbti_f','person.mbti_j','value.health_focus','value.faith','value.traditional','value.family_first','value.stability','life.early','life.neat','life.cook','life.veggie','life.plant','life.homebody','life.settle','comm.listener','comm.tactful','comm.slowreply','comm.repair','love.service','love.time','love.anniv','love.slow','love.attach_secure','goal.marriage','goal.kids_ok','goal.no_cohabit','goal.longterm','family.close_parent','family.hometown','work.medical','work.nine_five','int.reading','int.hiking','int.cooking','int.history','int.yoga','social.intro_small','social.private','health.regular','health.smoke_n','health.drink_n','meta.isfj','meta.virgo','meta.blood_a'],
+      prefs: ['person.pref_calm','person.pref_kind','value.pref_traditional','life.pref_early','goal.pref_marriage','comm.pref_listen'],
+      deal: ['health.drink_heavy','person.gaslight'],
+      self: '看诊、读书、早睡。上一段婚姻教会我：合适比热闹重要。' }),
+    P({ id: 's19', nick: '小鹿', gender: 'female', age: 27, city: '杭州', height: 162, job: 'HR', edu: '本科', avatar: '鹿', color: '#f472b6',
+      tags: ['base.female','base.straight','base.working','base.no_marriage_exp','look.soft','look.smile','look.trendy','person.ambivert','person.sunshine','person.empathetic','person.patient','person.mbti_f','person.mbti_j','value.family_first','value.honest','value.comm_value','value.faith_keep','life.homebody','life.cook','life.neat','life.plant','life.pet_cat','life.budget','life.early','comm.listener','comm.express','comm.talker','comm.repair','comm.daily_share','love.words','love.time','love.service','love.anniv','love.ritual','love.touch_y','love.slow','love.attach_secure','goal.marriage','goal.longterm','goal.have_kids','goal.monogamy','family.close_parent','family.share_chores','work.service','work.nine_five','int.cooking','int.drama','int.music','int.pet_cat','int.cafe','int.boardgame','social.intro_small','social.moment','health.regular','health.smoke_n','health.drink_n','meta.esfj','meta.libra','meta.blood_a'],
+      prefs: ['person.pref_honest','person.pref_patient','comm.pref_listen','love.pref_words','goal.pref_marriage','family.pref_share_chores','person.pref_sunshine'],
+      self: '做 HR，看人很准。喜欢做饭、布置家，希望遇到一个愿意一起经营生活的人。' }),
+    P({ id: 's20', nick: '阿野', gender: 'female', age: 26, city: '广州', height: 167, job: '健身教练', edu: '大专', avatar: '野', color: '#f59e0b',
+      tags: ['base.female','base.bi','base.working','base.no_marriage_exp','look.fit','look.curvy','look.tattoo','look.cool','person.extrovert','person.direct','person.action','person.humorous','person.mbti_t','person.mbti_p','value.health_focus','value.freedom','value.enjoy','value.feminism','life.early','life.outgoing','life.foodie','life.pet_dog','life.splurge','life.travel','comm.direct','comm.express','comm.hot','comm.talker','comm.instant','love.words','love.touch_y','love.pda_ok','love.fast','love.attach_secure','goal.serious','goal.longterm','goal.kids_ok','goal.monogamy','family.far_parent','work.service','work.freelance','int.fitness','int.basketball','int.hiking','int.music','int.dance','social.friends_many','health.exercise_y','health.smoke_n','health.drink_y','meta.estp','meta.leo','meta.blood_o'],
+      prefs: ['person.pref_humor','person.pref_growth','int.pref_outdoor','love.pref_touch','person.pref_direct','health.pref_routine'],
+      self: '带课、撸铁、吃火锅。性子急但认错快，喜欢同样爱运动、不玻璃心的人。' }),
+    P({ id: 's21', nick: '沈知', gender: 'male', age: 26, city: '南京', height: 179, job: '博士在读（物理）', edu: '博士', avatar: '知', color: '#818cf8',
+      tags: ['base.male','base.straight','base.student','base.no_marriage_exp','look.clean','look.simple','look.glasses','person.introvert','person.calm','person.logical','person.curious','person.mbti_t','person.mbti_j','value.growth','value.stability','value.delayed','value.honest','life.nightowl','life.neat','life.homebody','life.budget','life.cafe','comm.shortmsg','comm.holdin','comm.calm_fight','comm.text_first','love.service','love.time','love.space','love.slow','love.attach_secure','goal.longterm','goal.marriage','goal.kids_ok','goal.slow_burn','family.far_parent','work.tech','work.study','int.reading','int.science','int.coding','int.boardgame','int.music','social.intro_small','social.private','health.exercise_n','health.sleep_bad','health.smoke_n','health.drink_n','meta.intp','meta.virgo','meta.blood_ab'],
+      prefs: ['person.pref_calm','person.pref_growth','comm.pref_direct','int.pref_reading','life.pref_neat','value.pref_openmind'],
+      self: '读物理博士，社交电量低但耐心高。希望我们不必一直说话，也不会觉得尴尬。' }),
+    P({ id: 's22', nick: '陶子', gender: 'female', age: 30, city: '北京', height: 169, job: '杂志编辑', edu: '硕士', avatar: '陶', color: '#d946ef',
+      tags: ['base.female','base.straight','base.working','base.no_marriage_exp','look.literary','look.mature','look.simple','look.glasses','person.introvert','person.sensitive','person.observant','person.romantic','person.mbti_f','person.mbti_p','value.freedom','value.growth','value.env','value.volunteer','life.nightowl','life.homebody','life.cafe','life.plant','life.pet_cat','life.chill','comm.indirect','comm.express','comm.slowreply','comm.text_first','comm.daily_share','love.words','love.time','love.ritual','love.space','love.slow','love.attach_anxious','goal.longterm','goal.marriage','goal.no_kids','goal.slow_burn','family.far_parent','work.media','work.remote','int.reading','int.theatre','int.exhibition','int.movie','int.writing','int.podcast','social.intro_small','social.private','health.sleep_bad','health.mental','health.smoke_n','health.drink_y','meta.infj','meta.scorpio','meta.blood_ab'],
+      prefs: ['person.pref_calm','love.pref_words','comm.pref_longchat','goal.pref_no_kids','int.pref_reading','person.pref_patient'],
+      self: '编杂志，养猫种花。想找一个能聊到很晚、又不怕我沉默的人。' }),
+    P({ id: 's23', nick: '江月', gender: 'female', age: 28, city: '武汉', height: 164, job: '护士', edu: '本科', avatar: '月', color: '#38bdf8',
+      tags: ['base.female','base.straight','base.working','base.no_marriage_exp','look.clean','look.soft','look.smile','person.ambivert','person.patient','person.sunshine','person.mbti_f','person.mbti_j','value.family_first','value.health_focus','value.honest','value.kids_love','life.early','life.cook','life.neat','life.homebody','life.pet_dog','life.budget','comm.listener','comm.express','comm.direct','comm.repair','comm.instant','love.words','love.service','love.time','love.anniv','love.touch_y','love.slow','love.attach_secure','goal.marriage','goal.longterm','goal.have_kids','goal.monogamy','family.close_parent','family.heavyside','family.share_chores','work.medical','work.busy','int.cooking','int.drama','int.music','int.pet_dog','int.food_hunt','social.intro_small','health.regular','health.smoke_n','health.drink_n','meta.isfj','meta.cancer','meta.blood_a'],
+      prefs: ['person.pref_calm','person.pref_honest','comm.pref_direct','love.pref_words','goal.pref_marriage','family.pref_share_chores'],
+      self: '三班倒，但下班会认真做饭。想找个靠得住、愿意一起扛日子的人。' }),
+    P({ id: 's24', nick: 'Ray', gender: 'male', age: 25, city: '深圳', height: 173, job: '数据分析师', edu: '本科', avatar: 'R', color: '#10b981',
+      tags: ['base.male','base.open','base.working','base.no_marriage_exp','look.clean','look.fit','look.simple','look.glasses','person.ambivert','person.logical','person.playful','person.humorous','person.mbti_t','person.mbti_p','value.growth','value.freedom','value.feminism','value.env','life.nightowl','life.outgoing','life.fitness','life.pet_cat','life.foodie','comm.direct','comm.instant','comm.longchat','comm.repair','comm.sweet_talk','love.time','love.touch_y','love.pda_ok','love.surprise','love.fast','love.attach_secure','goal.serious','goal.longterm','goal.kids_ok','goal.monogamy','goal.slow_burn','family.indep_life','work.tech','work.remote','int.fitness','int.camping','int.game','int.boardgame','int.music','int.podcast','int.food_hunt','social.friends_many','social.moment','health.exercise_y','health.smoke_n','health.drink_y','meta.entp','meta.gemini','meta.blood_b'],
+      prefs: ['person.pref_humor','person.pref_growth','int.pref_outdoor','love.pref_time','comm.pref_longchat','value.pref_openmind'],
+      self: '白天算数，晚上找乐子。喜欢直接、有趣、不内耗的关系。' })
+  ];
+
+  const byId = {}; tags.forEach(t => byId[t.id] = t);
+  const tagCat = {}; tags.forEach(t => tagCat[t.id] = t.cat);
+
+  /* 偏好 → 对应的「特征」标签：打分时用对方是否具备该特征来判断偏好是否被满足 */
+  const prefMap = {
+    'person.pref_calm': 'person.calm', 'person.pref_humor': 'person.humorous', 'person.pref_honest': 'person.honest',
+    'person.pref_kind': 'person.kind', 'person.pref_patient': 'person.patient', 'person.pref_independent': 'person.independent',
+    'person.pref_introvert': 'person.introvert', 'person.pref_extrovert': 'person.extrovert', 'person.pref_sunshine': 'person.sunshine',
+    'person.pref_direct': 'person.direct', 'person.pref_tactful': 'person.tactful', 'person.pref_goblin': 'person.goblin',
+    'person.pref_ambitious': 'work.ambitious', 'person.pref_growth': 'value.growth',
+    'value.pref_loyal': 'value.loyal', 'value.pref_growth': 'value.growth', 'value.pref_family': 'value.family_first',
+    'value.pref_no_smoke': 'health.smoke_y', 'value.pref_sober': 'health.drink_n', 'value.pref_traditional': 'value.traditional',
+    'value.pref_openmind': 'value.feminism',
+    'life.pref_cook': 'life.cook', 'life.pref_pet': 'life.pet_cat', 'life.pref_no_pet': 'life.pet_no',
+    'life.pref_travel': 'life.travel', 'life.pref_early': 'life.early', 'life.pref_neat': 'life.neat',
+    'comm.pref_longchat': 'comm.longchat', 'comm.pref_reply': 'comm.instant', 'comm.pref_direct': 'comm.direct',
+    'comm.pref_no_coldwar': 'comm.cold_war', 'comm.pref_apologize': 'comm.apologize', 'comm.pref_listen': 'comm.listener',
+    'love.pref_words': 'love.words', 'love.pref_time': 'love.time', 'love.pref_touch': 'love.touch_y',
+    'love.pref_ritual': 'love.ritual', 'love.pref_surprise': 'love.surprise', 'love.pref_secure': 'love.attach_secure',
+    'goal.pref_marriage': 'goal.marriage', 'goal.pref_no_kids': 'goal.no_kids', 'goal.pref_kids': 'goal.have_kids',
+    'goal.pref_same_city': 'goal.same_city', 'goal.pref_slow': 'love.slow', 'goal.pref_space': 'love.space',
+    'family.pref_heavyside': 'family.close_parent', 'family.pref_near_parent': 'family.hometown',
+    'family.pref_share_chores': 'family.share_chores', 'family.pref_clean': 'life.neat',
+    'work.pref_stable': 'work.stable_job', 'work.pref_ambitious': 'work.ambitious', 'work.pref_nine_five': 'work.nine_five',
+    'work.pref_educated': 'work.study', 'work.pref_income': 'work.ambitious',
+    'int.pref_same_interest': 'int.pref_same_interest', 'int.pref_music': 'int.music', 'int.pref_outdoor': 'int.hiking',
+    'int.pref_home': 'life.homebody', 'int.pref_game': 'int.game', 'int.pref_reading': 'int.reading',
+    'social.pref_no_phone': 'social.phone_deep', 'social.pref_private': 'social.moment',
+    'health.pref_routine': 'health.exercise_n', 'meta.pref_mbti': 'meta.pref_mbti',
+    'look.pref_clean': 'look.clean', 'look.pref_fit': 'look.fit', 'look.pref_tall': 'look.high',
+    'look.pref_soft': 'look.soft', 'look.pref_cool': 'look.cool', 'look.pref_trendy': 'look.trendy'
+  };
+
+  // 常用红线（可一键勾选）
+  const REDFLAGS = ['health.smoke_y', 'health.drink_heavy', 'goal.no_kids', 'person.hot', 'person.gaslight', 'person.possessive', 'person.showoff', 'person.mama_boy', 'life.nightowl', 'comm.cold_war', 'goal.check_phone'];
+
+  return { cats, tags, byId, tagCat, samples, prefMap, REDFLAGS };
+})();
+
+</script>
+<script>
+/* ===== reads.js ===== */
+/* 心象 · 理想型解读库
+ * 每个标签在「理想型」语境下的三层解读：
+ *  want  你想要 TA 是这样时，你其实在要什么
+ *  check 现实里怎么观察/验证（第一次约会能做到的事）
+ *  cost  这个特质的代价/风险（避免把想象当标准）
+ * 分类级模板兜底，重点标签单独手写覆盖。
+ */
+window.READS = (function () {
+  const cat = {
+    base: {
+      want: '你在给理想型划硬边界：年龄、地域、婚史、是否接受异地。这些不是"感觉"，而是会直接决定关系能不能开始。',
+      check: '直接问，不需要试探：现在住哪、未来一年会不会换城市、上一段关系结束多久了。',
+      cost: '边界越硬，可选范围越小。先把"不能妥协"和"最好如此"分开。'
+    },
+    look: {
+      want: '你在描述 TA 给你的第一印象与吸引力类型——干净、清冷、温柔、有线条，其实是"我看到 TA 会放松/心动"的具体化。',
+      check: '看 TA 的日常状态而不是精修照片：指甲、鞋、头发、说话时的表情管理。',
+      cost: '外形是最容易衰减、也最容易被高估的一项。它决定"想不想认识"，很少决定"能不能长久"。'
+    },
+    person: {
+      want: '你在要一种稳定的性格底色——TA 在压力下、在陌生人面前、在冲突之后，默认会怎么反应。',
+      check: '看三件事：被服务怠慢时的反应、聊到前任时的语气、计划被打乱时的情绪。',
+      cost: '性格几乎不可改造。你选的不是"优点清单"，而是"你能长期忍受的缺点"。'
+    },
+    value: {
+      want: '你在确认长期关系的地基：钱怎么花、家排第几、要不要孩子、信不信"努力有用"。',
+      check: '聊一次具体的钱：AA 还是轮流请、给父母多少、有没有存款目标。价值观藏在账本里。',
+      cost: '三观分歧不会在热恋期暴露，通常在第一笔大支出或第一次家庭冲突时引爆。'
+    },
+    life: {
+      want: '你在描述未来每天的默认画面：几点睡、周末去哪、家里乱不乱、有没有宠物。',
+      check: '看 TA 的冰箱、垃圾桶、手机电量、周末行程表——比任何自我介绍都诚实。',
+      cost: '生活习惯的摩擦是"高频低烈度"的，吵不起来，但会持续磨损耐心。'
+    },
+    comm: {
+      want: '你在选"吵架时 TA 会怎么对你"——这比"TA 对你好不好"更能预测关系寿命。',
+      check: '制造一次小分歧（比如选餐厅），看 TA 是说服、妥协、冷处理，还是反问你的想法。',
+      cost: '沟通模式极难改变。你能选的只有"这种吵法我受不受得了"，不是"TA 会不会改"。'
+    },
+    love: {
+      want: '你在说"我怎样才会感到被爱"：是听到肯定、被花时间陪、被照顾，还是被触碰。',
+      check: '看 TA 怎么对待家人和好朋友——爱语通常会先用在最亲近的人身上。',
+      cost: '爱语不匹配不是不爱，是"收到了但没感觉"。需要双方都愿意翻译。'
+    },
+    goal: {
+      want: '你在定这段关系的终点与边界：要不要结婚、要不要孩子、钱合不合、手机能不能看。',
+      check: '直接问"你想象五年后的生活是什么样"，比问"你想结婚吗"得到的答案真实得多。',
+      cost: '这一维度的分歧最不该"先处着看"——它会在投入最深时变成最贵的沉没成本。'
+    },
+    family: {
+      want: '你在选 TA 背后的那张关系网：和父母多亲、家务怎么分、过节回谁家。',
+      check: '看 TA 提起父母时的用词，以及 TA 父母之间怎么说话。',
+      cost: '原生家庭的影响是慢性的。你嫁/娶的不只是 TA，还有 TA 的家庭互动方式。'
+    },
+    work: {
+      want: '你在选 TA 的时间与精力怎么分配：忙不忙、稳不稳、有没有野心。',
+      check: '看 TA 下班后的状态：还有没有力气聊天，还是只剩刷手机。',
+      cost: '"有事业心"和"有时间陪你"通常此消彼长。想清楚你更能接受哪一种缺失。'
+    },
+    interest: {
+      want: '你在找"能一起做什么"——共同爱好是最低成本的相处燃料，也是最自然的破冰话题。',
+      check: '问"最近一次让你特别投入的事是什么"，看 TA 眼睛会不会亮。',
+      cost: '兴趣重合能加速靠近，但不能替代价值观。别把"玩得来"当成"过得好"。'
+    },
+    social: {
+      want: '你在选 TA 的社交电量与数字生活习惯：爱出门还是爱宅、朋友圈发不发、手机放不放得下。',
+      check: '一起吃顿饭，看 TA 多久看一次手机；聊到朋友时是兴奋还是疲惫。',
+      cost: '社交节奏差异会造成"你嫌我冷、我嫌你吵"的长期拉扯。'
+    },
+    health: {
+      want: '你在为长期生活做风险预算：烟酒、作息、运动、体检、心理状态。',
+      check: '看 TA 的睡眠、运动、就医习惯。这些比体检报告更能说明 TA 怎么对待自己。',
+      cost: '健康习惯是最难被爱情改变的。要么接受，要么一开始就别选。'
+    },
+    meta: {
+      want: '你在用一套现成的语言描述 TA："INTJ""天蝎""焦虑型"。它帮你快速想象，也容易让你停止观察。',
+      check: '把类型当开场话题，不要当结论。真正要看的还是具体行为。',
+      cost: '类型学的预测力很弱。用它破冰可以，用它筛选会误伤。'
+    }
+  };
+
+  /* 重点标签：单独手写，覆盖最常被勾选的那些 */
+  const tag = {
+    'person.introvert': { want: '你想要一个安静、不需要你一直找话题、独处也能自洽的人。', check: '聚会结束后 TA 是"充电"还是"耗电"；周末的默认计划是出门还是在家。', cost: 'TA 可能不主动表达需要，你要学会读空气，而不是等 TA 说。' },
+    'person.extrovert': { want: '你想要一个能把生活搅热、带你认识新朋友、情绪外放的人。', check: '看 TA 在一群陌生人里的状态：是自在，还是硬撑。', cost: 'TA 的社交需求可能超过你的电量，你需要保留自己的安静时间。' },
+    'person.calm': { want: '你想要一个情绪不被小事牵动、吵架时不会失控的人。', check: '看 TA 遇到延误、被插队、计划突变时的第一反应。', cost: '"稳定"有时也意味着"不热烈"，你可能得不到高浓度的情绪回应。' },
+    'person.sensitive': { want: '你想要一个能读懂你细微情绪、共情力强的人。', check: '你讲一件难过的小事，看 TA 是先安慰还是先分析。', cost: '高敏感的人自己也需要大量情绪照料，你会成为那个"接住"的人。' },
+    'person.humorous': { want: '你想要一个能把日常变轻、尴尬时能救场的人。', check: '看 TA 的玩笑是"逗大家笑"还是"拿别人开涮"。', cost: '幽默常常伴随回避——TA 可能用玩笑躲开严肃对话。' },
+    'person.patient': { want: '你想要一个能等你、能陪你慢慢来、不因为进度慢就放弃的人。', check: '看 TA 在你迟到、你犹豫、你反复确认时的反应。', cost: '耐心的人常常不表达自己的不耐烦，直到某天突然冷掉。' },
+    'person.honest': { want: '你想要一个不用猜、不用查、说了就是说了的人。', check: '看 TA 讲自己的失败时是否坦然，还是只讲体面版本。', cost: '"太直"可能伤人。真诚需要配上分寸，否则变成另一种自私。' },
+    'person.kind': { want: '你想要一个对弱者、对服务人员、对小动物都温和的人。', check: '看 TA 怎么对待服务员、外卖员、问路的人。', cost: '善良的人常难拒绝别人，边界感需要你一起守。' },
+    'person.independent': { want: '你想要一个有自己的世界、不靠恋爱填满生活的人。', check: '看 TA 独处时在做什么，以及会不会因为你不回消息而焦虑。', cost: '独立的人不需要你"拯救"，也可能不太需要你——确认你要的是陪伴还是被需要。' },
+    'person.needy': { want: '你想要被强烈需要、被频繁确认、被放在第一位的感觉。', check: '看 TA 是否会主动报备、是否享受"我们一起"而不是"我自己"。', cost: '黏人往往伴随高情绪需求，长期会消耗你的独处空间。' },
+    'person.romantic': { want: '你想要仪式感、惊喜、被当作"特别的人"对待。', check: '看 TA 记不记得你说过的小事，会不会主动制造小惊喜。', cost: '浪漫需要持续投入，热度退去后的落差要靠"日常可靠"来接。' },
+    'person.practical': { want: '你想要一个把日子过稳、遇事算得清、不画大饼的人。', check: '看 TA 的账单、计划表、对"以后"的具体程度。', cost: '务实的人可能不擅长表达爱，你需要从"做了什么事"里去读。' },
+    'person.direct': { want: '你想要有话直说、不用猜、问题不过夜的关系。', check: '看 TA 提出不同意见时是绕弯还是直给。', cost: '直率如果没有温度，会变成"我说的都是实话"式的伤害。' },
+    'person.tactful': { want: '你想要被温和对待、冲突时不被语言刺伤。', check: '看 TA 拒绝别人时的措辞。', cost: '委婉有时等于不表达，你可能需要主动追问真实想法。' },
+    'person.gentle': { want: '你想要一个语气软、动作轻、让你放松警惕的人。', check: '看 TA 生气时的音量，以及对小动物的耐心。', cost: '温柔不等于没原则，别把"好说话"当成"不会拒绝你"。' },
+    'person.boundary': { want: '你想要一个懂拒绝、不讨好、关系里不越界的人。', check: '看 TA 会不会为不想去的局说"不"，以及怎么处理前任的联系。', cost: '有边界的人也会对你设边界，你要接受"不是所有事都能参与"。' },
+    'person.confident': { want: '你想要一个不自卑、不贬低自己、也不需要通过踩你来抬高自己的人。', check: '看 TA 被夸奖时的反应，以及聊到同行成功时的语气。', cost: '自信过头的近亲是自恋，观察 TA 是否只能谈论自己。' },
+    'person.shypublic': { want: '你想要一个话不多、社交半径小、不会让你有竞争感的人。', check: '看 TA 在陌生场合是躲在你身后，还是能自己应付。', cost: '社恐的人需要你承担更多社交发起，长期会累。' },
+    'person.social_bold': { want: '你想要一个敢开口、能张罗、带你进入新圈子的人。', check: '看 TA 在陌生场合是否主动破冰、是否照顾到你。', cost: '社交悍匪的注意力容易被分散，你需要确认自己不是"之一"。' },
+    'value.family_first': { want: '你想要一个把家放在事业前面、愿意为家庭调整节奏的人。', check: '看 TA 怎么安排节假日、怎么处理"加班 vs 家庭日"。', cost: '"家庭优先"有时意味着和原生家庭绑定很深，边界要提前谈。' },
+    'value.career_first': { want: '你想要一个有事业心、能扛事、把成长放在前面的人。', check: '看 TA 对加班的默认态度，以及会不会为工作取消约会。', cost: '事业优先的人给不了高频陪伴，你要能接受"排在第二位"。' },
+    'value.loyal': { want: '你想要一个把忠诚当底线、不需要你查岗的人。', check: '看 TA 怎么处理异性好友、怎么谈前任、会不会主动交代行踪。', cost: '忠诚是底线不是卖点。别把"没出轨"当成"对你好"。' },
+    'value.growth': { want: '你想要一个会反思、会学新东西、不把"我就这样"挂嘴边的人。', check: '看 TA 最近在学什么，以及被指出问题时是辩解还是记录。', cost: '成长型的人可能一直在变，你要接受"TA 不是现在的 TA"。' },
+    'value.saving': { want: '你想要一个有存款、有规划、不月光的人。', check: '看 TA 对"应急金"和"大额消费"的态度。', cost: '过度节俭会牺牲生活质感，别把"抠"误认成"会过日子"。' },
+    'value.spending': { want: '你想要一个愿意为体验、为仪式、为当下花钱的人。', check: '看 TA 在旅行、吃饭、送礼上的默认预算。', cost: '享受派可能缺乏长期储备，重大支出前需要对齐。' },
+    'value.feminism': { want: '你想要一个平权意识清晰、不把家务育儿默认给某一方的人。', check: '聊一次"婚后谁做饭、谁带娃、谁管钱"。', cost: '观念先进不等于行动到位，看 TA 现在怎么分担。' },
+    'value.traditional': { want: '你想要一个重视礼俗、家庭角色清晰、关系路径传统的人。', check: '看 TA 对彩礼、婚礼、过年回谁家的默认想法。', cost: '传统角色分工可能与你的事业规划冲突，需要具体到分工。' },
+    'comm.direct': { want: '你想要有问题当面说清、不让你在猜疑里消耗的人。', check: '看 TA 提出不满时是"我们谈谈"还是"你自己想"。', cost: '直球的人可能不够体贴，你需要提前说好"要方式也要内容"。' },
+    'comm.cold_war': { want: '（若你把它列为"不要"）你无法接受吵架后沉默、把你晾在焦虑里的人。', check: '看 TA 在冲突后多久会主动开口。', cost: '冷战是一种惩罚机制，长期会训练你"不敢表达"。' },
+    'comm.apologize': { want: '你想要一个愿意先低头、把关系放在输赢前面的人。', check: '看 TA 上一次道歉是什么时候、为什么。', cost: '总先道歉的人也可能在积累委屈，别让"TA 会来哄我"变成习惯。' },
+    'comm.listener': { want: '你想要一个能接住你情绪、不急着给建议的人。', check: '你说 5 分钟，看 TA 是追问细节还是急着讲自己的事。', cost: '擅长倾听的人往往不擅长表达需求，你要主动问 TA 想要什么。' },
+    'comm.instant': { want: '你想要被及时回应、不被已读不回折磨。', check: '看 TA 忙起来时的默认回复方式：会说"晚点回"，还是直接消失。', cost: '秒回可能只是手机依赖，不代表在意程度。' },
+    'comm.repair': { want: '你想要吵完能复盘、能把问题变成规则的人。', check: '看 TA 事后会不会说"刚才我哪里不对"。', cost: '复盘需要双方都愿意面对，单方面的复盘会变成检讨会。' },
+    'love.words': { want: '你想要被明确地说"我喜欢你""你今天很好看"。', check: '看 TA 会不会主动夸人，还是觉得"说了就俗"。', cost: '只说不做的人，甜言蜜语会变成廉价品。' },
+    'love.time': { want: '你想要被完整地陪伴，而不是"人在心不在"。', check: '看 TA 约会时手机放哪、会不会主动安排两个人的时间。', cost: '高质量陪伴需要双方都有余力，忙起来时容易最先被牺牲。' },
+    'love.touch': { want: '你想要拥抱、牵手、靠近时的那种确定感。', check: '看 TA 过马路时会不会自然护着你、坐着时会不会靠近。', cost: '身体接触的节奏差异很敏感，需要明确说"可以/不可以"。' },
+    'love.service': { want: '你想要 TA 用行动照顾你：修东西、送药、记得你怕冷。', check: '看 TA 会不会注意到你的小麻烦并顺手解决。', cost: '服务型的人可能用"做事"代替"说话"，你要能读懂这种爱。' },
+    'love.anniv': { want: '你想要被记住、被认真对待每一个"我们的日子"。', check: '看 TA 记不记得你说过的日期、会不会提前准备。', cost: '仪式感需要经营，单方面的期待会变成失望。' },
+    'love.attach_secure': { want: '你想要一个不患得患失、能靠近也能各自安好的人。', check: '看 TA 在你忙的时候是理解还是追问。', cost: '安全型不是没情绪，而是情绪来了能自己消化一部分。' },
+    'love.attach_anxious': { want: '你想要一个很在意你、会主动确认关系的人。', check: '看 TA 会不会因为一条没回的消息而反复确认。', cost: '焦虑型需要大量 reassurance，长期会变成你的情绪劳动。' },
+    'love.attach_avoid': { want: '你想要一个不黏、不查、给足空间的人。', check: '看 TA 在关系变近时是靠近还是后退。', cost: '回避型在冲突时容易消失，你需要很强的安全感才扛得住。' },
+    'goal.marriage': { want: '你想要一段有明确终点、可以公开承诺的关系。', check: '直接问 TA 对婚姻的时间表，而不是"你想不想结婚"。', cost: '以结婚为目标的筛选会过滤掉很多"慢慢来"的人，也会让你急着做决定。' },
+    'goal.have_kids': { want: '你想要一个愿意共同养育、把孩子放进未来规划的人。', check: '看 TA 怎么谈育儿分工、对"要不要二胎"的态度。', cost: '育儿会重塑关系，先确认对方是"想要孩子"还是"想要一个孩子"。' },
+    'goal.no_kids': { want: '你想要一个明确不要孩子、不把生育当默认选项的人。', check: '直接问，并且相信 TA 的第一次回答。', cost: '这一项几乎没有折中空间，越晚确认成本越高。' },
+    'goal.monogamy': { want: '你想要一对一、排他、边界清晰的关系。', check: '看 TA 怎么定义"出轨"，以及和异性朋友的相处尺度。', cost: '专一的承诺需要行为一致，观察而不是相信。' },
+    'goal.slow_burn': { want: '你想要先做朋友、慢慢确认、不被推着走的关系。', check: '看 TA 对"确定关系"的节奏，是享受暧昧还是急于定义。', cost: '慢热可能拖成"永远不开始"，你需要设一个自己的时间线。' },
+    'goal.financial_indep': { want: '你想要经济上各自独立、不互相绑定的人。', check: '看 TA 对 AA、共同账户、给对方花钱的态度。', cost: '完全独立可能意味着"不愿共担风险"，重大开支前要谈清楚。' },
+    'goal.financial_share': { want: '你想要共同账户、一起规划、钱放在一起的踏实感。', check: '看 TA 是否愿意公开收入与负债。', cost: '财务绑定需要极高的信任，先从小额共同支出开始。' },
+    'goal.same_city': { want: '你想要同城、能随时见面、不用靠屏幕维系的关系。', check: '直接问 TA 未来一年的城市计划。', cost: '同城筛选会排除掉很多"对的人"，先想清楚异地是不是真的不行。' },
+    'family.close_parent': { want: '你想要一个和父母关系亲密、重视家庭联结的人。', check: '看 TA 多久给家里打一次电话、聊什么。', cost: '亲密也可能意味着父母介入较多，边界要提前建立。' },
+    'family.share_chores': { want: '你想要家务对半分、不把照顾默认给某一方的人。', check: '看 TA 现在独居时的家务习惯，而不是承诺"以后我会做"。', cost: '承诺容易，习惯难改。看现在，不看保证。' },
+    'work.busy': { want: '你想要一个事业在上升期、能扛事的人。', check: '看 TA 一周有几个晚上是真正空出来的。', cost: '忙碌会吃掉相处时间，你需要确认自己能不能接受"低配陪伴"。' },
+    'work.nine_five': { want: '你想要一个作息稳定、下班能一起吃饭的人。', check: '看 TA 的工作是否真的"到点就走"。', cost: '稳定有时意味着天花板低，看你怎么权衡。' },
+    'int.fitness': { want: '你想要一个自律、身体状态好、能一起运动的人。', check: '看 TA 的训练频率，以及不练时的状态。', cost: '健身党的时间表很固定，约会要配合训练计划。' },
+    'int.pet_cat': { want: '你想要一个安静、独立、有猫式边界感的人。', check: '看 TA 怎么和猫相处——那通常是 TA 理想的关系距离。', cost: '猫派往往也需要大量独处时间。' },
+    'int.pet_dog': { want: '你想要一个热情、黏人、需要陪伴的人。', check: '看 TA 遛狗的频次和对狗说话的语气。', cost: '养狗意味着时间被绑定，旅行和临时安排都会受限。' },
+    'int.reading': { want: '你想要一个能安静待着、有精神世界、可以聊书的人。', check: '问 TA 最近在读什么，看能不能讲出细节而不是书名。', cost: '爱读书的人可能更享受独处，需要你主动创造连接。' },
+    'int.game': { want: '你想要一个能一起打游戏、有共同话题、宅得开心的人。', check: '看 TA 玩游戏时的情绪管理，以及会不会为你放下手柄。', cost: '游戏时间容易和陪伴时间冲突，需要提前约定。' },
+    'social.pref_no_phone': { want: '你想要约会时被完整地看见，而不是对着一个低头的人。', check: '一起吃顿饭，数 TA 看了几次手机。', cost: '手机依赖很难改，你可能需要接受"TA 就是这样的人"。' },
+    'health.smoke_y': { want: '（若你把它列为"不要"）你无法接受烟味、健康风险和被烟占据的时间。', check: '看 TA 一天几根、在哪些场合抽、愿不愿意为你减少。', cost: '戒烟成功率很低，别把"我会为你戒"当成计划。' },
+    'meta.intj': { want: '你想要一个理性、有规划、话不多但靠谱的人。', check: '把类型当话题，别当结论：看 TA 具体怎么做决定。', cost: '类型学解释不了具体的人，用它筛选会误伤很多"不像 INTJ 的 INTJ"。' }
+  };
+
+  return { cat, tag };
+})();
+
+</script>
+<script>
+/* ===== ideal-data.js ===== */
+/* 心象 · 理想型引擎数据：渠道反推 / 观察问题 / 破冰话题 / 冲突规则 */
+window.IDEAL = (function () {
+  /* 1) 兴趣 / 身份标签 → 去哪里遇到这类人 */
+  const channels = {
+    'int.hiking': '户外俱乐部、周末徒步群、山野环保志愿队',
+    'int.camping': '露营社群、营地活动、户外装备店组织的线下局',
+    'int.running': '城市跑团、马拉松训练营、公园晨跑固定圈',
+    'int.fitness': '健身房团课、CrossFit/力量社群、运动搭子群',
+    'int.badminton': '羽毛球球局群、公司/社区球队、场馆固定场',
+    'int.basketball': '野球局、社区球场、球迷观赛活动',
+    'int.swim': '游泳馆常客圈、铁三社群',
+    'int.cycling': '骑行俱乐部、周末拉练、车店活动',
+    'int.yoga': '瑜伽馆、冥想工作坊、身心成长社群',
+    'int.game': '游戏公会、线下桌游店、电竞观赛局',
+    'int.esports': '电竞主题酒吧、观赛活动、战队粉丝群',
+    'int.boardgame': '桌游店固定局、剧本杀拼车队',
+    'int.escape_room': '密室拼场群、剧本杀店',
+    'int.anime': '漫展、同好群、手办展',
+    'int.figure': '漫展、模型店、手办交换群',
+    'int.music': 'Livehouse、音乐节、乐迷群',
+    'int.instrument': '乐器班、排练房、业余乐队招募',
+    'int.movie': '影迷群、电影节、点映场',
+    'int.theatre': '话剧社、剧场会员、剧本朗读会',
+    'int.exhibition': '美术馆会员、看展搭子群、艺术市集',
+    'int.photography': '摄影外拍团、citywalk、胶片冲洗店',
+    'int.reading': '读书会、独立书店活动、图书馆',
+    'int.writing': '写作工作坊、豆瓣小组、播客录制',
+    'int.painting': '画室、写生团、艺术市集',
+    'int.dance': '舞房、Salsa/街舞社群、舞会',
+    'int.podcast': '播客听友群、线下录制活动',
+    'int.food_hunt': '探店群、美食市集、厨艺课',
+    'int.cafe': '独立咖啡馆、咖啡课、手冲分享会',
+    'int.cooking': '厨艺课、社区厨房、烘焙社群',
+    'int.science': '科普讲座、天文观测、科幻迷群',
+    'int.history': '博物馆讲解、人文走读、历史读书会',
+    'int.coding': '技术社区、黑客松、开源聚会',
+    'int.car': '车友会、赛道日、自驾群',
+    'int.crypto': '行业沙龙、投资社群（注意筛人）',
+    'int.fashion': '买手店活动、穿搭社群、市集',
+    'int.makeup': '美妆课、品牌活动、成分党社群',
+    'int.pet_dog': '宠物公园、遛狗群、宠物医院',
+    'int.pet_cat': '猫咖、猫咪救助志愿队、猫友群',
+    'int.rain': '（偏内向）书店、咖啡馆、安静的展',
+    'int.random': '青旅、拼车结伴、说走就走群',
+    'person.introvert': '小规模兴趣小组、书店/咖啡馆、朋友介绍的一对一',
+    'person.extrovert': '聚会、运动社群、音乐节、朋友局',
+    'person.shypublic': '线上同好群转线下、熟人局',
+    'person.social_bold': '活动志愿者、主持/组织者圈',
+    'value.faith': '教会/寺庙/道观活动、宗教文化社群',
+    'value.volunteer': '公益组织、支教/救助志愿队',
+    'value.env': '环保NGO、无痕山林、二手循环市集',
+    'value.feminism': '性别议题读书会、女性社群、公益讲座',
+    'work.tech': '技术沙龙、产品/开发者大会、行业社群',
+    'work.medical': '医院系统联谊、医学会议、同行圈',
+    'work.edu': '教师社群、教育行业培训、校友会',
+    'work.finance': '行业酒会、商学院校友圈',
+    'work.creative': '设计周、创意市集、工作室开放日',
+    'work.media': '媒体圈活动、内容创作者聚会',
+    'work.law': '律协活动、法学院校友会',
+    'work.public': '体制内联谊、单位工会活动',
+    'work.entrepreneur': '创业路演、孵化器活动、行业峰会',
+    'work.freelance': '自由职业者社群、共享办公空间',
+    'base.student': '校园社团、研究生会、实验室联谊',
+    'family.close_parent': '（家庭观念重）相亲介绍、亲友局',
+    'meta.pref_mbti': 'MBTI/人格测试社群、豆瓣小组'
+  };
+
+  /* 2) 必须项 → 第一次约会可以怎么观察（避免只听自我介绍） */
+  const probes = {
+    'person.calm': '「最近一次让你很生气的事是什么？后来怎么处理的？」——看情绪回弹速度。',
+    'person.sensitive': '讲一件你最近的小委屈，看 TA 是先接情绪还是先给方案。',
+    'person.honest': '「你上一份工作/上一段关系里，自己做得不够好的地方是什么？」——看是否只讲体面版本。',
+    'person.kind': '观察 TA 对服务员、外卖员、保洁阿姨说话的语气。',
+    'person.humorous': '看 TA 的玩笑是逗大家笑，还是拿某个人开涮。',
+    'person.independent': '「你一个人周末一般怎么过？」——看独处是享受还是恐慌。',
+    'person.needy': '分别后看 TA 多久发第一条消息，以及你没回时的反应。',
+    'person.direct': '故意提一个不同意见，看 TA 是绕弯、沉默，还是直接说「我不同意，因为…」。',
+    'person.tactful': '看 TA 拒绝服务员推荐、拒绝朋友邀约时的措辞。',
+    'person.gentle': '看 TA 生气时的音量，以及对小动物/小孩的耐心。',
+    'person.boundary': '「你前任还会联系你吗？你怎么处理的？」——看边界是否清晰。',
+    'person.perfectionist': '看 TA 对「差不多就行」的反应，以及对你自己小失误的容忍度。',
+    'person.playful': '看 TA 能不能接住你的玩笑，会不会自嘲。',
+    'person.romantic': '看 TA 记不记得你随口提过的小事。',
+    'person.practical': '「你最近一笔比较大的支出是什么？为什么？」——看消费是否有逻辑。',
+    'value.family_first': '「过年你一般怎么安排？会想和父母住近一点吗？」',
+    'value.career_first': '「如果明天有个很重要的项目，但我们已经约好了，你会怎么选？」',
+    'value.loyal': '看 TA 怎么谈前任，以及有没有主动交代行踪的习惯。',
+    'value.growth': '「你最近在学什么？上次被人指出问题是什么时候？」',
+    'value.saving': '「你有应急金吗？大概几个月？」——不冒犯，且信息量大。',
+    'value.spending': '看 TA 在点菜、打车、送礼上的默认选择。',
+    'value.traditional': '「你怎么看彩礼/婚礼/过年回谁家？」——直接问，别猜。',
+    'value.feminism': '「婚后家务和带娃你打算怎么分？」——看是表态还是具体方案。',
+    'comm.direct': '制造一个小分歧（选餐厅），看 TA 怎么处理。',
+    'comm.listener': '你说 5 分钟，看 TA 是追问细节，还是急着讲自己的事。',
+    'comm.cold_war': '（若列为不要）观察 TA 在冲突后多久主动开口。',
+    'comm.apologize': '「你上一次道歉是什么时候？为什么？」',
+    'comm.repair': '吵完一次小架后，看 TA 会不会主动复盘「刚才我哪里不对」。',
+    'comm.instant': '看 TA 忙起来时会不会说「晚点回」，还是直接消失。',
+    'love.words': '看 TA 会不会主动夸人，还是觉得「说了就俗」。',
+    'love.time': '约会时看 TA 的手机放在哪、会不会主动安排两个人的时间。',
+    'love.touch': '过马路时看 TA 会不会自然护着你。',
+    'love.service': '看 TA 会不会注意到你的小麻烦并顺手解决。',
+    'love.anniv': '看 TA 记不记得你说过的日期。',
+    'love.attach_secure': '你忙的时候，看 TA 是理解还是追问。',
+    'love.attach_anxious': '看 TA 会不会因为一条没回的消息反复确认。',
+    'love.attach_avoid': '关系变近时，看 TA 是靠近还是后退。',
+    'goal.marriage': '「你想象五年后的生活是什么样？」——比「你想结婚吗」真实。',
+    'goal.have_kids': '「如果要孩子，你觉得前三年谁带得多？」',
+    'goal.no_kids': '直接问，并相信第一次回答。',
+    'goal.monogamy': '「你怎么定义出轨？」——看边界是否和你一致。',
+    'goal.slow_burn': '看 TA 对「确定关系」的节奏，是享受暧昧还是急于定义。',
+    'goal.financial_indep': '「你怎么看 AA 和共同账户？」',
+    'goal.financial_share': '看 TA 愿不愿意聊收入与负债。',
+    'goal.same_city': '「未来一年你有换城市的打算吗？」',
+    'family.close_parent': '看 TA 多久给家里打一次电话、聊什么。',
+    'family.share_chores': '看 TA 现在独居时的家务习惯，而不是承诺「以后我会做」。',
+    'work.busy': '「你一周有几个晚上是真正空出来的？」',
+    'work.nine_five': '看 TA 是不是真的「到点就走」。',
+    'health.smoke_y': '（若列为不要）看 TA 一天几根、在哪些场合抽。',
+    'health.drink_heavy': '看 TA 喝酒的频率和醉后的样子。',
+    'social.pref_no_phone': '一起吃顿饭，数 TA 看了几次手机。',
+    'person.gaslight': '（若列为不要）看 TA 在冲突中是否说「你太敏感了」「都是你的问题」。',
+    'person.hot': '（若列为不要）看 TA 对小挫折的第一反应。',
+    'person.possessive': '（若列为不要）看 TA 对你和异性朋友来往的态度。',
+    'person.mama_boy': '（若列为不要）看 TA 做决定前是否要问父母。'
+  };
+
+  /* 3) 兴趣标签 → 第一次聊天可以用的开场话题 */
+  const topics = {
+    'int.hiking': '「你走过最难忘的一条线是哪条？」',
+    'int.camping': '「露营你最在意的是什么：风景、装备，还是做饭？」',
+    'int.running': '「你跑步听什么？配速多少？」',
+    'int.fitness': '「你练得最认真的是哪个部位？」',
+    'int.game': '「最近在玩什么？有没有那种一玩就通宵的？」',
+    'int.anime': '「最近在追哪部？有没有那种看到哭的？」',
+    'int.music': '「你最近单曲循环的是哪首？去过最值的现场是哪个？」',
+    'int.movie': '「有没有一部电影你看了三遍以上？」',
+    'int.reading': '「最近在读什么？有没有那种想划线发给人看的句子？」',
+    'int.podcast': '「你常听哪档播客？有没有一期让你改变想法的？」',
+    'int.food_hunt': '「你心里排名第一的那家店是哪家？」',
+    'int.cafe': '「你喝手冲还是奶咖？有没有私藏的咖啡馆？」',
+    'int.cooking': '「你最拿手的一道菜是什么？」',
+    'int.pet_cat': '「你家猫什么性格？像你吗？」',
+    'int.pet_dog': '「你家狗最让你崩溃的一件事是什么？」',
+    'life.travel': '「你去过最想再去一次的地方是哪里？」',
+    'int.photography': '「你拍照是记录还是表达？」',
+    'int.exhibition': '「最近看的最值的一个展是哪个？」',
+    'int.dance': '「你跳什么？有没有那种跳到忘我的时刻？」',
+    'int.yoga': '「你练瑜伽是为了身体还是为了静下来？」',
+    'int.boardgame': '「你最喜欢的桌游是哪款？为什么？」',
+    'int.science': '「你最近看到最震撼的一个科学结论是什么？」',
+    'int.history': '「如果只能去一个朝代生活，你选哪个？」',
+    'int.car': '「你开车最享受的是哪段路？」',
+    'int.coding': '「你最近在写什么项目？有没有那种写到半夜的？」',
+    'int.instrument': '「你学乐器多久了？有没有那种自己弹给自己听的时刻？」',
+    'int.writing': '「你写东西是给自己看还是想被人看到？」',
+    'int.painting': '「你画画的时候会听什么？」',
+    'int.theatre': '「你最近看的话剧/音乐剧是哪部？」'
+  };
+
+  /* 4) 手写冲突规则（同一理想型里同时出现会打架） */
+  const conflicts = [
+    { a: 'person.needy', b: 'person.independent', msg: '「黏人」和「独立」是相反的两种依恋节奏：一个要高频确认，一个要独处充电。选一个当必须项，另一个当加分项。' },
+    { a: 'value.career_first', b: 'value.family_first', msg: '「事业优先」和「家庭优先」不是不能共存，但必须分清谁在关键时刻让位。同时列为必须，等于要求 TA 永远把你排第一又永远拼事业。' },
+    { a: 'person.introvert', b: 'person.social_bold', msg: '「安静内向」和「社交悍匪」是两种电量模式。可以互补，但同时当必须项，你要的其实是一个"在我面前安静、在别人面前活跃"的定制人。' },
+    { a: 'value.freedom', b: 'value.stability', msg: '「自由至上」和「安稳第一」是长期生活方式的根分歧：一个想换城市换工作，一个想买房定下来。' },
+    { a: 'value.saving', b: 'value.spending', msg: '「爱存钱」和「愿为体验花钱」会持续在每一笔支出上拉扯。建议改成一个必须 + 一个可接受。' },
+    { a: 'goal.financial_indep', b: 'goal.financial_share', msg: '「经济各自独立」和「共同账户」是两套财务制度，不能同时要求。' },
+    { a: 'goal.check_phone', b: 'goal.privacy_phone', msg: '「可以互相查手机」和「手机是隐私」是相反的边界观。' },
+    { a: 'goal.cohabit', b: 'goal.no_cohabit', msg: '「婚前同居」和「婚前不同居」直接互斥。' },
+    { a: 'goal.have_kids', b: 'goal.no_kids', msg: '生育意愿直接互斥，这一项没有折中空间。' },
+    { a: 'life.nightowl', b: 'life.early', msg: '「熬夜」和「早睡早起」会让你们的清醒时间几乎不重叠。' },
+    { a: 'comm.direct', b: 'person.tactful', msg: '「有话直说」和「说话委婉」可以并存，但需要明确：内容直给、语气照顾。否则你会觉得 TA 绕，TA 会觉得你冲。' },
+    { a: 'person.romantic', b: 'person.practical', msg: '「浪漫」和「务实」是两种爱的语言。同时要求，等于要 TA 既会制造惊喜又会精打细算。' },
+    { a: 'goal.marriage', b: 'goal.slow_burn', msg: '「想结婚」和「先做朋友慢慢来」在时间线上会打架：一个要终点，一个要过程。' },
+    { a: 'value.traditional', b: 'value.feminism', msg: '「传统角色分工」和「平权意识」在婚后家务、育儿、金钱上会正面冲突。' },
+    { a: 'person.shypublic', b: 'person.extrovert', msg: '「社恐」和「外向」对社交场合的需求相反，约会安排会持续需要妥协。' },
+    { a: 'health.smoke_y', b: 'value.pref_no_smoke', msg: '你一边要求「不抽烟」，一边又把「抽烟」列进理想型——先想清楚这是笔误还是你其实能接受。' },
+    { a: 'health.drink_heavy', b: 'health.drink_n', msg: '「常喝酒应酬」和「不喝酒」互斥。' },
+    { a: 'person.control', b: 'person.goblin', msg: '「掌控欲强」和「随和好说话」是控制与被控制的两端，同时要求会制造权力拉扯。' },
+    { a: 'comm.hot', b: 'person.calm', msg: '「吵架情绪上头」和「情绪稳定」通常不会长在同一个人身上。' },
+    { a: 'person.mbti_j', b: 'person.mbti_p', msg: '「重计划」和「随机应变」是两种生活节奏，同时当必须项会很难落地。' }
+  ];
+
+  /* 5) 稀有度换算：把"每千人约几个"翻译成人话 */
+  function rarityText(per1000) {
+    if (per1000 >= 200) return '在大城市人群里算常见，你身边大概率就有，只是没被筛出来。';
+    if (per1000 >= 80) return '不算稀有，但需要你主动进入对应的圈子，坐在家里等是等不到的。';
+    if (per1000 >= 30) return '属于少数派。你需要长期泡在某个场景里，而不是靠一次相亲撞上。';
+    if (per1000 >= 8) return '比较稀有。要么放宽一两条"重要项"，要么接受更长的寻找周期。';
+    if (per1000 >= 2) return '相当稀有。建议把"必须项"压到 3 条以内，其余降级为"重要"。';
+    return '极端组合。现实中几乎不存在完全符合的人——这不是你的错，是清单需要减负。';
+  }
+
+  return { channels, probes, topics, conflicts, rarityText };
+})();
+
+</script>
+<script>
+/* ===== app.js ===== */
+/* 心象 HeartMatch · 理想型引擎（主角 = 你想找的那个人） */
+(function () {
+  'use strict';
+  const DB = window.DB, READS = window.READS, IDEAL = window.IDEAL;
+  const q1 = (s, r) => (r || document).querySelector(s);
+  const qa1 = (s, r) => Array.from((r || document).querySelectorAll(s));
+  const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+  const LS = 'hm.ideal.v1';
+
+  const LV = { 3: '必须', 2: '重要', 1: '加分', '-1': '不要' };
+  const LV_COLOR = { 3: 'must', 2: 'imp', 1: 'plus', '-1': 'no' };
+
+  /* ---------- 状态 ---------- */
+  let state = load();
+  let pickCat = 'all';   // 选词页当前分类
+  let readsCat = 'all';  // 解读库当前分类
+  function defaults() { return { name: '', picks: {}, tab: 'pick' }; }
+  function load() {
+    try { const v = JSON.parse(localStorage.getItem(LS)); return Object.assign(defaults(), v || {}); }
+    catch (e) { return defaults(); }
+  }
+  function save() { try { localStorage.setItem(LS, JSON.stringify(state)); } catch (e) {} }
+
+  const idsAt = lv => Object.keys(state.picks).filter(id => state.picks[id] === lv);
+  const has = id => !!state.picks[id];
+  const lvOf = id => state.picks[id] || 0;
+  const labelOf = id => DB.byId[id] ? DB.byId[id].label : id;
+  const catOf = id => DB.byId[id] ? DB.byId[id].cat : null;
+  const readOf = id => {
+    const c = DB.byId[id] ? DB.byId[id].cat : 'person';
+    return Object.assign({}, READS.cat[c] || READS.cat.person, READS.tag[id] || {});
+  };
+  function toggle(id) {
+    if (state.picks[id]) delete state.picks[id];
+    else state.picks[id] = 2;
+    save(); renderPick(); renderBadges();
+  }
+  function setLv(id, lv) {
+    if (lv === 0) delete state.picks[id]; else state.picks[id] = lv;
+    save(); renderPick(); renderBadges();
+  }
+
+  /* ---------- 画像生成 ---------- */
+  const SENT = {
+    person: ['性格底色', 'ta'],
+    value: ['在乎的事', 'ta'],
+    comm: ['相处方式', '你们'],
+    love: ['亲密需求', 'ta'],
+    life: ['日常节奏', 'ta'],
+    interest: ['共同爱好', '你们']
+  };
+
+  function summarize() {
+    const must = idsAt(3), imp = idsAt(2), plus = idsAt(1), no = idsAt(-1);
+    if (!must.length && !imp.length) return '';
+    const pick = (arr, cat, n) => arr.filter(id => catOf(id) === cat).slice(0, n).map(labelOf);
+    const p = pick(must.concat(imp), 'person', 3);
+    const v = pick(must.concat(imp), 'value', 2);
+    const l = pick(must.concat(imp), 'life', 2);
+    const parts = [];
+    if (p.length) parts.push('性格上是「' + p.join('、') + '」的人');
+    if (v.length) parts.push('把「' + v.join('、') + '」看得很重');
+    if (l.length) parts.push('日常里「' + l.join('、') + '」');
+    if (!parts.length) return '你的理想型画像还比较模糊，再选几个标签会更清晰。';
+    let s = '你想要的 TA：' + parts.join('，') + '。';
+    if (no.length) s += ' 但绝不能是「' + no.slice(0, 4).map(labelOf).join('、') + '」那种人。';
+    return s;
+  }
+
+  function narrative() {
+    const must = idsAt(3), imp = idsAt(2), plus = idsAt(1), no = idsAt(-1);
+    const seg = [];
+    const byCat = c => must.concat(imp).filter(id => catOf(id) === c).map(labelOf);
+    const catText = (title, list, tpl) => { if (list.length) seg.push({ title, text: tpl.replace('{x}', list.slice(0, 6).join('、')) }); };
+    catText('TA 的性格', byCat('person'), '你希望 TA 的性格底色是「{x}」。这意味着你想要的不是一个"完美的人"，而是一种让你放松下来的相处质感。');
+    catText('你们怎么相处', byCat('comm').concat(byCat('love')), '在亲密与冲突里，你期待「{x}」。这些词决定了你们吵架后会冷战还是复盘，也决定了你累的时候 TA 会不会接住你。');
+    catText('TA 看重什么', byCat('value'), '价值观上，你希望 TA 把「{x}」放在前面。这一维度的分歧很少在热恋期暴露，却常常在第一次大支出或第一次家庭冲突时引爆。');
+    catText('日常画面', byCat('life'), '生活里，你想象的日常是「{x}」。这是"高频低烈度"的摩擦来源——吵不起来，但会持续磨损耐心。');
+    catText('你们能一起做什么', byCat('interest'), '你希望和 TA 有「{x}」这样的共同出口。共同爱好是最低成本的相处燃料，也是最自然的破冰话题。');
+    if (no.length) seg.push({ title: '绝对不能碰的红线', text: '你把「' + no.slice(0, 8).map(labelOf).join('、') + '」列为不要。这些不是"减分项"，而是"出现就出局"的底线——请在关系早期就确认，而不是等到投入之后。' });
+    if (!seg.length) seg.push({ title: '还没成形', text: '先去「① 选词」页勾几个词，画像会自动长出来。' });
+    if (seg.length < 2 && seg[0].title !== '还没成形') {
+      const covered = new Set(Object.keys(state.picks).map(catOf));
+      const missing = DB.cats.filter(c => !covered.has(c.id) && c.weight >= 0.9).map(c => c.name).slice(0, 3);
+      if (missing.length) seg.push({ title: '目前的盲区', text: '你还没描述 TA 的「' + missing.join('、') + '」。这几维最容易在长期关系里变成分歧，建议至少各补 1–2 个词，画像才算完整。' });
+    }
+    return seg;
+  }
+
+  /* ---------- 冲突与稀有度 ---------- */
+  function conflictCheck() {
+    const out = [];
+    const seen = new Set();
+    const musts = idsAt(3), all = Object.keys(state.picks).filter(id => state.picks[id] > 0);
+    const push = (msg, a, b) => {
+      const k = [a, b].sort().join('|');
+      if (seen.has(k)) return; seen.add(k);
+      out.push({ msg, a, b });
+    };
+    // 手写规则
+    IDEAL.conflicts.forEach(r => {
+      if (state.picks[r.a] > 0 && state.picks[r.b] > 0) push(r.msg, r.a, r.b);
+    });
+    // 同一对的「必须」互斥（data.js 的互补对）
+    DB.tags.forEach(t => {
+      if (!t.opp || state.picks[t.id] !== 3 || state.picks[t.opp] !== 3) return;
+      push('「' + labelOf(t.id) + '」和「' + labelOf(t.opp) + '」被同时列为必须——它们在现实中通常是相反的两端，建议只保留一个当必须，另一个降为加分。', t.id, t.opp);
+    });
+    // 必须 vs 不要 同标签
+    Object.keys(state.picks).forEach(id => {
+      if (state.picks[id] === -1) {
+        // 无语义冲突，跳过
+      }
+    });
+    // 必须项与红线自相矛盾（如 必须抽烟 + 不要抽烟 不可能，因为同一 id 只能一个层级）
+    return out;
+  }
+
+  function rarity() {
+    const must = idsAt(3), imp = idsAt(2);
+    const samples = DB.samples;
+    const rows = samples.map(s => {
+      const hasT = id => s.tags.indexOf(id) >= 0;
+      const mh = must.filter(hasT).length, ih = imp.filter(hasT).length;
+      return {
+        nick: s.nick, city: s.city, age: s.age, job: s.job,
+        mustHit: mh, impHit: ih,
+        mustRate: must.length ? mh / must.length : 1,
+        impRate: imp.length ? ih / imp.length : 1
+      };
+    });
+    rows.sort((a, b) => b.mustRate - a.mustRate || b.impRate - a.impRate);
+    const perfect = rows.filter(r => r.mustRate === 1);
+    // 概率估算：示例库频率 + 平滑，独立连乘
+    const n = samples.length;
+    const probs = must.map(id => (samples.filter(s => s.tags.indexOf(id) >= 0).length + 0.5) / (n + 1));
+    const joint = probs.reduce((a, b) => a * b, 1);
+    const per1000 = Math.round(joint * 1000 * 10) / 10;
+    // 最罕见的必须项（建议降级）
+    const freq = must.map(id => ({ id, p: (samples.filter(s => s.tags.indexOf(id) >= 0).length + 0.5) / (n + 1) }))
+      .sort((a, b) => a.p - b.p);
+    return { rows, perfect, per1000, freq, must, imp, text: IDEAL.rarityText(per1000) };
+  }
+
+  /* ---------- 反推：渠道 / 筛选 / 话题 ---------- */
+  function channelsFor() {
+    const picks = Object.keys(state.picks).filter(id => state.picks[id] > 0);
+    const out = [];
+    picks.forEach(id => { if (IDEAL.channels[id] && out.indexOf(IDEAL.channels[id]) < 0) out.push(IDEAL.channels[id]); });
+    const catFallback = {
+      interest: '兴趣类线下活动：同城活动平台、豆瓣同城、兴趣社群',
+      work: '行业社群、校友会、行业会议',
+      person: '朋友介绍、熟人局——性格类特质很难在陌生场合快速判断',
+      value: '公益组织、读书会、宗教文化社群——价值观相近的人常聚在同类场景',
+      life: '日常生活半径：常去的咖啡馆、健身房、宠物公园、菜市场',
+      goal: '相亲介绍、婚恋平台——目标明确的人更常出现在明确找关系的场合',
+      love: '朋友局、双人约会（爱语与依恋风格在熟人互动里更容易观察到）',
+      comm: '小规模聚会、深度对话场合（读书会、工作坊），比喧闹场合更看得出沟通模式'
+    };
+    Object.keys(catFallback).forEach(c => {
+      if (out.length >= 5) return;
+      if (picks.some(id => catOf(id) === c)) out.push(catFallback[c]);
+    });
+    // 兜底：挑不出足够渠道时补通用建议
+    const generic = [
+      '同城兴趣活动（运动、手作、读书、观演）——比酒吧更容易遇到"有稳定爱好"的人',
+      '朋友介绍 / 熟人局——对你明确在意的性格与价值观，这是最高效的筛选渠道',
+      '婚恋平台（带真实资料与筛选条件）——适合目标明确、愿意直接谈婚育的人'
+    ];
+    while (out.length < 3 && generic.length) out.push(generic.shift());
+    return out.slice(0, 7);
+  }
+
+  function screeningFor() {
+    const must = idsAt(3);
+    const list = must.map(id => ({ id, q: IDEAL.probes[id] || ('「' + labelOf(id) + '」这一点，你能举个最近发生在你身上的例子吗？」——用具体事例代替自我评价。') }));
+    // 红线也要问
+    idsAt(-1).forEach(id => list.push({ id, q: IDEAL.probes[id] || ('确认「' + labelOf(id) + '」：直接问，不要靠猜。') }));
+    return list.slice(0, 10);
+  }
+
+  function topicsFor() {
+    const picks = Object.keys(state.picks).filter(id => state.picks[id] > 0);
+    const out = [];
+    picks.forEach(id => { if (IDEAL.topics[id] && out.indexOf(IDEAL.topics[id]) < 0) out.push(IDEAL.topics[id]); });
+    if (!out.length) out.push('「最近有什么让你特别投入、甚至忘了时间的事？」——比"你平时喜欢干嘛"有效十倍。');
+    return out.slice(0, 5);
+  }
+
+  /* ---------- 渲染：① 选词 ---------- */
+  function renderBadges() {
+    const el = q1('#pick-count'); if (!el) return;
+    const c = { 3: idsAt(3).length, 2: idsAt(2).length, 1: idsAt(1).length, '-1': idsAt(-1).length };
+    el.innerHTML = `<b>${c[3]}</b> 必须 · <b>${c[2]}</b> 重要 · <b>${c[1]}</b> 加分 · <b>${c['-1']}</b> 不要`;
+  }
+
+  function renderPick() {
+    const root = q1('#panel-pick');
+    const total = Object.keys(state.picks).length;
+    root.innerHTML = `
+      <div class="card ideal-head">
+        <div class="ideal-av">💘</div>
+        <div class="ideal-main">
+          <label class="field"><span>给理想型起个代号（可选）</span>
+            <input id="ideal-name" maxlength="12" value="${esc(state.name)}" placeholder="例如：那个人 / 未来室友 / 小太阳">
+          </label>
+          <p class="hint">在 420 个词里挑出「你想要的 TA」。点一下加入（默认"重要"），再点取消；在下方已选区调整层级。</p>
+        </div>
+        <div class="ideal-stat" id="pick-count"></div>
+      </div>
+
+      <div class="card" id="picked-card">
+        <div class="sec-head"><h2>已选的 TA <em class="muted">${total} 个词</em></h2>
+          <div class="search-wrap"><input id="pick-search" placeholder="搜索标签，例如：猫 / 情绪稳定 / 想结婚"></div>
+        </div>
+        <div id="picked-zone"></div>
+      </div>
+
+      <div class="card">
+        <div class="sec-head"><h2>① 选词：从 14 个维度描述 TA</h2></div>
+        <div id="cat-filter" class="chips" style="margin-bottom:10px"></div>
+        <div id="pick-groups"></div>
+      </div>
+    `;
+    const pz = q1('#picked-zone');
+    if (!total) {
+      pz.innerHTML = '<p class="hint">还没有选词。试试从「性格气质」和「沟通与冲突」开始——这两维最能决定你们能不能过到一块儿。</p>';
+    } else {
+      pz.innerHTML = [3, 2, 1, -1].map(lv => {
+        const list = idsAt(lv);
+        if (!list.length) return '';
+        return `<div class="lv-row"><span class="lv-tag ${LV_COLOR[lv]}">${LV[lv]}</span>
+          <div class="chips">${list.map(id => `<span class="chip picked ${LV_COLOR[lv]}" data-picked="${id}" title="点击调整层级">${esc(labelOf(id))}</span>`).join('')}</div></div>`;
+      }).join('') + '<p class="hint">点击已选词 → 调整层级或查看解读。</p>';
+    }
+    qa1('[data-picked]').forEach(ch => ch.addEventListener('click', e => { e.stopPropagation(); openLevel(idOf(ch.dataset.picked)); }));
+    function idOf(v) { return v; }
+
+    const groups = q1('#pick-groups');
+    const search = q1('#pick-search');
+    const catBar = q1('#cat-filter');
+    function renderCatBar() {
+      const items = [{ id: 'all', icon: '🗂', name: '全部' }].concat(DB.cats.map(c => ({ id: c.id, icon: c.icon, name: c.name })));
+      catBar.innerHTML = items.map(c => `<span class="chip cat ${pickCat === c.id ? 'on' : ''}" data-cat="${c.id}">${c.icon} ${c.name}</span>`).join('');
+      qa1('[data-cat]', catBar).forEach(el => el.addEventListener('click', () => {
+        pickCat = el.dataset.cat;
+        renderCatBar();
+        renderGroups(search.value);
+      }));
+    }
+    function renderGroups(kw) {
+      const key = (kw || '').trim().toLowerCase();
+      let html = '';
+      DB.cats.forEach(c => {
+        if (pickCat !== 'all' && pickCat !== c.id) return;
+        const list = DB.tags.filter(t => t.cat === c.id && t.kind !== 'pref');
+        const show = list.filter(t => !key || t.label.toLowerCase().indexOf(key) >= 0 || t.id.indexOf(key) >= 0);
+        if (!show.length) return;
+        html += `<div class="group"><div class="group-head"><span class="g-icon">${c.icon}</span><b>${c.name}</b><small>${c.desc}</small></div>
+          <div class="chips">${show.map(t => `<span class="chip ${has(t.id) ? 'on ' + LV_COLOR[state.picks[t.id]] : ''}" data-tag="${t.id}"><i class="lvdot ${LV_COLOR[state.picks[t.id]] || ''}"></i>${esc(t.label)}</span>`).join('')}</div></div>`;
+      });
+      groups.innerHTML = html || '<p class="hint">没找到，换个关键词试试。</p>';
+      groups.querySelectorAll('.chip').forEach(el => el.addEventListener('click', () => toggle(el.dataset.tag)));
+    }
+    renderCatBar();
+    renderGroups('');
+    search.addEventListener('input', () => renderGroups(search.value));
+    q1('#ideal-name').addEventListener('input', e => { state.name = e.target.value; save(); });
+    renderBadges();
+  }
+
+  /* 层级弹层 + 解读 */
+  function openLevel(id) {
+    const box = document.createElement('div');
+    box.className = 'modal';
+    const r = readOf(id);
+    box.innerHTML = `<div class="modal-box">
+      <h3>${esc(labelOf(id))}</h3>
+      <p class="hint">把 TA 的这个词，设成什么分量？</p>
+      <div class="lv-pick">
+        <button data-lv="3" class="${state.picks[id] === 3 ? 'sel' : ''}">必须<small>不满足就不考虑</small></button>
+        <button data-lv="2" class="${state.picks[id] === 2 ? 'sel' : ''}">重要<small>很加分</small></button>
+        <button data-lv="1" class="${state.picks[id] === 1 ? 'sel' : ''}">加分<small>有更好</small></button>
+        <button data-lv="-1" class="${state.picks[id] === -1 ? 'sel' : ''}">不要<small>出现就出局</small></button>
+      </div>
+      <div class="read-box">
+        <div><b>想要这个意味着什么</b><p>${esc(r.want)}</p></div>
+        <div><b>怎么观察</b><p>${esc(r.check)}</p></div>
+        <div><b>可能的代价</b><p>${esc(r.cost)}</p></div>
+      </div>
+      <div class="btn-row"><button class="btn ghost" id="lv-remove">移出理想型</button><button class="btn" id="lv-close">关闭</button></div>
+    </div>`;
+    document.body.appendChild(box);
+    const close = () => box.remove();
+    box.addEventListener('click', e => { if (e.target === box) close(); });
+    q1('#lv-close', box).addEventListener('click', close);
+    q1('#lv-remove', box).addEventListener('click', () => { setLv(id, 0); close(); });
+    qa1('[data-lv]', box).forEach(b => b.addEventListener('click', () => { setLv(id, +b.dataset.lv); close(); }));
+  }
+
+  /* ---------- 渲染：② 画像 ---------- */
+  function renderProfile() {
+    const root = q1('#panel-profile');
+    const total = Object.keys(state.picks).length;
+    const cats = new Set(Object.keys(state.picks).map(catOf)).size;
+    const name = state.name || 'TA';
+    root.innerHTML = `
+      <div class="card">
+        <div class="sec-head"><h2>② ${esc(name)} 的画像</h2>
+          <div class="btn-row" style="margin:0"><button class="btn small" id="copy-profile">复制画像文本</button><button class="btn small ghost" id="download-profile">下载 .txt</button></div>
+        </div>
+        <p class="hint">${total ? `共 ${total} 个词，覆盖 ${cats} 个维度。` : '还没有选词，先去「① 选词」。'}</p>
+        <div class="profile-quote">${esc(summarize()) || '——'}</div>
+        <div class="profile-seg">${narrative().map(s => `<div class="seg"><h3>${esc(s.title)}</h3><p>${esc(s.text)}</p></div>`).join('')}</div>
+        ${total ? `<div class="profile-cloud">${[3, 2, 1, -1].map(lv => {
+          const list = idsAt(lv); if (!list.length) return '';
+          return `<div class="lv-row"><span class="lv-tag ${LV_COLOR[lv]}">${LV[lv]}</span><div class="chips">${list.map(id => `<span class="mini ${LV_COLOR[lv]}">${esc(labelOf(id))}</span>`).join('')}</div></div>`;
+        }).join('')}</div>` : ''}
+      </div>
+      <div class="card">
+        <h2>这张画像能直接发给别人吗？</h2>
+        <p class="hint">可以。点「复制画像文本」，得到一段适合发在朋友圈/交友资料/介绍人看的描述。但它只是标签的组合，别把它当成真人。</p>
+      </div>
+    `;
+    const text = () => profileText(name);
+    q1('#copy-profile').addEventListener('click', () => copy(text()));
+    q1('#download-profile').addEventListener('click', () => {
+      const blob = new Blob([text()], { type: 'text/plain;charset=utf-8' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob); a.download = '我的理想型.txt'; a.click();
+      setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+    });
+  }
+
+  function profileText(name) {
+    const lines = ['【我的理想型画像】' + name, ''];
+    const must = idsAt(3), imp = idsAt(2), plus = idsAt(1), no = idsAt(-1);
+    if (must.length) lines.push('必须：' + must.map(labelOf).join('、'));
+    if (imp.length) lines.push('重要：' + imp.map(labelOf).join('、'));
+    if (plus.length) lines.push('加分：' + plus.map(labelOf).join('、'));
+    if (no.length) lines.push('不要：' + no.map(labelOf).join('、'));
+    lines.push('', summarize());
+    narrative().forEach(s => lines.push('', '· ' + s.title + '：' + s.text));
+    return lines.join('\n');
+  }
+
+  /* ---------- 渲染：③ 体检与反推 ---------- */
+  function renderCheck() {
+    const root = q1('#panel-check');
+    const cf = conflictCheck();
+    const rr = rarity();
+    const ch = channelsFor();
+    const sc = screeningFor();
+    const tp = topicsFor();
+    const mustN = idsAt(3).length;
+    root.innerHTML = `
+      <div class="card">
+        <div class="sec-head"><h2>③ 理想型体检</h2><span class="muted">先检查清单本身合不合理</span></div>
+        ${cf.length ? `<div class="alert bad"><b>⚠️ 发现 ${cf.length} 处可能自相矛盾</b>${cf.map(c => `<p>${esc(c.msg)}</p>`).join('')}</div>`
+          : `<div class="alert good"><b>✅ 没有发现明显互斥项</b><p>你的清单目前逻辑自洽。继续往下看"稀有度"。</p></div>`}
+        ${mustN === 0 ? '<p class="hint">你还没有设"必须项"。没有任何必须项，等于没有筛选标准——建议至少设 1–3 条。</p>' : ''}
+      </div>
+
+      <div class="card">
+        <h2>现实中这样的 TA 有多稀有？</h2>
+        <div class="rarity-big"><b>${rr.per1000 >= 100 ? Math.round(rr.per1000 / 10) + '%' : rr.per1000}</b><span>${rr.per1000 >= 100 ? '人群中大约每 100 人有 ' + Math.round(rr.per1000 / 10) + ' 个' : '每 1000 人里约 ' + rr.per1000 + ' 人'}</span></div>
+        <p class="hint">按你 ${mustN} 条必须项估算（基于 24 个示例档案的频率，独立连乘，只作数量级参考）。</p>
+        <p>${esc(rr.text)}</p>
+        ${rr.freq.length && rr.per1000 < 10 ? `<div class="alert warn"><b>建议降级的必须项</b><p>${rr.freq.slice(0, 3).map(f => '「' + esc(labelOf(f.id)) + '」').join('、')} 在示例库里最少见。把它们从"必须"降为"重要"，可匹配的人会多一个数量级。</p></div>` : ''}
+        <h3>在 24 个示例档案里，完全满足必须项的人</h3>
+        <div class="chips">${rr.perfect.length ? rr.perfect.map(p => `<span class="mini good">${esc(p.nick)} · ${esc(p.city)} · ${esc(p.job)}</span>`).join('') : '<span class="muted">没有一个人完全满足。这不代表现实中不存在，但说明清单偏严。</span>'}</div>
+        <h3>最接近的 5 位</h3>
+        <div class="near-list">${rr.rows.slice(0, 5).map(p => `<div class="near"><b>${esc(p.nick)}</b><span>${esc(p.city)} · ${esc(p.job)}</span><div class="track"><i style="width:${Math.round(p.mustRate * 100)}%"></i></div><em>必须 ${Math.round(p.mustRate * 100)}% · 重要 ${Math.round(p.impRate * 100)}%</em></div>`).join('')}</div>
+      </div>
+
+      <div class="card">
+        <h2>该去哪找 TA？</h2>
+        <p class="hint">根据你的兴趣、职业与价值观标签反推的高频场景。</p>
+        <ul class="list">${ch.map(c => `<li>${esc(c)}</li>`).join('')}</ul>
+      </div>
+
+      <div class="card">
+        <h2>第一次见面，怎么筛？</h2>
+        <p class="hint">按你的"必须项"和"不要"，把问题问具体，别只听 TA 的自我评价。</p>
+        <div class="probe-list">${sc.map(s => `<div class="probe"><span class="mini">${esc(labelOf(s.id))}</span><p>${esc(s.q)}</p></div>`).join('')}</div>
+      </div>
+
+      <div class="card">
+        <h2>聊什么能破冰？</h2>
+        <div class="probe-list">${tp.map(t => `<div class="probe"><p>${esc(t)}</p></div>`).join('')}</div>
+      </div>
+    `;
+  }
+
+  /* ---------- 渲染：④ 解读库 ---------- */
+  function renderReads() {
+    const root = q1('#panel-reads');
+    root.innerHTML = `
+      <div class="card">
+        <div class="sec-head"><h2>④ 关键词解读库 <em class="muted">${DB.tags.filter(t => t.kind !== 'pref').length} 个词</em></h2>
+          <div class="search-wrap"><input id="reads-search" placeholder="搜索：情绪稳定 / 依恋 / 想结婚"></div>
+        </div>
+        <p class="hint">每个词都回答三件事：想要它意味着什么、现实里怎么观察、可能付出什么代价。点开看。</p>
+        <div id="reads-filter" class="chips" style="margin-bottom:10px"></div>
+        <div id="reads-body"></div>
+      </div>`;
+    const body = q1('#reads-body');
+    const filterBar = q1('#reads-filter');
+    const renderBar = () => {
+      const items = [{ id: 'all', icon: '🗂', name: '全部' }].concat(DB.cats.map(c => ({ id: c.id, icon: c.icon, name: c.name })));
+      filterBar.innerHTML = items.map(c => `<span class="chip cat ${readsCat === c.id ? 'on' : ''}" data-rcat="${c.id}">${c.icon} ${c.name}</span>`).join('');
+      qa1('[data-rcat]', filterBar).forEach(el => el.addEventListener('click', () => {
+        readsCat = el.dataset.rcat; renderBar(); render(q1('#reads-search').value);
+      }));
+    };
+    const render = kw => {
+      const key = (kw || '').trim().toLowerCase();
+      let html = '';
+      DB.cats.forEach(c => {
+        if (readsCat !== 'all' && readsCat !== c.id) return;
+        const list = DB.tags.filter(t => t.cat === c.id && t.kind !== 'pref' &&
+          (!key || t.label.toLowerCase().indexOf(key) >= 0 || t.id.indexOf(key) >= 0));
+        if (!list.length) return;
+        html += `<div class="group"><div class="group-head"><span class="g-icon">${c.icon}</span><b>${c.name}</b><small>${list.length} 个</small></div>
+          <div class="chips">${list.map(t => `<span class="chip read ${README.has(t.id) ? 'key' : ''}" data-read="${t.id}">${esc(t.label)}${README.has(t.id) ? ' ⓘ' : ''}</span>`).join('')}</div></div>`;
+      });
+      body.innerHTML = html || '<p class="hint">没找到。</p>';
+      body.querySelectorAll('[data-read]').forEach(el => el.addEventListener('click', () => showRead(el.dataset.read)));
+    };
+    renderBar();
+    render('');
+    q1('#reads-search').addEventListener('input', e => render(e.target.value));
+  }
+  const README = { has: id => !!(window.READS.tag[id]) };
+
+  function showRead(id) {
+    const r = readOf(id);
+    const box = document.createElement('div');
+    box.className = 'modal';
+    box.innerHTML = `<div class="modal-box">
+      <h3>${esc(labelOf(id))} <small class="muted">${esc((DB.byId[id] || {}).id || '')}</small></h3>
+      <div class="read-box">
+        <div><b>想要这个，意味着什么</b><p>${esc(r.want)}</p></div>
+        <div><b>现实里怎么观察</b><p>${esc(r.check)}</p></div>
+        <div><b>可能的代价</b><p>${esc(r.cost)}</p></div>
+      </div>
+      <div class="btn-row"><button class="btn primary" id="read-add">加入理想型</button><button class="btn ghost" id="read-close">关闭</button></div>
+    </div>`;
+    document.body.appendChild(box);
+    const close = () => box.remove();
+    box.addEventListener('click', e => { if (e.target === box) close(); });
+    q1('#read-close', box).addEventListener('click', close);
+    q1('#read-add', box).addEventListener('click', () => { if (!has(id)) toggle(id); close(); toast('已加入「重要」'); });
+  }
+
+  /* ---------- 工具 ---------- */
+  function copy(t) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(t).then(() => toast('已复制')).catch(() => fallback(t));
+    } else fallback(t);
+    function fallback() {
+      const ta = document.createElement('textarea'); ta.value = t; document.body.appendChild(ta); ta.select();
+      try { document.execCommand('copy'); toast('已复制'); } catch (e) { toast('请手动复制'); }
+      ta.remove();
+    }
+  }
+  function toast(msg) {
+    let t = q1('#toast');
+    if (!t) { t = document.createElement('div'); t.id = 'toast'; document.body.appendChild(t); }
+    t.textContent = msg; t.classList.add('show');
+    clearTimeout(t._h); t._h = setTimeout(() => t.classList.remove('show'), 2000);
+  }
+
+  const renderers = { pick: renderPick, profile: renderProfile, check: renderCheck, reads: renderReads };
+  function go(tab) {
+    state.tab = tab; save();
+    qa1('.tab').forEach(b => b.classList.toggle('active', b.dataset.tab === tab));
+    qa1('.panel').forEach(p => p.classList.toggle('active', p.id === 'panel-' + tab));
+    renderers[tab]();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    qa1('.tab').forEach(b => b.addEventListener('click', () => go(b.dataset.tab)));
+    go(state.tab || 'pick');
+  });
+})();
+
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var el = document.getElementById('tag-total');
+    if (el && window.DB) el.textContent = window.DB.tags.filter(function (t) { return t.kind !== 'pref'; }).length;
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>恋爱作战手册 · 真实版 | 从关键词到 90 天计划</title>
+<meta name="description" content="选 3 个必须项，立刻得到：现实中这类人长什么样、去哪遇到、第一次见面问什么、90 天怎么推进。全部基于真实场景与公众人物参照，没有虚拟档案。">
+<style>
+:root{
+  --bg:#0c0a10; --bg2:#120e18; --card:rgba(255,255,255,.045); --line:rgba(255,255,255,.09);
+  --txt:#f5f0f4; --mut:#a39aa9; --pri:#ff6b9d; --pri2:#ffa45b; --ok:#5eead4; --warn:#fbbf24; --bad:#fb7185;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{
+  font-family:-apple-system,"PingFang SC","Microsoft YaHei",system-ui,"Segoe UI",sans-serif;
+  background:
+    radial-gradient(1100px 650px at 10% -10%, rgba(255,107,157,.18), transparent 60%),
+    radial-gradient(900px 600px at 100% 0%, rgba(255,164,91,.12), transparent 55%),
+    linear-gradient(180deg,var(--bg),var(--bg2));
+  background-attachment:fixed; color:var(--txt); line-height:1.65; min-height:100vh;
+}
+h1,h2,h3{line-height:1.3;margin:0}
+h2{font-size:1.2rem;margin:26px 0 10px}
+h3{font-size:.95rem;margin:14px 0 6px;color:#fff}
+p{margin:.45em 0}
+.mut{color:var(--mut)}
+.wrap{max-width:980px;margin:0 auto;padding:0 16px 80px}
+header{padding:36px 16px 6px;max-width:980px;margin:0 auto}
+.brand{display:flex;align-items:center;gap:12px}
+.logo{width:46px;height:46px;border-radius:15px;display:grid;place-items:center;font-size:22px;
+  background:linear-gradient(135deg,var(--pri),var(--pri2));box-shadow:0 8px 24px -8px rgba(255,107,157,.8)}
+.brand h1{font-size:1.45rem;letter-spacing:.04em}
+.brand .sub{font-size:.75rem;color:var(--mut);letter-spacing:.18em;text-transform:uppercase}
+.hero-line{margin:16px 0 0;font-size:clamp(1.1rem,3.4vw,1.55rem);font-weight:600}
+.hero-line b{background:linear-gradient(100deg,var(--pri),var(--pri2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero-desc{color:var(--mut);font-size:.9rem;max-width:680px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px;margin:14px 0;
+  box-shadow:0 16px 40px -24px rgba(0,0,0,.8)}
+.chips{display:flex;flex-wrap:wrap;gap:7px}
+.chip{display:inline-flex;align-items:center;gap:5px;padding:6px 13px;border-radius:999px;font-size:.82rem;cursor:pointer;
+  border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.03);color:#d5ccd9;transition:.15s;user-select:none}
+.chip:hover{border-color:var(--pri);color:#fff;transform:translateY(-1px)}
+.chip.on{background:rgba(251,113,133,.9);color:#2a0d18;border-color:transparent;font-weight:600}
+.chip.cat{font-size:.76rem;padding:4px 10px;border-radius:9px}
+.chip.cat.on{background:rgba(255,107,157,.2);border-color:rgba(255,107,157,.55);color:#fff}
+.group{padding:12px 0;border-top:1px dashed var(--line)}
+.group:first-child{border-top:none;padding-top:2px}
+.group-head{display:flex;align-items:center;gap:8px;margin-bottom:8px}
+.group-head b{font-size:.9rem}
+.group-head small{font-size:.72rem;color:var(--mut)}
+.btn{font:inherit;font-size:.9rem;padding:11px 22px;border-radius:12px;cursor:pointer;transition:.18s;
+  border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.06);color:var(--txt)}
+.btn:hover{transform:translateY(-1px);border-color:var(--pri)}
+.btn.primary{background:linear-gradient(135deg,var(--pri),var(--pri2));border:none;color:#2a0d18;font-weight:700;
+  box-shadow:0 10px 26px -12px rgba(255,107,157,.9)}
+.btn-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.counter{font-size:.8rem;color:var(--mut);margin-left:4px}
+.counter b{color:var(--pri)}
+figure{display:grid;gap:6px}
+.anchor{font-size:.82rem;color:#ffd7a8;background:rgba(255,164,91,.08);border:1px dashed rgba(255,164,91,.35);
+  border-radius:10px;padding:7px 11px}
+.real-card{border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin:10px 0;background:rgba(255,255,255,.02)}
+.real-card h3{margin:0 0 4px;font-size:1rem}
+.real-card .row{font-size:.84rem;color:#d9d1de;margin:6px 0}
+.real-card .row b{color:#fff;font-size:.78rem;margin-right:6px}
+.real-card .row.mut{color:var(--mut)}
+.tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:6px}
+.mini{font-size:.72rem;padding:2px 8px;border-radius:999px;background:rgba(255,255,255,.06);
+  border:1px solid var(--line);color:#d5ccd9}
+.mini.good{background:rgba(94,234,212,.1);border-color:rgba(94,234,212,.28)}
+.plan{display:grid;gap:10px}
+.week{border-left:3px solid var(--pri);padding:2px 0 2px 14px}
+.week b{font-size:.8rem;color:var(--pri2);letter-spacing:.04em}
+.week h3{margin:2px 0 4px}
+.week ul{margin:0;padding-left:1.1em;color:var(--mut);font-size:.85rem}
+.week li{margin:.25em 0}
+.probe{background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:10px;padding:9px 12px;margin:7px 0;font-size:.85rem}
+.probe p{margin:0;color:#d9d1de}
+.decide{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:640px){.decide{grid-template-columns:1fr}}
+.decide div{border-radius:12px;padding:12px 14px;font-size:.84rem}
+.decide .go{background:rgba(94,234,212,.07);border:1px solid rgba(94,234,212,.25)}
+.decide .stop{background:rgba(251,113,133,.07);border:1px solid rgba(251,113,133,.25)}
+.decide b{display:block;margin-bottom:4px}
+.decide ul{margin:0;padding-left:1.1em;color:var(--mut)}
+.table{width:100%;border-collapse:collapse;font-size:.8rem}
+.table th,.table td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+.table th{color:var(--mut);font-weight:500;font-size:.74rem}
+.table td{color:#d9d1de}
+.table td:first-child{color:#fff;font-weight:600;white-space:nowrap}
+footer{text-align:center;color:#6f6579;font-size:.74rem;padding:26px 16px 8px}
+.hide{display:none}
+#result{scroll-margin-top:20px}
+@media(max-width:600px){header{padding-top:26px}.card{padding:16px;border-radius:16px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="brand">
+    <div class="logo">🎯</div>
+    <div>
+      <h1>恋爱作战手册</h1>
+      <div class="sub">Real World · 90 Days</div>
+    </div>
+  </div>
+  <p class="hero-line">选 <b>3 个必须项</b>，得到一份能照着做的计划。</p>
+  <p class="hero-desc">没有虚拟档案，没有"示例用户"。每个词都给你：现实中这类人长什么样（公众人物只作气质参照）、去哪遇到、第一次见面怎么问、90 天怎么推进。</p>
+</header>
+
+<main class="wrap">
+  <section class="card" id="setup">
+    <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px">
+      <h2 style="margin:0">第 0 步：写下你的必须项</h2>
+      <span class="counter">已选 <b id="cnt">0</b> / 5</span>
+    </div>
+    <p class="mut" style="font-size:.84rem">只选"没有就不行"的，最多 5 个。选多了等于没选。</p>
+    <div class="chips" id="catbar" style="margin:10px 0"></div>
+    <div id="wordlist"></div>
+    <div class="btn-row">
+      <button class="btn primary" id="gen">生成我的 90 天方案 →</button>
+      <button class="btn" id="clear">清空重选</button>
+    </div>
+  </section>
+
+  <section id="result" class="hide"></section>
+
+  <section class="card">
+    <h2>真实人物参照表（认清"这类人"长什么样）</h2>
+    <p class="mut" style="font-size:.82rem">公众人物只作气质锚点，帮你确认"我到底想要哪种人"，不是让你去找他们。真正要看的是「场景」那一列。</p>
+    <div style="overflow-x:auto">
+      <table class="table"><thead><tr><th>类型</th><th>现实中长这样</th><th>去哪遇到</th><th>识别信号</th></tr></thead>
+      <tbody id="figures"></tbody></table>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>三个残酷但真实的提醒</h2>
+    <ol class="mut" style="font-size:.86rem;padding-left:1.2em">
+      <li><b>没有人同时满足 10 条</b>。3 条必须 + 5 条重要，是现实的上限；再往上，你不是在找对象，是在定制。</li>
+      <li><b>你能被谁选，比你想选谁更重要</b>。列出你能提供的 3 样具体价值（会做饭、情绪稳定、收入稳定），比列 20 条要求有用。</li>
+      <li><b>感觉是相处出来的，不是第一眼算出来的</b>。第一次见面只判断"排不排斥"，不判断"爱不爱"。</li>
+    </ol>
+  </section>
+</main>
+
+<footer>恋爱作战手册 · 真实版 · 所有内容基于公开社会观察与真实场景 · 数据只存在你的浏览器</footer>
+
+<script>
+/* ===== plan-data.js ===== */
+/* 《恋爱作战手册》数据：真实世界版
+ * 每个词对应：现实中这类人的样子 / 公众人物气质参照 / 去哪遇到 / 识别信号 / 代价
+ * 人物只作气质锚点，不是让你去追；重点看「现实画像」与「场景」。
+ */
+window.PLANDATA = (function () {
+
+  const words = [
+    /* ---------- 性格 ---------- */
+    { id: 'calm', label: '情绪稳定', cat: '性格',
+      figure: '黄磊、张智霖',
+      reality: '情绪稳定不是没脾气，是恢复得快。这类人多见于需要长期稳定输出的职业：医生、教师、工程师、公务员、财务。通常经历过一次大的挫折后才定型，28–35 岁最明显。',
+      scene: '朋友介绍、家庭式聚会、行业内的稳定型社群。酒吧和夜店基本遇不到。',
+      signals: ['被服务员怠慢时不起火', '计划被打乱先想办法，而不是先抱怨', '聊前任时不攻击对方'],
+      cost: '可能不热烈。你难过时 TA 给的是解决方案，而不是陪你一起哭。' },
+    { id: 'humor', label: '幽默', cat: '性格',
+      figure: '呼兰、李雪琴',
+      reality: '真正幽默的人不是段子手，是能自嘲、能接梗、能把尴尬化解掉。多见于媒体、广告、互联网、脱口秀开放麦圈。注意区分：拿别人开涮的是刻薄，不是幽默。',
+      scene: '脱口秀开放麦、桌游局、朋友聚会、内容创作者社群。',
+      signals: ['能自嘲，不玻璃心', '玩笑有分寸，不拿别人的痛处', '冷场时能自然救场'],
+      cost: '幽默常伴随回避——TA 可能用玩笑躲开严肃对话。' },
+    { id: 'honest', label: '真诚', cat: '性格',
+      figure: '撒贝宁（访谈里的坦率）',
+      reality: '真诚的人讲自己的失败时是坦然的，不只讲体面版本。这类人往往在 25 岁后经历过一次"装不下去"的阶段，才学会说实话。',
+      scene: '深度对话场合：读书会、工作坊、朋友的长谈局。',
+      signals: ['讲自己的糗事不遮掩', '答应的事会做到，做不到会提前说', '不背后议论别人'],
+      cost: '"太直"可能伤人。真诚要配分寸，否则变成另一种自私。' },
+    { id: 'kind', label: '善良', cat: '性格',
+      figure: '黄磊、李健（对人对物的温和）',
+      reality: '善良看的是"对没有利用价值的人"的态度：服务员、保洁、外卖员、流浪猫。这类人通常在原生家庭里被善待过，或者自己吃过苦。',
+      scene: '公益组织、动物救助、社区志愿活动、朋友介绍。',
+      signals: ['对服务人员说谢谢', '会顺手帮陌生人', '不欺负弱者，也不炫耀善良'],
+      cost: '善良的人常难拒绝别人，边界感需要你一起守。' },
+    { id: 'independent', label: '独立', cat: '性格',
+      figure: 'papi酱（精神独立）、李健（自洽）',
+      reality: '独立的人有自己的世界：固定的爱好、稳定的朋友圈、能一个人待着。多见于自由职业、创意行业、异地打拼多年的人。',
+      scene: '独立书店、咖啡馆、兴趣社群、独居青年聚集的社区。',
+      signals: ['一个人也能安排好自己的周末', '不查岗、不要求秒回', '有自己的钱和计划'],
+      cost: 'TA 不需要你"拯救"，也可能不太需要你——确认你要的是陪伴还是被需要。' },
+    { id: 'gentle', label: '温柔', cat: '性格',
+      figure: '张智霖、黄磊',
+      reality: '温柔是语气、动作、耐心的总和，不是软弱。这类人通常在冲突里先降温，而不是先赢。',
+      scene: '朋友介绍、家庭聚会、教师/医护/服务行业。',
+      signals: ['生气时音量不变', '对小动物和小孩有耐心', '记得你说过的小事'],
+      cost: '温柔不等于没原则，别把"好说话"当成"不会拒绝你"。' },
+    { id: 'boundary', label: '有边界感', cat: '性格',
+      figure: 'papi酱（关系边界清晰）',
+      reality: '有边界感的人会拒绝不想去的局、会和前任断干净、不会把伴侣的隐私当谈资。这类人通常自我认知比较清楚。',
+      scene: '成熟职场圈、心理咨询/成长社群、独立生活多年的人。',
+      signals: ['会说"不"，且不解释太多', '前任不纠缠', '不翻你手机，也不让你翻'],
+      cost: 'TA 也会对你设边界，你要接受"不是所有事都能参与"。' },
+    { id: 'introvert', label: '内向安静', cat: '性格',
+      figure: '李健、朴树',
+      reality: '内向的人社交后需要独处回血，话不多但聊到喜欢的东西会眼睛发亮。多见于技术、研究、写作、设计岗位。',
+      scene: '独立书店、咖啡馆、技术社群、小规模兴趣小组。',
+      signals: ['聚会后明显疲惫', '更愿意一对一深聊', '不主动但会认真回应'],
+      cost: 'TA 可能不主动表达需要，你要学会读空气。' },
+    { id: 'extrovert', label: '外向开朗', cat: '性格',
+      figure: '撒贝宁、谷爱凌',
+      reality: '外向的人靠人群充电，能张罗、能破冰、情绪外放。多见于销售、市场、媒体、活动策划。',
+      scene: '运动社群、音乐节、朋友局、活动志愿者。',
+      signals: ['在陌生人里自在', '会主动照顾到角落的人', '情绪表达直接'],
+      cost: 'TA 的社交需求可能超过你的电量，你需要保留自己的安静时间。' },
+    { id: 'ambitious', label: '有上进心', cat: '性格',
+      figure: '董明珠（极端版）、papi酱',
+      reality: '有上进心的人对"变好"有执念：学新东西、换更好的工作、复盘自己。多见于互联网、金融、创业圈。',
+      scene: '行业社群、创业路演、商学院、技能培训班。',
+      signals: ['最近在学什么，能讲出细节', '被指出问题时记录而不是辩解', '对"稳定"有危机感'],
+      cost: '上进的人可能一直在变，你要接受"TA 不是现在的 TA"。' },
+    { id: 'romantic', label: '浪漫', cat: '性格',
+      figure: '张智霖（仪式感）、黄磊',
+      reality: '浪漫是"记得"和"愿意花心思"：记得你说过的话、会制造小惊喜、重视纪念日。多见于文艺、媒体、服务业。',
+      scene: '看展、话剧、音乐现场、手作市集。',
+      signals: ['记得你随口提过的小事', '约会会提前安排', '愿意为"没用但美好"的事花钱'],
+      cost: '浪漫需要持续投入，热度退去后的落差要靠"日常可靠"来接。' },
+    { id: 'practical', label: '踏实务实', cat: '性格',
+      figure: '苏炳添（自律务实）、康辉',
+      reality: '务实的人把日子过稳：有存款、有计划、不画大饼。多见于工程师、财务、体制内、技术岗。',
+      scene: '行业社群、校友会、朋友介绍、家庭聚会。',
+      signals: ['账单清楚，有储蓄目标', '说"以后"时有具体时间表', '不轻易承诺，承诺就做到'],
+      cost: '务实的人可能不擅长表达爱，你需要从"做了什么"里去读。' },
+
+    /* ---------- 沟通 ---------- */
+    { id: 'direct', label: '有话直说', cat: '沟通',
+      figure: '呼兰（表达直接）、撒贝宁',
+      reality: '直说的人不喜欢猜，问题不过夜。多见于北方人、技术岗、律师、销售。',
+      scene: '工作协作场景、朋友局、行业社群。',
+      signals: ['提不同意见时不绕弯', '吵架说"我们谈谈"', '不玩"你自己想"'],
+      cost: '直率如果没温度，会变成"我说的都是实话"式的伤害。' },
+    { id: 'listener', label: '会倾听', cat: '沟通',
+      figure: '李雪琴（共情）、撒贝宁（访谈）',
+      reality: '会倾听的人不急着给建议，会追问细节。多见于咨询、教育、医护、媒体。',
+      scene: '读书会、心理工作坊、朋友的长谈局。',
+      signals: ['你说 5 分钟，TA 追问细节', '不打断，不急着讲自己', '记得你上次说的事'],
+      cost: '擅长倾听的人往往不表达需求，你要主动问 TA 想要什么。' },
+    { id: 'repair', label: '吵架会复盘', cat: '沟通',
+      figure: '黄磊（关系里讲道理）',
+      reality: '会复盘的人吵完会说"刚才我哪里不对"。这类人通常经历过一段失败关系，或者学过沟通。',
+      scene: '成熟职场圈、离异后自我成长的人、心理咨询过的群体。',
+      signals: ['事后主动开口', '能说出自己的问题', '下次真的改了'],
+      cost: '复盘需要双方面对，单方面的复盘会变成检讨会。' },
+    { id: 'no_coldwar', label: '不冷战', cat: '沟通',
+      figure: '张智霖（先哄）',
+      reality: '不冷战的人冲突后 24 小时内一定开口。这类人通常情绪安全感较好，或者被冷战伤过。',
+      scene: '家庭氛围好的群体、朋友介绍、成熟职场圈。',
+      signals: ['吵架后当天会发消息', '不玩消失', '愿意先说"我们别这样"'],
+      cost: '"不冷战"也可能意味着"急着和好、不解决问题"，需要配套复盘。' },
+    { id: 'reply', label: '回消息及时', cat: '沟通',
+      figure: '—',
+      reality: '回消息及时不是手机依赖，是"把你放在优先级里"。忙的时候会说"晚点回"，而不是直接消失。',
+      scene: '日常协作多的行业、朋友介绍、线上社群转线下。',
+      signals: ['忙时提前说一声', '不会隔天才回', '回得简短但会回'],
+      cost: '秒回可能只是手机依赖，不代表在意程度。' },
+    { id: 'tactful', label: '说话顾及感受', cat: '沟通',
+      figure: '撒贝宁、康辉',
+      reality: '顾及感受的人拒绝别人时也给台阶。多见于教育、医护、服务、体制内。',
+      scene: '教师/医护圈、朋友介绍、家庭聚会。',
+      signals: ['拒绝时先肯定再说明', '不当众让人难堪', '批评时对事不对人'],
+      cost: '委婉有时等于不表达，你可能需要主动追问真实想法。' },
+
+    /* ---------- 三观 ---------- */
+    { id: 'loyal', label: '专一忠诚', cat: '三观',
+      figure: '张智霖（长情）、苏炳添（青梅竹马）',
+      reality: '专一不是"没机会"，是"有机会也不去"。这类人通常边界清晰、社交圈稳定、不靠异性关注获得价值感。',
+      scene: '朋友介绍、稳定职场圈、青梅竹马/同学圈。',
+      signals: ['异性朋友边界清楚', '主动交代行踪，不让你猜', '聊前任时平静，不暧昧'],
+      cost: '专一是底线不是卖点。别把"没出轨"当成"对你好"。' },
+    { id: 'family_first', label: '重视家庭', cat: '三观',
+      figure: '黄磊、苏炳添',
+      reality: '重视家庭的人会把节假日留给家、会为家庭调整工作节奏。多见于原生家庭和睦、或自己吃过家庭破碎苦的人。',
+      scene: '家庭聚会、朋友介绍、社区活动、亲子场所。',
+      signals: ['周末优先陪家人', '记得父母生日', '谈未来时"我们"多于"我"'],
+      cost: '"家庭优先"有时意味着和原生家庭绑定很深，边界要提前谈。' },
+    { id: 'growth', label: '有成长型思维', cat: '三观',
+      figure: '谷爱凌（持续学习）',
+      reality: '成长型的人被指出问题会记录，而不是辩解。这类人通常有阅读/学习习惯，换过赛道。',
+      scene: '读书会、技能社群、行业会议、终身学习圈。',
+      signals: ['最近在学什么，讲得出细节', '承认"我以前错了"', '换过行业或岗位'],
+      cost: '成长型的人可能一直在变，你要接受"TA 不是现在的 TA"。' },
+    { id: 'saving', label: '会存钱有规划', cat: '三观',
+      figure: '—',
+      reality: '会存钱的人有应急金、有长期目标、大额消费前会算。多见于工薪家庭出身、经历过经济压力的人。',
+      scene: '稳定职场、朋友介绍、家庭聚会。',
+      signals: ['有 3–6 个月应急金', '记账或至少知道钱花哪了', '不为面子消费'],
+      cost: '过度节俭会牺牲生活质感，别把"抠"误认成"会过日子"。' },
+    { id: 'feminism', label: '平权意识', cat: '三观',
+      figure: 'papi酱（独立平权）',
+      reality: '平权意识不是口号，是具体分工：家务对半、育儿共担、不默认"女方牺牲"。多见于一二线城市、高学历、女性多的行业。',
+      scene: '一线城市职场、性别议题读书会、公益社群。',
+      signals: ['主动分担家务，不等安排', '不把"帮忙带娃"当恩赐', '支持你的事业'],
+      cost: '观念先进不等于行动到位，看 TA 现在怎么分担。' },
+    { id: 'traditional', label: '传统稳重', cat: '三观',
+      figure: '康辉（稳重）、撒贝宁（传统底色）',
+      reality: '传统稳重的人重视礼俗、家庭角色清晰、关系路径明确。多见于体制内、教师、医生、家族观念重的人。',
+      scene: '相亲介绍、亲友局、体制内联谊。',
+      signals: ['重视节日和礼数', '和父母关系紧密', '对婚姻有明确时间表'],
+      cost: '传统角色分工可能与你的事业规划冲突，需要具体到分工。' },
+
+    /* ---------- 生活 ---------- */
+    { id: 'early', label: '早睡早起', cat: '生活',
+      figure: '苏炳添（作息自律）',
+      reality: '早睡早起的人通常有固定工作节奏：教师、医生、公务员、运动员、有娃家庭。',
+      scene: '晨跑团、健身房早课、稳定职场。',
+      signals: ['晚上 11 点前睡', '周末也不熬大夜', '早上精神状态好'],
+      cost: '你们的清醒时间可能错位，约会要配合作息。' },
+    { id: 'cook', label: '会做饭', cat: '生活',
+      figure: '黄磊（做饭）、张智霖',
+      reality: '会做饭的人通常独居过、或家里有做饭传统。不一定是大厨，但能照顾自己和别人。',
+      scene: '厨艺课、菜市场、社区活动、朋友家宴。',
+      signals: ['冰箱里有菜，不是只有饮料', '愿意为你做一顿饭', '做饭时不抱怨'],
+      cost: '会做饭的人可能把"照顾"当控制，注意边界。' },
+    { id: 'neat', label: '爱干净', cat: '生活',
+      figure: '—',
+      reality: '爱干净看的是"看不见的地方"：冰箱、垃圾桶、床底、手机屏幕。多见于医护、教师、有洁癖家族史的人。',
+      scene: '朋友家做客、共同生活场景、朋友介绍。',
+      signals: ['家里没有积灰', '垃圾不过夜', '衣服分类洗'],
+      cost: '爱干净的人可能对"乱"零容忍，你要接受被念叨。' },
+    { id: 'exercise', label: '爱运动', cat: '生活',
+      figure: '苏炳添、谷爱凌',
+      reality: '爱运动的人有固定训练习惯，情绪调节能力通常更好。多见于跑团、健身房、球局、户外圈。',
+      scene: '跑团、健身房团课、羽毛球局、徒步群。',
+      signals: ['每周至少动 3 次', '有固定运动搭子', '不运动时会难受'],
+      cost: '运动党时间表固定，约会要配合训练计划。' },
+    { id: 'cat', label: '养猫', cat: '生活',
+      figure: '李健（猫）、朴树',
+      reality: '养猫的人通常也需要大量独处时间，关系里讲究"靠近但不打扰"。多见于独居、自由职业、创意行业。',
+      scene: '猫咖、猫咪救助、宠物医院、猫友群。',
+      signals: ['手机里全是猫', '回家第一件事是喂猫', '接受猫上床'],
+      cost: '猫派往往也需要独处，别指望 TA 时刻黏你。' },
+    { id: 'dog', label: '养狗', cat: '生活',
+      figure: '—',
+      reality: '养狗的人热情、需要陪伴，生活被遛狗时间绑定。多见于有固定作息、住一楼/带院子的人。',
+      scene: '宠物公园、遛狗群、宠物医院。',
+      signals: ['每天固定遛狗', '和狗说话', '旅行会先安排狗'],
+      cost: '养狗意味着时间被绑定，临时安排会受限。' },
+    { id: 'travel', label: '爱旅行', cat: '生活',
+      figure: '谷爱凌（探索）、撒贝宁',
+      reality: '爱旅行的人愿意为体验花钱和时间，通常适应力强。多见于自由职业、远程工作、年假多的人。',
+      scene: '青旅、拼车结伴、旅行分享会、户外群。',
+      signals: ['有下一个目的地', '旅行不只是打卡', '能接受计划变化'],
+      cost: '旅行派可能存不下钱，重大支出前要对齐。' },
+    { id: 'homebody', label: '宅', cat: '生活',
+      figure: '李健（宅）、朴树',
+      reality: '宅的人在家有完整的世界：书、游戏、剧、手作。多见于程序员、设计师、自由职业。',
+      scene: '线上社群转线下、独立书店、咖啡馆、朋友介绍。',
+      signals: ['周末可以两天不出门', '家里有舒服的角落', '不喜欢无效社交'],
+      cost: '宅的人社交电量低，你需要接受"低配社交"。' },
+
+    /* ---------- 关系目标 ---------- */
+    { id: 'marriage', label: '想结婚', cat: '关系',
+      figure: '—',
+      reality: '想结婚的人有明确时间表、见过父母、聊过婚育。多见于 28 岁以上、家庭稳定、目标清晰的人。',
+      scene: '相亲介绍、婚恋平台、亲友局。',
+      signals: ['主动聊未来规划', '见过父母/愿意见', '对婚育有具体想法'],
+      cost: '以结婚为目标的筛选会过滤掉很多"慢慢来"的人，也会让你急着做决定。' },
+    { id: 'kids', label: '想要孩子', cat: '关系',
+      figure: '黄磊（多子女家庭）',
+      reality: '想要孩子的人会聊育儿分工、教育理念、住哪。多见于家庭观念重、经济稳定的人。',
+      scene: '家庭聚会、亲子场所、相亲介绍。',
+      signals: ['主动聊育儿', '对小孩有耐心', '考虑学区/住房'],
+      cost: '育儿会重塑关系，先确认对方是"想要孩子"还是"想要一个孩子"。' },
+    { id: 'no_kids', label: '不要孩子', cat: '关系',
+      figure: '—',
+      reality: '明确不要孩子的人通常想清楚了，且扛得住家庭压力。多见于一线城市、高学历、女性独立意识强的人。',
+      scene: '一线城市职场、丁克社群、成熟朋友圈。',
+      signals: ['第一次问就明确回答', '扛得住父母催', '有替代的人生规划'],
+      cost: '这一项几乎没有折中空间，越晚确认成本越高。' },
+    { id: 'slow', label: '慢热', cat: '关系',
+      figure: '李健（慢）',
+      reality: '慢热的人需要先做朋友，确认安全后才投入。多见于内向、受过伤、谨慎型依恋。',
+      scene: '兴趣社群、朋友转恋人、长期同事。',
+      signals: ['不急着确定关系', '需要多次见面才放松', '确认后很稳定'],
+      cost: '慢热可能拖成"永远不开始"，你需要设一个自己的时间线。' },
+    { id: 'financial_indep', label: '经济独立', cat: '关系',
+      figure: 'papi酱（经济独立）',
+      reality: '经济独立的人有自己的收入、账户、规划，不靠伴侣兜底。多见于职场女性、自由职业、高学历。',
+      scene: '职场社群、行业会议、独立生活多年的人。',
+      signals: ['AA 或轮流请', '有自己的储蓄', '不查你钱包'],
+      cost: '完全独立可能意味着"不愿共担风险"，重大开支前要谈清楚。' },
+
+    /* ---------- 兴趣 ---------- */
+    { id: 'reading', label: '爱读书', cat: '兴趣',
+      figure: '李健、撒贝宁',
+      reality: '爱读书的人有精神世界，能聊细节而不是只报书名。多见于教师、媒体、研究、写作。',
+      scene: '读书会、独立书店、图书馆、播客听友群。',
+      signals: ['讲得出书里的细节', '有固定阅读时间', '会推荐书给你'],
+      cost: '爱读书的人可能更享受独处，需要你主动创造连接。' },
+    { id: 'music', label: '爱音乐', cat: '兴趣',
+      figure: '李健、朴树、五条人',
+      reality: '爱音乐的人有固定听歌习惯、会去现场。多见于文艺、媒体、设计、学生。',
+      scene: 'Livehouse、音乐节、乐迷群、乐器班。',
+      signals: ['有固定歌单', '去过现场', '聊音乐时兴奋'],
+      cost: '音乐圈作息偏晚，和早睡的人会错位。' },
+    { id: 'movie', label: '爱看电影', cat: '兴趣',
+      figure: '—',
+      reality: '爱电影的人把电影当表达，不只看爆米花片。多见于媒体、编剧、影迷社群。',
+      scene: '电影节、点映场、影迷群、独立影院。',
+      signals: ['有想二刷的片', '能聊镜头和导演', '不只看票房榜'],
+      cost: '影迷可能有点"文青病"，别把审美优越感当个性。' },
+    { id: 'game', label: '爱打游戏', cat: '兴趣',
+      figure: '—',
+      reality: '爱游戏的人有固定车队、会为游戏花时间。多见于程序员、设计、学生、年轻职场。',
+      scene: '游戏公会、线下桌游店、电竞观赛、漫展。',
+      signals: ['有固定游戏搭子', '会为一局熬夜', '愿意带你玩'],
+      cost: '游戏时间容易和陪伴时间冲突，需要提前约定。' },
+    { id: 'fitness', label: '健身', cat: '兴趣',
+      figure: '苏炳添、谷爱凌',
+      reality: '健身的人有训练计划、饮食控制、固定场馆。多见于自律型职场人、教练、运动爱好者。',
+      scene: '健身房团课、CrossFit、力量社群、运动搭子群。',
+      signals: ['每周练 3 次以上', '有训练计划', '吃得很规律'],
+      cost: '健身党时间表固定，约会要配合训练。' },
+
+    /* ---------- 健康 ---------- */
+    { id: 'no_smoke', label: '不抽烟', cat: '健康',
+      figure: '—',
+      reality: '不抽烟的人对烟味敏感，通常家庭/朋友圈也少烟。这在城市青年里是多数。',
+      scene: '无烟场所、运动圈、家庭聚会。',
+      signals: ['身上没有烟味', '聚会不去吸烟区', '对二手烟敏感'],
+      cost: '如果你自己抽烟，这一条会直接筛掉你。' },
+    { id: 'no_drink', label: '不喝酒/少喝', cat: '健康',
+      figure: '—',
+      reality: '不喝酒的人通常不靠酒局社交，或有过教训。多见于运动圈、有娃家庭、健康意识强的人。',
+      scene: '运动圈、咖啡馆、家庭聚会。',
+      signals: ['聚餐不劝酒', '以茶代酒', '不去酒局'],
+      cost: '如果你的社交靠酒局，会遇到摩擦。' },
+    { id: 'routine', label: '作息规律', cat: '健康',
+      figure: '苏炳添',
+      reality: '作息规律的人有固定睡眠时间，精神状态稳定。多见于教师、医生、公务员、有娃家庭。',
+      scene: '晨间活动、稳定职场、家庭聚会。',
+      signals: ['晚上固定时间睡', '早上不赖床', '周末不报复性熬夜'],
+      cost: '作息规律的人可能"无趣"，你要接受夜生活减少。' },
+
+    /* ---------- 职业 ---------- */
+    { id: 'stable_job', label: '工作稳定', cat: '职业',
+      figure: '康辉、撒贝宁（体制内稳定）',
+      reality: '工作稳定的人收入可预期、时间相对固定、抗风险能力强。多见于体制内、教师、医生、国企。',
+      scene: '单位联谊、朋友介绍、家庭聚会。',
+      signals: ['工作五年以上没换', '有编制/长期合同', '下班时间固定'],
+      cost: '稳定有时意味着天花板低，看你怎么权衡。' },
+    { id: 'busy', label: '事业上升期', cat: '职业',
+      figure: '董明珠（极端）、创业者',
+      reality: '事业上升期的人时间稀缺、成长快、收入波动大。多见于互联网、金融、创业、销售。',
+      scene: '行业社群、创业圈、商学院。',
+      signals: ['经常加班/出差', '聊工作停不下来', '收入在涨但没时间花'],
+      cost: '忙碌会吃掉相处时间，你需要确认自己能不能接受"低配陪伴"。' }
+  ];
+
+  /* 90 天计划模板：{w: 周, title, todo[]} */
+  const plan = [
+    { w: '第 1 周', title: '先把自己盘清楚', todo: [
+      '写下 3 个必须项（超过 3 个基本找不到人）',
+      '写下你能提供的 3 样具体价值：会做饭 / 情绪稳定 / 收入稳定 / 有房 / 会倾听（不是"我人好"）',
+      '删掉"看感觉"这类无法验证的标准'
+    ]},
+    { w: '第 2–4 周', title: '进入场景，成为常客', todo: [
+      '选 2 个场景，每周各去 2 次，固定时间',
+      '目标不是搭讪，是让场景里的人认识你的脸和名字',
+      '主动做小事：帮忙搬东西、记住店员名字、参加活动后的聚餐',
+      '加微信只加"有共同任务"的人，别见人就加'
+    ]},
+    { w: '第 5–8 周', title: '把弱连接变成强连接', todo: [
+      '从场景里筛 3–5 个候选，用共同任务制造自然接触（组队、拼车、一起报名）',
+      '聊天只聊共同兴趣，不查户口（不问收入、前任、婚育）',
+      '观察：TA 是否主动找你、是否记得你说过的小事',
+      '约一次"低压力群体活动"，看 TA 在群体里的状态'
+    ]},
+    { w: '第 9–12 周', title: '单独约会，用问题筛人', todo: [
+      '第一次约会：低压力、可撤退、有共同焦点（展览/市集/徒步，别选电影院）',
+      '带 3 个观察问题，对照你的必须项',
+      '三次约会法则：三次后还没有单独约你的意愿，就撤',
+      '不查手机、不问前任细节、不谈彩礼——这些留到确认关系后'
+    ]},
+    { w: '第 12 周+', title: '确认关系，或体面退出', todo: [
+      '直接谈：关系定位、边界、节奏（"我们现在算什么"不丢人）',
+      '红线出现一次就走，不要"再看看"',
+      '如果对方一直不给定义，设一个自己的截止日期',
+      '退出时说清楚原因，不消失、不冷暴力'
+    ]}
+  ];
+
+  /* 第一次见面的问题库（按关键词给） */
+  const probes = {
+    'calm': '「最近一次让你很生气的事是什么？后来怎么处理的？」——看情绪回弹速度。',
+    'humor': '「你最近一次把大家逗笑是什么时候？讲来听听。」——看是自嘲还是刻薄。',
+    'honest': '「你上一份工作/上一段关系里，自己做得不够好的地方是什么？」——看是否只讲体面版本。',
+    'kind': '观察 TA 对服务员、外卖员、保洁阿姨说话的语气。',
+    'independent': '「你一个人周末一般怎么过？」——看独处是享受还是恐慌。',
+    'gentle': '看 TA 生气时的音量，以及对小动物/小孩的耐心。',
+    'boundary': '「你前任还会联系你吗？你怎么处理的？」——看边界是否清晰。',
+    'introvert': '「聚会结束后你一般什么感觉？」——看是充电还是耗电。',
+    'extrovert': '看 TA 在一群陌生人里的状态：是自在，还是硬撑。',
+    'ambitious': '「你最近在学什么？上次被人指出问题是什么时候？」',
+    'romantic': '看 TA 记不记得你随口提过的小事。',
+    'practical': '「你最近一笔比较大的支出是什么？为什么？」',
+    'direct': '故意提一个不同意见，看 TA 是绕弯、沉默，还是直接说「我不同意，因为…」。',
+    'listener': '你说 5 分钟，看 TA 是追问细节，还是急着讲自己的事。',
+    'repair': '「你上一次道歉是什么时候？为什么？」',
+    'no_coldwar': '（若列为必须）观察 TA 在冲突后多久主动开口。',
+    'reply': '看 TA 忙起来时会不会说「晚点回」，还是直接消失。',
+    'tactful': '看 TA 拒绝别人时的措辞。',
+    'loyal': '看 TA 怎么谈前任，以及有没有主动交代行踪的习惯。',
+    'family_first': '「过年你一般怎么安排？会想和父母住近一点吗？」',
+    'growth': '「你最近在学什么？上次被人指出问题是什么时候？」',
+    'saving': '「你有应急金吗？大概几个月？」',
+    'feminism': '「婚后家务和带娃你打算怎么分？」——看是表态还是具体方案。',
+    'traditional': '「你怎么看彩礼/婚礼/过年回谁家？」',
+    'early': '「你一般几点睡？周末呢？」',
+    'cook': '「你最拿手的一道菜是什么？」',
+    'neat': '看 TA 的冰箱、垃圾桶、手机屏幕。',
+    'exercise': '「你一周运动几次？练什么？」',
+    'cat': '「你家猫什么性格？像你吗？」',
+    'dog': '「你家狗最让你崩溃的一件事是什么？」',
+    'travel': '「你去过最想再去一次的地方是哪里？」',
+    'homebody': '「周末两天不出门，你会无聊吗？」',
+    'marriage': '「你想象五年后的生活是什么样？」——比「你想结婚吗」真实。',
+    'kids': '「如果要孩子，你觉得前三年谁带得多？」',
+    'no_kids': '直接问，并相信第一次回答。',
+    'slow': '看 TA 对「确定关系」的节奏，是享受暧昧还是急于定义。',
+    'financial_indep': '「你怎么看 AA 和共同账户？」',
+    'reading': '「最近在读什么？有没有那种想划线发给人看的句子？」',
+    'music': '「你最近单曲循环的是哪首？去过最值的现场是哪个？」',
+    'movie': '「有没有一部电影你看了三遍以上？」',
+    'game': '「最近在玩什么？有没有那种一玩就通宵的？」',
+    'fitness': '「你练得最认真的是哪个部位？」',
+    'no_smoke': '（若列为必须）看 TA 一天几根、在哪些场合抽。',
+    'no_drink': '看 TA 喝酒的频率和醉后的样子。',
+    'routine': '「你一般几点睡？周末会补觉吗？」',
+    'stable_job': '「你在这家公司多久了？接下来有什么打算？」',
+    'busy': '「你一周有几个晚上是真正空出来的？」'
+  };
+
+  /* 真实人物参照表（静态展示） */
+  const figures = [
+    { type: '文艺安静型', people: '李健（清华、读书、猫）、朴树', scene: '独立书店、Livehouse、咖啡馆', signal: '聊喜欢的东西眼睛会亮，但不主动讲很久' },
+    { type: '温柔顾家型', people: '黄磊（做饭顾家）、张智霖（稳定宠妻）', scene: '朋友介绍、家庭聚会、社区活动', signal: '对服务员、对父母说话的语气' },
+    { type: '自律阳光型', people: '苏炳添（自律、青梅竹马）、谷爱凌', scene: '跑团、健身房、户外俱乐部', signal: '作息、训练计划、输的时候怎么反应' },
+    { type: '事业独立型', people: 'papi酱（独立幽默）、董明珠（极端版）', scene: '行业社群、商学院、创业路演', signal: '聊工作时兴奋度、对"牺牲"的态度' },
+    { type: '幽默松弛型', people: '呼兰（逻辑幽默）、李雪琴（自嘲共情）', scene: '脱口秀开放麦、桌游局、朋友聚会', signal: '能不能自嘲、玩笑的分寸' },
+    { type: '传统稳重型', people: '康辉、撒贝宁（传统底色）', scene: '相亲介绍、亲友局、体制内联谊', signal: '对节日礼数的重视、和父母的关系' }
+  ];
+
+  return { words, plan, probes, figures };
+})();
+
+</script>
+<script>
+(function () {
+  var D = window.PLANDATA;
+  var selected = [];
+  var cat = '全部';
+  var q = function (s) { return document.querySelector(s); };
+  var esc = function (s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); };
+  var cats = ['全部'].concat(Array.from(new Set(D.words.map(function (w) { return w.cat; }))));
+  try { var saved = JSON.parse(localStorage.getItem('plan.picks') || '[]'); if (Array.isArray(saved)) selected = saved.filter(function (id) { return D.words.some(function (w) { return w.id === id; }); }).slice(0, 5); } catch (e) {}
+
+  function renderCatbar() {
+    q('#catbar').innerHTML = cats.map(function (c) {
+      return '<span class="chip cat ' + (cat === c ? 'on' : '') + '" data-cat="' + esc(c) + '">' + esc(c) + '</span>';
+    }).join('');
+    Array.prototype.forEach.call(document.querySelectorAll('[data-cat]'), function (el) {
+      el.onclick = function () { cat = el.dataset.cat; renderCatbar(); renderWords(); };
+    });
+  }
+
+  function renderWords() {
+    var html = '';
+    cats.filter(function (c) { return c !== '全部'; }).forEach(function (c) {
+      if (cat !== '全部' && cat !== c) return;
+      var list = D.words.filter(function (w) { return w.cat === c; });
+      html += '<div class="group"><div class="group-head"><b>' + esc(c) + '</b><small>' + list.length + ' 个</small></div><div class="chips">' +
+        list.map(function (w) {
+          return '<span class="chip ' + (selected.indexOf(w.id) >= 0 ? 'on' : '') + '" data-word="' + w.id + '">' + esc(w.label) + '</span>';
+        }).join('') + '</div></div>';
+    });
+    q('#wordlist').innerHTML = html;
+    Array.prototype.forEach.call(document.querySelectorAll('[data-word]'), function (el) {
+      el.onclick = function () { toggle(el.dataset.word); };
+    });
+  }
+
+  function toggle(id) {
+    var i = selected.indexOf(id);
+    if (i >= 0) selected.splice(i, 1);
+    else { if (selected.length >= 5) { alert('最多选 5 个。选多了等于没选，建议保留最硬的 3 个。'); return; } selected.push(id); }
+    try { localStorage.setItem('plan.picks', JSON.stringify(selected)); } catch (e) {}
+    q('#cnt').textContent = selected.length;
+    renderWords();
+  }
+
+  function generate() {
+    if (!selected.length) { alert('先选 1–3 个必须项，再生成。'); return; }
+    var picked = selected.map(function (id) { return D.words.filter(function (w) { return w.id === id; })[0]; }).filter(Boolean);
+    var scenes = [];
+    picked.forEach(function (w) { if (scenes.indexOf(w.scene) < 0) scenes.push(w.scene); });
+    var probes = picked.map(function (w) { return { label: w.label, text: D.probes[w.id] || ('「' + w.label + '」这一点，你能举个最近发生在你身上的例子吗？」') }; });
+
+    var html = '';
+    html += '<div class="card"><h2>你的理想型，现实中长这样</h2>';
+    picked.forEach(function (w) {
+      html += '<div class="real-card"><h3>' + esc(w.label) + '</h3>' +
+        '<div class="anchor">气质参照：' + esc(w.figure) + '（不是让你去追，是让你知道这类人的样子）</div>' +
+        '<div class="row"><b>现实画像</b>' + esc(w.reality) + '</div>' +
+        '<div class="row"><b>去哪遇到</b>' + esc(w.scene) + '</div>' +
+        '<div class="row"><b>识别信号</b></div><div class="tags">' + w.signals.map(function (s) { return '<span class="mini good">' + esc(s) + '</span>'; }).join('') + '</div>' +
+        '<div class="row mut"><b>代价</b>' + esc(w.cost) + '</div></div>';
+    });
+    html += '</div>';
+
+    html += '<div class="card"><h2>90 天作战计划</h2>' +
+      '<p class="mut" style="font-size:.84rem">第 2–4 周的场景已按你的必须项替换：' + scenes.map(function (s) { return '<span class="mini">' + esc(s) + '</span>'; }).join('') + '</p>' +
+      '<div class="plan">' + D.plan.map(function (p) {
+        var todo = p.todo.slice();
+        if (p.w === '第 2–4 周') { todo = todo.slice(0, 1).concat(['优先去这些地方：' + scenes.join('；')]).concat(todo.slice(1)); }
+        return '<div class="week"><b>' + esc(p.w) + '</b><h3>' + esc(p.title) + '</h3><ul>' + todo.map(function (t) { return '<li>' + esc(t) + '</li>'; }).join('') + '</ul></div>';
+      }).join('') + '</div></div>';
+
+    html += '<div class="card"><h2>第一次见面，问这些</h2>' +
+      '<p class="mut" style="font-size:.84rem">用具体问题代替自我评价。每个问题都对应你的一条必须项。</p>' +
+      probes.map(function (p) { return '<div class="probe"><span class="mini">' + esc(p.label) + '</span><p>' + esc(p.text) + '</p></div>'; }).join('') + '</div>';
+
+    html += '<div class="card"><h2>什么时候推进，什么时候撤</h2><div class="decide">' +
+      '<div class="go"><b>✅ 可以推进的信号</b><ul><li>TA 会主动找你，且记得你说过的小事</li><li>三次约会后，TA 主动提出下次见面</li><li>你提一个不同意见，TA 会讨论而不是回避</li><li>TA 愿意让你进入 TA 的社交圈</li></ul></div>' +
+      '<div class="stop"><b>⛔ 该撤的信号</b><ul><li>红线出现一次（且不解释、不改）</li><li>三次约会后仍然模糊、不定义、不主动</li><li>只在需要你的时候出现</li><li>你越来越累，且说不出为什么</li></ul></div>' +
+      '</div><p class="mut" style="font-size:.82rem;margin-top:10px">退出时说清楚原因，不消失、不冷暴力——这是你对自己品格的交代，不是给对方的。</p></div>';
+
+    q('#result').innerHTML = html;
+    q('#result').classList.remove('hide');
+    if (q('#result').scrollIntoView) q('#result').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  q('#gen').onclick = generate;
+  q('#clear').onclick = function () { selected = []; try { localStorage.removeItem('plan.picks'); } catch (e) {} q('#cnt').textContent = 0; renderWords(); q('#result').classList.add('hide'); };
+
+  q('#figures').innerHTML = D.figures.map(function (f) {
+    return '<tr><td>' + esc(f.type) + '</td><td>' + esc(f.people) + '</td><td>' + esc(f.scene) + '</td><td>' + esc(f.signal) + '</td></tr>';
+  }).join('');
+
+  renderCatbar();
+  renderWords();
+  q('#cnt').textContent = selected.length;
+})();
+</script>
+</body>
+</html>

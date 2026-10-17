@@ -1175,7 +1175,45 @@ window.IDEAL = (function () {
     return '极端组合。现实中几乎不存在完全符合的人——这不是你的错，是清单需要减负。';
   }
 
-  return { channels, probes, topics, conflicts, rarityText };
+  /* 5) 标签常见度（1=很常见 45%，2=常见 25%，3=一般 10%，4=少见 3%，5=稀有 1%）
+   * 用于估算「同时满足你所有必须项的人」在人群中的大致比例。
+   * 这是基于公开社会观察的经验值，不是虚构样本。 */
+  const commonness = {
+    'base.female': 1, 'base.male': 1, 'base.straight': 1, 'base.gay': 4, 'base.bi': 4, 'base.open': 4,
+    'base.student': 1, 'base.working': 1, 'base.freelance': 3, 'base.overseas': 3,
+    'base.no_marriage_exp': 1, 'base.divorced': 3, 'base.kid': 4,
+    'base.relocate_yes': 3, 'base.relocate_no': 2,
+    'look.clean': 2, 'look.soft': 3, 'look.cool': 4, 'look.fit': 3, 'look.literary': 4, 'look.trendy': 3,
+    'person.introvert': 2, 'person.extrovert': 2, 'person.ambivert': 2,
+    'person.calm': 2, 'person.sensitive': 2, 'person.humorous': 2, 'person.honest': 2, 'person.kind': 2,
+    'person.independent': 2, 'person.needy': 2, 'person.romantic': 2, 'person.practical': 2,
+    'person.direct': 2, 'person.tactful': 3, 'person.gentle': 3, 'person.boundary': 3,
+    'person.confident': 2, 'person.perfectionist': 3, 'person.patient': 3, 'person.shypublic': 3,
+    'person.social_bold': 3, 'person.mystery': 4, 'person.sunshine': 3, 'person.mischievous': 3,
+    'person.gaslight': 5, 'person.hot': 3, 'person.possessive': 4, 'person.mama_boy': 3,
+    'person.stranger_kind': 3, 'person.showoff': 3, 'person.generous': 3, 'person.eloquent': 3,
+    'value.family_first': 2, 'value.career_first': 2, 'value.loyal': 2, 'value.growth': 3,
+    'value.saving': 3, 'value.spending': 2, 'value.feminism': 3, 'value.traditional': 3,
+    'value.faith': 4, 'value.env': 3, 'value.volunteer': 3,
+    'life.early': 3, 'life.nightowl': 2, 'life.cook': 3, 'life.pet_cat': 2, 'life.pet_dog': 2,
+    'life.travel': 2, 'life.homebody': 2, 'life.outgoing': 2, 'life.neat': 2, 'life.budget': 3,
+    'comm.direct': 2, 'comm.listener': 3, 'comm.cold_war': 3, 'comm.repair': 4, 'comm.instant': 2,
+    'love.words': 3, 'love.time': 2, 'love.touch': 2, 'love.gifts': 3, 'love.service': 3,
+    'love.anniv': 3, 'love.attach_secure': 3, 'love.attach_anxious': 3, 'love.attach_avoid': 3,
+    'goal.marriage': 2, 'goal.have_kids': 3, 'goal.no_kids': 3, 'goal.monogamy': 2,
+    'goal.slow_burn': 3, 'goal.same_city': 2, 'goal.financial_indep': 2, 'goal.financial_share': 3,
+    'health.smoke_n': 2, 'health.smoke_y': 3, 'health.drink_n': 2, 'health.exercise_y': 2,
+    'health.drink_heavy': 3, 'health.regular': 3,
+    'family.close_parent': 2, 'family.share_chores': 3, 'family.hometown': 3,
+    'work.nine_five': 2, 'work.busy': 2, 'work.stable_job': 2, 'work.ambitious': 3, 'work.remote': 3,
+    'int.pet_cat': 2, 'int.pet_dog': 2, 'int.game': 2, 'int.fitness': 3, 'int.hiking': 3,
+    'int.reading': 2, 'int.music': 2, 'int.movie': 1, 'int.food_hunt': 2, 'int.cafe': 2,
+    'social.pref_no_phone': 3, 'meta.intj': 2, 'meta.infj': 3, 'meta.pref_mbti': 3
+  };
+
+  function commonnessOf(id) { return commonness[id] || 3; }
+
+  return { channels, probes, topics, conflicts, rarityText, commonness, commonnessOf };
 })();
 
 </script>
@@ -1302,28 +1340,15 @@ window.IDEAL = (function () {
 
   function rarity() {
     const must = idsAt(3), imp = idsAt(2);
-    const samples = DB.samples;
-    const rows = samples.map(s => {
-      const hasT = id => s.tags.indexOf(id) >= 0;
-      const mh = must.filter(hasT).length, ih = imp.filter(hasT).length;
-      return {
-        nick: s.nick, city: s.city, age: s.age, job: s.job,
-        mustHit: mh, impHit: ih,
-        mustRate: must.length ? mh / must.length : 1,
-        impRate: imp.length ? ih / imp.length : 1
-      };
-    });
-    rows.sort((a, b) => b.mustRate - a.mustRate || b.impRate - a.impRate);
-    const perfect = rows.filter(r => r.mustRate === 1);
-    // 概率估算：示例库频率 + 平滑，独立连乘
-    const n = samples.length;
-    const probs = must.map(id => (samples.filter(s => s.tags.indexOf(id) >= 0).length + 0.5) / (n + 1));
-    const joint = probs.reduce((a, b) => a * b, 1);
-    const per1000 = Math.round(joint * 1000 * 10) / 10;
-    // 最罕见的必须项（建议降级）
-    const freq = must.map(id => ({ id, p: (samples.filter(s => s.tags.indexOf(id) >= 0).length + 0.5) / (n + 1) }))
-      .sort((a, b) => a.p - b.p);
-    return { rows, perfect, per1000, freq, must, imp, text: IDEAL.rarityText(per1000) };
+    // 常见度 → 概率：1=45%，2=25%，3=10%，4=3%，5=1%
+    const PROB = { 1: 0.45, 2: 0.25, 3: 0.10, 4: 0.03, 5: 0.01 };
+    const pOf = id => PROB[IDEAL.commonnessOf(id)] || 0.10;
+    // 独立连乘 + 1.6 倍相关性修正（例如"想结婚"和"重视家庭"高度相关）
+    const joint = must.reduce((a, id) => a * pOf(id), 1) * (must.length ? 1.6 : 1);
+    const per1000 = clamp(Math.round(joint * 1000 * 10) / 10, 0.1, 999);
+    const freq = must.map(id => ({ id, p: pOf(id) })).sort((a, b) => a.p - b.p);
+    const rarest = freq.filter(f => f.p <= 0.03);
+    return { per1000, freq, rarest, must, imp, text: IDEAL.rarityText(per1000) };
   }
 
   /* ---------- 反推：渠道 / 筛选 / 话题 ---------- */
@@ -1548,13 +1573,10 @@ window.IDEAL = (function () {
       <div class="card">
         <h2>现实中这样的 TA 有多稀有？</h2>
         <div class="rarity-big"><b>${rr.per1000 >= 100 ? Math.round(rr.per1000 / 10) + '%' : rr.per1000}</b><span>${rr.per1000 >= 100 ? '人群中大约每 100 人有 ' + Math.round(rr.per1000 / 10) + ' 个' : '每 1000 人里约 ' + rr.per1000 + ' 人'}</span></div>
-        <p class="hint">按你 ${mustN} 条必须项估算（基于 24 个示例档案的频率，独立连乘，只作数量级参考）。</p>
+        <p class="hint">按你 ${mustN} 条必须项、用每个词的「现实常见度」连乘估算（已做相关性修正），只作数量级参考。</p>
         <p>${esc(rr.text)}</p>
-        ${rr.freq.length && rr.per1000 < 10 ? `<div class="alert warn"><b>建议降级的必须项</b><p>${rr.freq.slice(0, 3).map(f => '「' + esc(labelOf(f.id)) + '」').join('、')} 在示例库里最少见。把它们从"必须"降为"重要"，可匹配的人会多一个数量级。</p></div>` : ''}
-        <h3>在 24 个示例档案里，完全满足必须项的人</h3>
-        <div class="chips">${rr.perfect.length ? rr.perfect.map(p => `<span class="mini good">${esc(p.nick)} · ${esc(p.city)} · ${esc(p.job)}</span>`).join('') : '<span class="muted">没有一个人完全满足。这不代表现实中不存在，但说明清单偏严。</span>'}</div>
-        <h3>最接近的 5 位</h3>
-        <div class="near-list">${rr.rows.slice(0, 5).map(p => `<div class="near"><b>${esc(p.nick)}</b><span>${esc(p.city)} · ${esc(p.job)}</span><div class="track"><i style="width:${Math.round(p.mustRate * 100)}%"></i></div><em>必须 ${Math.round(p.mustRate * 100)}% · 重要 ${Math.round(p.impRate * 100)}%</em></div>`).join('')}</div>
+        ${rr.rarest.length ? `<div class="alert warn"><b>这几条最拖后腿</b><p>${rr.rarest.map(f => '「' + esc(labelOf(f.id)) + '」').join('、')} 在现实中属于少见项。把它们从"必须"降为"重要"，可匹配的人会多一个数量级。</p></div>` : ''}
+        ${mustN === 0 ? '<p class="hint">你还没有必须项，所以这里只算一个基准值。设 1–3 条再看这个数字，才有筛选意义。</p>' : ''}
       </div>
 
       <div class="card">
